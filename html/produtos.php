@@ -17,7 +17,7 @@
 			<p>Informações de perfil</p>
 			<p><b>Nome: </b><span id="nomeUsuario"></span></p>
 			<p><b>Permissão: </b><span id="permissaoUsuario"></span></p>
-			
+			<br>
 			<a href="./login/login.php">Log out</a>
   	</div>
 	</header>
@@ -26,7 +26,7 @@
 		<a href="produtos.php"><div class="opcao">Geladeiras & freezers</div></a>
 		<a href="faleConosco.php"><div class="opcao">Fale conosco</div></a>
 		<a id="TabAdministracao" href="administracao/administracao.php"><div class="opcao">Administração</div></a>
-		<a id="TabFaleConoscoAdm" href="administracao/faleConoscoAdm.php"><div class="opcao">Fale conosco adm</div></a>
+		<a id="TabFaleConoscoAdm" href="administracao/faleConoscoAdm.php"><div class="opcao">Contato</div></a>
 	</nav> 
 	<section>
 		<form action="../assets/functions/removeRecursoListaFaleConosco.php" id="formListaFaleConosco" name="formListaFaleConosco" method="POST">
