@@ -48,8 +48,29 @@ create table Usuario(
     FOREIGN KEY (PermissaoID) REFERENCES Permissao(ID)
 );
 
+use loja;
+create table Categoria(
+	ID INT NOT NULL auto_increment,
+    Descricao varchar(50) NOT NULL,
+    
+    PRIMARY KEY (ID)
+);
+
+insert into Categoria(Descricao)
+values ('Geladeira'), ('Freezer');
 
 
+use loja;
+create table Produto(
+	ID INT NOT NULL auto_increment,
+	Titulo varchar(30) NOT NULL UNIQUE,
+    Descricao varchar(60) NOT NULL,
+    CaminhoImagem varchar(100),
+    CategoriaID INT NOT NULL,
+    
+    PRIMARY KEY(ID),
+    FOREIGN KEY (CategoriaID) REFERENCES Categoria(ID)    
+);
 
 
 

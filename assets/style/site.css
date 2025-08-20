@@ -173,7 +173,9 @@ tr:nth-child(odd){
 	margin-bottom: 10px;
 }
 
-.faleConosco input, .faleConosco textarea, .faleConosco select{
+.faleConosco input, 
+.faleConosco textarea, 
+.faleConosco select{
 	margin:5px auto;
 	width:100%;
 	padding: 5px 0; 
@@ -223,20 +225,25 @@ tr:nth-child(odd){
   width: 50%;
 }
 
-.cadastroUsuario{
+.cadastroUsuario, 
+.cadastroProduto{
 	width: 300px;
 	margin: 0px auto;
 	font-weight: bold;
 	margin-bottom: 10px;
 }
 
-.cadastroUsuario input, .cadastroUsuario select{
+.cadastroUsuario input, 
+.cadastroUsuario select, 
+.cadastroProduto input, 
+.cadastroProduto select{
 	margin:5px auto;
 	width:100%;
 	padding: 5px 0; 
 }
 
-.cadastroUsuario button{
+.cadastroUsuario button, 
+.cadastroProduto button{
 	width: 30%;
 	margin: 0 10%;
 	background-color:#b1ccf5;
@@ -245,6 +252,7 @@ tr:nth-child(odd){
 	border: 1px solid black;
 }
 
-.cadastroUsuario button:hover{
+.cadastroUsuario button:hover, 
+.cadastroProduto button:hover{
 	background-color:#84afd3;
 }

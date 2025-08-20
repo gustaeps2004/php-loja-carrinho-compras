@@ -54,11 +54,12 @@
 					</tbody>
 				</table>
 			</div>
+
 			<div class="admFormulario">
-				<h2>Cadastre</h2>
+				<h2>Cadastro usuário</h2>
 				<form action="../../assets/functions/processaFormCadastroUsuario.php" id="formCadastroUsuario" name="frmCadastroUsuario" method="POST">
 					<fieldset class="cadastroUsuario">
-						<legend>Dados pessoais:</legend>
+						<legend>Dados pessoais</legend>
 						<label for = "nome">Nome:</label>
 						<input require type="text" name="txtnome" id="nome">
 						<br>
@@ -92,6 +93,42 @@
 						</select>
 						<br>
 						<br>
+						<button type="reset">Limpar</button><button type="submit">Enviar</button>
+					</fieldset>
+				</form>
+			</div>
+
+			<div class="admFormulario">
+				<h2>Cadastro produto</h2>
+				<form action="../../assets/functions/processaFormCadastroProduto.php" id="formCadastroProduto" name="frmCadastroProduto" method="POST">
+					<fieldset class="cadastroProduto">
+						<legend>Dados do produto</legend>
+						
+						<label for="categoria">Categoria:</label>
+						<select require name="selCategoria" id="categoria">
+							<option value="">Escolha</option>
+							
+							<?php								
+								$container = require __DIR__.'../../../index.php';
+								
+								$controller = $container->get(APP\Controllers\PermissoesController::class);
+								$controller->listar();
+							?>
+
+						</select>
+
+						<label for = "titulo">Título:</label>
+						<input require type="text" name="txttitulo" id="titulo">
+
+						<label for="descricao">Descrição:</label>
+						<input required type="text" name="txtdescricao" id="descricao">
+
+						<label for="imagem">Imagem:</label>
+						<input require type="file" accept="image/*" name="fileimagem" id="email">
+
+						<br>
+						<br>
+
 						<button type="reset">Limpar</button><button type="submit">Enviar</button>
 					</fieldset>
 				</form>
