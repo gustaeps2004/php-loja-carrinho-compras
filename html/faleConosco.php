@@ -24,9 +24,10 @@
 	</header>
 	<nav>
 		<a href="inicio.php"><div class="opcao">Início</div></a>
-		<a href="produtos.php"><div class="opcao">Geladeiras e Freezers</div></a>
+		<a href="produtos.php"><div class="opcao">Geladeiras & freezers</div></a>
 		<a href="faleConosco.php"><div class="opcao">Fale conosco</div></a>
 		<a id="TabAdministracao" href="administracao/administracao.php"><div class="opcao">Administração</div></a>
+		<a id="TabFaleConoscoAdm" href="administracao/faleConoscoAdm.php"><div class="opcao">Fale conosco adm</div></a>
 	</nav> 
 		<section>
 			<h2>Fale conosco!</h2>

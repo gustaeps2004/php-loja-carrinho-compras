@@ -44,8 +44,10 @@ function ValidarToken(telaAdm) {
       RedirecionarLogin(true);
 
     document.getElementById('TabAdministracao').style.display = 'none';
+    document.getElementById('TabFaleConoscoAdm').style.display = 'none';
   } else {
     document.getElementById('TabAdministracao').style.display = 'block';
+    document.getElementById('TabFaleConoscoAdm').style.display = 'block';
   }
 
   InserirValoresIniciais(decoded?.data)
