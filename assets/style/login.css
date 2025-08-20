@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+body {
+	background-color: rgb(255, 255, 255);
+}
+
+
+body {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  height: 100vh;            
+  margin: 0;                
+}
+
+.modalPrincipal {
+  background-color: rgb(243, 243, 255);
+  padding: 20px;
+  box-shadow: 10px 5px 5px black;
+}
+
+.loginAutenticacao input {
+	margin:5px auto;
+	width:100%;
+	padding: 5px 0; 
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.loginAutenticacao button {
+  width: 100%;
+  height: 25px;
+  border-radius: 5px;
+  border: 1px solid black;
+  transition: background-color 0.4s;
+}
+
+.loginAutenticacao button:hover {
+  background-color: rgb(9, 135, 253);
+  color: white;
+}
