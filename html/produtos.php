@@ -29,32 +29,18 @@
 		<a id="TabFaleConoscoAdm" href="administracao/faleConoscoAdm.php"><div class="opcao">Contato</div></a>
 	</nav> 
 	<section>
-		<form action="../assets/functions/removeRecursoListaFaleConosco.php" id="formListaFaleConosco" name="formListaFaleConosco" method="POST">
-			<h2>Conheça nossos produtos!!!</h2>
-			<table class="tabelaProdutos">
-				<thead>
-					<tr>
-						<th  colspan="7" class="tituloTabela">Filmes</th>
-					</tr>
-					<tr>
-						<th>Nome</th>
-						<th>Documento federal</th>
-						<th>Telefone</th>
-						<th>E-mail</th>
-						<th>Motivo contato</th>
-						<th>Comentário</th>
-						<th>Remover</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php
-						$container = require __DIR__.'/../index.php';
-						$controller = $container->get(APP\Controllers\ProdutosController::class);
-						$controller->listar();
-					?>
-				</tbody>
-			</table>
-		</form>   
+		<div class="principalProdutos">
+			<div class="linhaOpcao">
+				<div class="opcoes">
+					<p><span>GELAREIRA 4 PORTA</span></p>
+					<img src="../assets/imgs/geladeira1.png" alt="GELAREIRA 4 PORTA" title="GELAREIRA 4 PORTA">
+					<form action="" id="formEnviaParaCarrinho" name="frmEnviaParaCarrinho" method="POST">
+						<input class="inpProduto" type="number" name="txtidProduto" id="idProduto" value="1">
+						<button class="btnAddCarrinho">Adicionar ao carrinho</button>
+					</form>
+				</div>
+			</div>
+		</div>	  
 	</section>
 	<footer>Copyright &copy; ADS2025</footer>
 </body>

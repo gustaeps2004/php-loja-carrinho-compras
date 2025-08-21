@@ -256,3 +256,48 @@ tr:nth-child(odd){
 .cadastroProduto button:hover{
 	background-color:#84afd3;
 }
+
+.principalProdutos{
+	height: 100%;
+	display: block;
+}
+
+.linhaOpcao {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: flex-start; 
+  gap: 20px; 
+  padding: 10px;
+}
+
+.opcoes {
+  color: black;
+  width: 20%;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.opcoes img {
+  width: 20%; 
+  height: auto; 
+}
+
+.inpProduto{
+	visibility: hidden;
+}
+
+.btnAddCarrinho{
+  background-color: #008eb6;
+	height: 30px;
+	width: 80%;
+	border: none;
+	border-radius: 10px;
+	color: #ffffff;
+  margin: 2px 0;
+  font-size: 17px;
+}
+
+.btnAddCarrinho:hover{
+	transition: 0.2s;
+	background-color:#84afd3;
+}
