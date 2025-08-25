@@ -11,6 +11,6 @@
   $controller = $container->get(ProdutosController::class);
   $controller->remover($id);
 
-  header("Location: ../../html/produtos.php");
+  header("Location: ../../html/administracao/faleConoscoAdm.php");
   exit;
 ?>

@@ -8,6 +8,9 @@
       $telefone,
       $documentoFederal,
       $motivoContatoID,
-      $comentario);
+      $comentario
+    );
+
+    public function listar() : array;
   }
 ?>

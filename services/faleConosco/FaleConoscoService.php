@@ -26,5 +26,10 @@
         $motivoContatoID,
         $comentario);
     }
+
+    public function listar() : array
+    {
+      return $this->_faleConoscoRepository->listar();
+    }
   }
 ?>

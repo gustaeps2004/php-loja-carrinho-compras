@@ -29,7 +29,7 @@
 		<a id="TabFaleConoscoAdm" href="faleConoscoAdm.php"><div class="opcao">Contato</div></a>
 	</nav>
 	<section>
-		<form action="../assets/functions/removeRecursoListaFaleConosco.php" id="formListaFaleConosco" name="formListaFaleConosco" method="POST">
+		<form action="" id="formListaFaleConosco" name="formListaFaleConosco" method="POST">
 			<h2>Entrar em contato!</h2>
 			<table class="tabelaProdutos">
 				<thead>
@@ -49,7 +49,7 @@
 				<tbody>
 					<?php
 						$container = require __DIR__.'/../../index.php';
-						$controller = $container->get(APP\Controllers\ProdutosController::class);
+						$controller = $container->get(APP\Controllers\FaleConoscoController::class);
 						$controller->listar();
 					?>
 				</tbody>

@@ -1,6 +1,7 @@
 <?php namespace APP\Repositories\FaleConosco;
   
   use APP\Repositories\Connections\MySql\IMySqlConnection;
+  use PDO;
 
   class FaleConoscoRepository implements IFaleConoscoRepository
   {
@@ -48,6 +49,27 @@
         ':motivoContatoID' => $motivoContatoID,
         ':comentario' => $comentario
       ]);
+    }
+
+    public function listar() : array
+    {
+      $sql = "SELECT
+            fc.ID,
+            fc.Nome,
+            fc.DocumentoFederal,
+            fc.Telefone,
+            fc.Email,
+            mc.Mensagem,
+            fc.Comentario
+          FROM
+            FaleConosco fc
+          LEFT JOIN MotivoContato mc
+            ON fc.MotivoContatoID = mc.ID";
+
+      $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
+      $stmt->execute();
+
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
   }
 ?>
