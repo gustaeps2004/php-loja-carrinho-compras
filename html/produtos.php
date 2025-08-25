@@ -32,8 +32,8 @@
 		<div class="principalProdutos">
 			<div class="linhaOpcao">
 				<div class="opcoes">
-					<p><span>GELAREIRA 4 PORTA</span></p>
-					<img src="../assets/imgs/geladeira1.png" alt="GELAREIRA 4 PORTA" title="GELAREIRA 4 PORTA">
+					<p><span>GELADEIRA 4 PORTA</span></p>
+					<img src="../assets/imgs/geladeira1.png" alt="GELADEIRA 4 PORTA" title="GELADEIRA 4 PORTA">
 					<form action="" id="formEnviaParaCarrinho" name="frmEnviaParaCarrinho" method="POST">
 						<input class="inpProduto" type="number" name="txtidProduto" id="idProduto" value="1">
 						<button class="btnAddCarrinho">Adicionar ao carrinho</button>

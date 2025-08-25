@@ -111,7 +111,7 @@
 							<?php								
 								$container = require __DIR__.'../../../index.php';
 								
-								$controller = $container->get(APP\Controllers\PermissoesController::class);
+								$controller = $container->get(APP\Controllers\CategoriasController::class);
 								$controller->listar();
 							?>
 

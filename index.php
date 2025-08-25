@@ -9,7 +9,7 @@
   use APP\Controllers\PermissoesController;
   use APP\Controllers\UsuariosController;
   use APP\Controllers\AutenticacoesController;
-
+  use APP\Controllers\CategoriasController;
 
   use APP\Services\MotivoContato\IMotivoContatoService;
   use APP\Services\MotivoContato\MotivoContatoService;
@@ -21,6 +21,8 @@
   use APP\Services\Permissao\IPermissaoService;
   use APP\Services\Usuario\UsuarioService;
   use APP\Services\Usuario\IUsuarioService;
+  use APP\Services\Categoria\ICategoriaService;
+  use APP\Services\Categoria\CategoriaService;
 
   use APP\Repositories\MotivoContato\IMotivoContatoRepository;
   use APP\Repositories\MotivoContato\MotivoContatoRepository;
@@ -32,6 +34,8 @@
   use APP\Repositories\Permissao\PermissaoRepository;
   use APP\Repositories\Usuario\UsuarioRepository;
   use APP\Repositories\Usuario\IUsuarioRepository;
+  use APP\Repositories\Categoria\CategoriaRepository;
+  use APP\Repositories\Categoria\ICategoriaRepository;
   
   use APP\Repositories\Connections\MySql\IMySqlConnection;
   use APP\Repositories\Connections\MySql\MySqlConnection;
@@ -46,6 +50,7 @@
     PermissoesController::class => autowire(),
     UsuariosController::class => autowire(),
     AutenticacoesController::class => autowire(),
+    CategoriasController::class => autowire(),
     
     StringFormats::class => autowire(),
 
@@ -54,12 +59,14 @@
     IFaleConoscoService::class => autowire(FaleConoscoService::class),
     IPermissaoService::class => autowire(PermissaoService::class),
     IUsuarioService::class => autowire(UsuarioService::class),
+    ICategoriaService::class => autowire(CategoriaService::class),
 
     IMotivoContatoRepository::class => autowire(MotivoContatoRepository::class),
     IProdutoRepository::class => autowire(ProdutoRepository::class),
     IFaleConoscoRepository::class => autowire(FaleConoscoRepository::class),
     IPermissaoRepository::class => autowire(PermissaoRepository::class),
     IUsuarioRepository::class => autowire(UsuarioRepository::class),
+    ICategoriaRepository::class => autowire(CategoriaRepository::class),
 
     IMySqlConnection::class => autowire(MySqlConnection::class)
   ]);
