@@ -1,8 +1,9 @@
 <?php namespace APP\Services\Produto;
 
+  use APP\Entities\Produto;
   use APP\Repositories\Produto\IProdutoRepository;
   use APP\Messaging\Requests\Produto\ProdutoRequest;
-  use Exception;
+  use APP\Exceptions\LojaException;
 
   class ProdutoService implements IProdutoService
   {
@@ -27,9 +28,10 @@
     {
       $request->validar();
 
-      $this->inserirImagem($request->tempArquivo, $request->nomeArquivo);
+      $caminhoImagem = $this->inserirImagem($request->tempArquivo, $request->nomeArquivo);
 
-      
+      $produto = new Produto($request, $caminhoImagem);
+      $this->_produtoRepository->inserir($produto);
     }
 
     private function inserirImagem(string $tempArquivo, string $nomeArquivo)
@@ -40,7 +42,9 @@
         mkdir($diretorioDestino, 0777, true);
 
       if (!move_uploaded_file($tempArquivo, $diretorioDestino . $nomeArquivo)) 
-        throw new Exception("Não foi possível inserir a imagem da produto.");
+        throw new LojaException("Não foi possível inserir a imagem da produto.");
+
+      return str_replace("../", "", $diretorioDestino).$nomeArquivo;
     }
   }
 ?>

@@ -2,6 +2,7 @@
 
   use APP\Assets\Extensions\StringExtensions;
   use APP\Exceptions\LojaException;
+  use APP\Assets\Extensions\GuidExtensions;
 
   class ProdutoRequest
   {
@@ -38,6 +39,8 @@
 
       if (StringExtensions::isNullOrWhiteSpace($this->tempArquivo) || StringExtensions::isNullOrWhiteSpace($this->nomeArquivo)) 
         throw new LojaException("Não foi possível identificar as informações da imagem.");
+
+      $this->nomeArquivo = GuidExtensions::gerarAleatorio().'_'.$this->nomeArquivo;
     }
   }
 ?>

@@ -2,7 +2,7 @@
   $container = require __DIR__.'/../../index.php';
 
   use APP\Controllers\ProdutosController;
-  use APP\Requests\Produto\ProdutoRequest;
+  use APP\Messaging\Requests\Produto\ProdutoRequest;
 
   if ($_SERVER["REQUEST_METHOD"] != "POST" && isset($_FILES["arquivo"]))
     return;
@@ -18,4 +18,7 @@
   );
 
   $response = $produtosController->inserir($request);
+
+  header("Location: ../../html/administracao/administracao.php");
+  exit;
 ?>

@@ -301,3 +301,7 @@ tr:nth-child(odd){
 	transition: 0.2s;
 	background-color:#84afd3;
 }
+
+#erroCadastroProduto{
+	color: red;
+}
