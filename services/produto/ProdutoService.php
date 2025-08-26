@@ -1,8 +1,8 @@
 <?php namespace APP\Services\Produto;
 
   use APP\Repositories\Produto\IProdutoRepository;
-  use APP\Requests\Produto\ProdutoRequest;
-use Exception;
+  use APP\Messaging\Requests\Produto\ProdutoRequest;
+  use Exception;
 
   class ProdutoService implements IProdutoService
   {

@@ -1,8 +1,8 @@
 <?php namespace APP\Controllers;
 
   use APP\Services\Produto\IProdutoService;
-  use APP\Requests\Produto\ProdutoRequest;
-  use APP\Responses\Base\ResponseBase;
+  use APP\Messaging\Requests\Produto\ProdutoRequest;
+  use APP\Messaging\Responses\Base\ResponseBase;
   use Exception;
 
   class ProdutosController 

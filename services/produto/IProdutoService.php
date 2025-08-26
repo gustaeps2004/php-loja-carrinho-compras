@@ -1,6 +1,6 @@
 <?php namespace APP\Services\Produto;
 
-  use APP\Requests\Produto\ProdutoRequest;
+  use APP\Messaging\Requests\Produto\ProdutoRequest;
 
   interface IProdutoService
   {

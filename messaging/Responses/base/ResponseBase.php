@@ -1,4 +1,4 @@
-<?php namespace APP\Responses\Base;
+<?php namespace APP\Messaging\Responses\Base;
 
   class ResponseBase
   {

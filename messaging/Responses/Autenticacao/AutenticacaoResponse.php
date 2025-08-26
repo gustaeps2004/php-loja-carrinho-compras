@@ -1,4 +1,4 @@
-<?php namespace APP\Responses\Autenticacao;
+<?php namespace APP\Messaging\Responses\Autenticacao;
 
   class AutenticacaoResponse
   {

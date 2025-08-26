@@ -1,9 +1,8 @@
 <?php namespace APP\Services\Usuario;
 
   use APP\Repositories\Usuario\IUsuarioRepository;
-  use APP\Responses\Autenticacao\AutenticacaoResponse;
+  use APP\Messaging\Responses\Autenticacao\AutenticacaoResponse;
   use Firebase\JWT\JWT;
-  use Firebase\JWT\Key;
 
   class UsuarioService implements IUsuarioService
   {

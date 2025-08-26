@@ -1,6 +1,6 @@
 <?php namespace APP\Services\Usuario;
 
-  use APP\Responses\Autenticacao\AutenticacaoResponse; 
+  use APP\Messaging\Responses\Autenticacao\AutenticacaoResponse;
 
   interface IUsuarioService
   {

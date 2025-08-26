@@ -1,5 +1,6 @@
-<?php namespace APP\Requests\Produto;
+<?php namespace APP\Messaging\Requests\Produto;
 
+  use APP\Assets\Extensions\StringExtensions;
   use Exception;
 
   class ProdutoRequest
@@ -29,13 +30,13 @@
       if ($this->categoriaID == 0)
         throw new Exception("A categoria do produto deve ser informada.");
       
-      if ($this->titulo === null || $this->titulo === '')
+      if (StringExtensions::isNullOrWhiteSpace($this->titulo))  
         throw new Exception("O título do produto deve ser informado.");
 
-      if ($this->descricao === null || $this->descricao === '')
+      if (StringExtensions::isNullOrWhiteSpace($this->descricao)) 
         throw new Exception("A descrição do produto deve ser informada.");
 
-      if ($this->tempArquivo === null || $this->tempArquivo === '' || $this->nomeArquivo === null || $this->nomeArquivo === '')
+      if (StringExtensions::isNullOrWhiteSpace($this->tempArquivo) || StringExtensions::isNullOrWhiteSpace($this->nomeArquivo)) 
         throw new Exception("Não foi possível identificar as informações da imagem.");
     }
   }

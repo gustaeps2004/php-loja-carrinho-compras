@@ -1,7 +1,7 @@
 <?php namespace APP\Controllers;
 
   use APP\Services\Usuario\IUsuarioService;
-  use APP\Responses\Autenticacao\AutenticacaoResponse;
+  use APP\Messaging\Responses\Autenticacao\AutenticacaoResponse;
 
   class AutenticacoesController
   {
