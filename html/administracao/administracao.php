@@ -100,21 +100,19 @@
 
 			<div class="admFormulario">
 				<h2>Cadastro produto</h2>
-				<form action="../../assets/functions/processaFormCadastroProduto.php" id="formCadastroProduto" name="frmCadastroProduto" method="POST">
+				<form action="../../assets/functions/processaFormCadastroProduto.php" enctype="multipart/form-data" id="formCadastroProduto" name="frmCadastroProduto" method="POST">
 					<fieldset class="cadastroProduto">
 						<legend>Dados do produto</legend>
 						
 						<label for="categoria">Categoria:</label>
 						<select require name="selCategoria" id="categoria">
-							<option value="">Escolha</option>
-							
+							<option value="0">Escolha</option>
 							<?php								
 								$container = require __DIR__.'../../../index.php';
 								
 								$controller = $container->get(APP\Controllers\CategoriasController::class);
 								$controller->listar();
 							?>
-
 						</select>
 
 						<label for = "titulo">Título:</label>
@@ -124,7 +122,7 @@
 						<input required type="text" name="txtdescricao" id="descricao">
 
 						<label for="imagem">Imagem:</label>
-						<input require type="file" accept="image/*" name="fileimagem" id="email">
+						<input type="file" name="arquivo" id="arquivo">
 
 						<br>
 						<br>
