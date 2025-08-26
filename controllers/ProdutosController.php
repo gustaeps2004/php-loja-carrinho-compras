@@ -3,6 +3,7 @@
   use APP\Services\Produto\IProdutoService;
   use APP\Messaging\Requests\Produto\ProdutoRequest;
   use APP\Messaging\Responses\Base\ResponseBase;
+  use APP\Exceptions\LojaException;
   use Exception;
 
   class ProdutosController 
@@ -25,9 +26,13 @@
 
         return new ResponseBase(true, "Requisição realizada com sucesso.");
       }
-      catch (Exception $ex)
+      catch (LojaException $ex)
       {
         return new ResponseBase(false, $ex->getMessage());
+      }
+      catch (Exception $ex)
+      {
+        return new ResponseBase(false, "Ocorreu um erro na requisição.");
       }
     }
   }

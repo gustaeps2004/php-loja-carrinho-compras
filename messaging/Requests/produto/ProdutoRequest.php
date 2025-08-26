@@ -1,7 +1,7 @@
 <?php namespace APP\Messaging\Requests\Produto;
 
   use APP\Assets\Extensions\StringExtensions;
-  use Exception;
+  use APP\Exceptions\LojaException;
 
   class ProdutoRequest
   {
@@ -28,16 +28,16 @@
     public function validar()
     {
       if ($this->categoriaID == 0)
-        throw new Exception("A categoria do produto deve ser informada.");
+        throw new LojaException("A categoria do produto deve ser informada.");
       
       if (StringExtensions::isNullOrWhiteSpace($this->titulo))  
-        throw new Exception("O título do produto deve ser informado.");
+        throw new LojaException("O título do produto deve ser informado.");
 
       if (StringExtensions::isNullOrWhiteSpace($this->descricao)) 
-        throw new Exception("A descrição do produto deve ser informada.");
+        throw new LojaException("A descrição do produto deve ser informada.");
 
       if (StringExtensions::isNullOrWhiteSpace($this->tempArquivo) || StringExtensions::isNullOrWhiteSpace($this->nomeArquivo)) 
-        throw new Exception("Não foi possível identificar as informações da imagem.");
+        throw new LojaException("Não foi possível identificar as informações da imagem.");
     }
   }
 ?>
