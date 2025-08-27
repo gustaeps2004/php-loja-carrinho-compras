@@ -302,6 +302,34 @@ tr:nth-child(odd){
 	background-color:#84afd3;
 }
 
-#erroCadastroProduto{
-	color: red;
+.perfil-info {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+  color: white;
+  justify-content: flex-end;
+}
+
+.carrinho-compras {
+	margin-top: 60px;
+}
+
+.carrinho-compras img {
+  height: 25px;
+  width: auto;
+  cursor: pointer;
+}
+
+.btn-carrinho {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.info-texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: right;
 }

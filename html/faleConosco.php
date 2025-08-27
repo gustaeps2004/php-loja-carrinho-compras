@@ -15,12 +15,20 @@
 		<h1>Fale Conosco</h1>
 
 		<div class="perfil-info">
-			<p>Informações de perfil</p>
-			<p><b>Nome: </b><span id="nomeUsuario"></span></p>
-			<p><b>Permissão: </b><span id="permissaoUsuario"></span></p>
-			<br>
-			<a href="./login/login.php">Log out</a>
-  	</div>
+			<div class="carrinho-compras">
+				<button onclick="abrirCarrinho()" class="btn-carrinho" title="Abrir carrinho de compras">
+					<img src="../assets/imgs/shopping-cart-64px.png" alt="Carrinho de compras" />
+				</button>
+			</div>
+
+			<div class="info-texto">
+				<p>Informações de perfil</p>
+				<p><b>Nome:</b> <span id="nomeUsuario"></span></p>
+				<p><b>Permissão:</b> <span id="permissaoUsuario"></span></p>
+				<br />
+				<a href="./login/login.php">Log out</a>
+			</div>
+		</div>
 	</header>
 	<nav>
 		<a href="inicio.php"><div class="opcao">Início</div></a>

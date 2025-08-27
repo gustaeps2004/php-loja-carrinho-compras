@@ -14,11 +14,13 @@
 		<h1>Administração</h1>
 
 		<div class="perfil-info">
-			<p>Informações de perfil</p>
-			<p><b>Nome: </b><span id="nomeUsuario"></span></p>
-			<p><b>Permissão: </b><span id="permissaoUsuario"></span></p>
-			<br>
-			<a href="..	/login/login.php">Log out</a>
+			<div class="info-texto">
+				<p>Informações de perfil</p>
+				<p><b>Nome:</b> <span id="nomeUsuario"></span></p>
+				<p><b>Permissão:</b> <span id="permissaoUsuario"></span></p>
+				<br />
+				<a href="../login/login.php">Log out</a>
+			</div>
   	</div>
 	</header>
 	<nav>

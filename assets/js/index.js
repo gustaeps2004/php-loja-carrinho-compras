@@ -24,7 +24,7 @@ function ValidarToken(telaAdm) {
   const token = localStorage.getItem('auth');
   
   if (!token) {
-    RedirecionarLogin(false);
+    RedirecionarLogin(telaAdm);
     return;
   }
 
@@ -33,7 +33,7 @@ function ValidarToken(telaAdm) {
 
   if ((decoded && decoded.exp > now) === false) {
     RemoverToken()
-    RedirecionarLogin(false)
+    RedirecionarLogin(telaAdm)
 
     return
   }
