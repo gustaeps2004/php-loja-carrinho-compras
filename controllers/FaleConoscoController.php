@@ -2,9 +2,10 @@
 
   use APP\Services\FaleConosco\IFaleConoscoService;
   use APP\Assets\Extensions\StringFormats;
+  use APP\Controllers\Base\BaseController;
 
-  class FaleConoscoController {
-    
+  class FaleConoscoController extends BaseController
+  {    
     private readonly IFaleConoscoService $_faleConoscoService;
     private readonly StringFormats $_stringFormats;
 

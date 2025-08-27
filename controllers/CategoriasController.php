@@ -1,8 +1,9 @@
 <?php namespace APP\Controllers;
 
+  use APP\Controllers\Base\BaseController;
   use APP\Services\Categoria\ICategoriaService;
 
-  class CategoriasController
+  class CategoriasController extends BaseController
   {
     public readonly ICategoriaService $_categoriaService;
 

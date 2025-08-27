@@ -1,12 +1,13 @@
 <?php namespace APP\Controllers;
 
+  use APP\Controllers\Base\BaseController;
   use APP\Services\Produto\IProdutoService;
   use APP\Messaging\Requests\Produto\ProdutoRequest;
   use APP\Messaging\Responses\Base\ResponseBase;
   use APP\Exceptions\LojaException;
   use Exception;
 
-  class ProdutosController 
+  class ProdutosController extends BaseController
   {
     private readonly IProdutoService $_produtoService;
 

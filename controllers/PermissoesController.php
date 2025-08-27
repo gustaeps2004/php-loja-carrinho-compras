@@ -1,7 +1,9 @@
 <?php namespace APP\Controllers;
+
+  use APP\Controllers\Base\BaseController;
   use APP\Services\Permissao\IPermissaoService;
 
-  class PermissoesController
+  class PermissoesController extends BaseController
   {
     private readonly IPermissaoService $_permissaoService;
 

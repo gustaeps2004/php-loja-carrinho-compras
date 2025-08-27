@@ -1,9 +1,10 @@
 <?php namespace APP\Controllers;
 
   use APP\Assets\Extensions\StringFormats;
+  use APP\Controllers\Base\BaseController;
   use APP\Services\Usuario\IUsuarioService;
 
-  class UsuariosController
+  class UsuariosController extends BaseController
   {
     private readonly IUsuarioService $_usuarioService;
     private readonly StringFormats $_stringFormats;

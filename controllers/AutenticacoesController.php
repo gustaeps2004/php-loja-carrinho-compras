@@ -1,9 +1,10 @@
 <?php namespace APP\Controllers;
 
+  use APP\Controllers\Base\BaseController;
   use APP\Services\Usuario\IUsuarioService;
   use APP\Messaging\Responses\Autenticacao\AutenticacaoResponse;
 
-  class AutenticacoesController
+  class AutenticacoesController extends BaseController
   {
     private readonly IUsuarioService $_usuarioService;
 

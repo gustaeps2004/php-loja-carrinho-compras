@@ -1,8 +1,9 @@
-<?php
-  namespace APP\Controllers;
+<?php namespace APP\Controllers;
+
+  use APP\Controllers\Base\BaseController;
   use APP\Services\MotivoContato\IMotivoContatoService;
 
-  class MotivoContatoController
+  class MotivoContatoController extends BaseController
   {
     private readonly IMotivoContatoService $_motivoContatoService;
 
