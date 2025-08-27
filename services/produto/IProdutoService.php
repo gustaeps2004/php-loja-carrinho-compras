@@ -4,7 +4,10 @@
 
   interface IProdutoService
   {
-    public function listar();
+    /**
+    * @return Produto[]
+    */
+    public function listar() : array;
     public function remover($id);
     public function inserir(ProdutoRequest $request);
   }

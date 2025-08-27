@@ -4,7 +4,10 @@
   
   interface IProdutoRepository
   {
-    public function listar();
+    /**
+    * @return Produto[]
+    */
+    public function listar() : array;
     public function remover($id);
     public function inserir(Produto $produto) : void;
   } 

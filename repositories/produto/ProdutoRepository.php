@@ -12,21 +12,20 @@
     {
       $this->_mySqlConnection = $mySqlConnection;
     }
-
-    public function listar()
+    
+    /**
+    * @return Produto[]
+    */
+    public function listar() : array
     {
-      $sql = "SELECT
-            fc.ID,
-            fc.Nome,
-            fc.DocumentoFederal,
-            fc.Telefone,
-            fc.Email,
-            mc.Mensagem,
-            fc.Comentario
-          FROM
-            FaleConosco fc
-          LEFT JOIN MotivoContato mc
-            ON fc.MotivoContatoID = mc.ID";
+      $sql = "SELECT 
+                ID,
+                Titulo,
+                Descricao,
+                CaminhoImagem,
+                CategoriaID
+              FROM
+                Produto";
 
       $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
       $stmt->execute();

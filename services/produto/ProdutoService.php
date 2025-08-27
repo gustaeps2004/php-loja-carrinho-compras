@@ -14,7 +14,10 @@
       $this->_produtoRepository = $produtoRepository;
     }
 
-    public function listar()
+    /**
+    * @return Produto[]
+    */
+    public function listar() : array
     {
       return $this->_produtoRepository->listar();
     }
