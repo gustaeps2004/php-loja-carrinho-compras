@@ -1,7 +1,9 @@
 <?php namespace APP\Entities\Base;
 
-  class EntitieBase
+  abstract class EntitieBase
   {
     public int $ID;
+
+    abstract protected function validar() : void;
   }
 ?>

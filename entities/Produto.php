@@ -17,5 +17,10 @@
       $this->CaminhoImagem = $caminhoImagem;
       $this->CategoriaID = $produtorequest->categoriaID;
     }
+
+    public function validar() : void
+    {
+      
+    }
   }
 ?>

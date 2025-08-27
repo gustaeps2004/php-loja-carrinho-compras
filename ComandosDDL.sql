@@ -72,8 +72,29 @@ create table Produto(
     FOREIGN KEY (CategoriaID) REFERENCES Categoria(ID)    
 );
 
+use loja;
+create table Pedido(
+	ID INT NOT NULL auto_increment,
+    Situacao TINYINT NOT NULL, /* 1 -> Ativo, 2 -> Cacelado, 3 -> Finalizado */
+    DtInclucao DATETIME NOT NULL,
+    UsuarioID INT NOT NULL,
+	
+    PRIMARY KEY(ID),
+    FOREIGN KEY (UsuarioID) REFERENCES Usuario(ID) 
+);
 
-
+use loja;
+create table CarrinhoCompra(
+	ID INT NOT NULL auto_increment,
+	DtInclusao DATETIME NOT NULL,
+    QuantidadeItem INT NOT NULL,
+    PedidoID INT NOT NULL,
+    ProdutoID INT NOT NULL,
+    
+    PRIMARY KEY(ID),
+    FOREIGN KEY (PedidoID) REFERENCES Pedido(ID),
+    FOREIGN KEY (ProdutoID) REFERENCES Produto(ID)
+);
 
 
 
