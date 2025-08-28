@@ -2,7 +2,7 @@
 
 use APP\Assets\Enums\SituacaoPedido;
 use APP\Entities\Base\EntitieBase;
-  use DateTime;
+use DateTime;
 
   class Pedido extends EntitieBase
   {
