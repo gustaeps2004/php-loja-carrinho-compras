@@ -48,7 +48,7 @@
         echo '<div class="opcoes">
                 <p><span>'.$produto["Titulo"].'</span></p>
                 <img src="../'.$produto["CaminhoImagem"].'" alt="'.$produto["Titulo"].'" title="'.$produto["Descricao"].'">
-                <form action="" id="formEnviaParaCarrinho" name="frmEnviaParaCarrinho" method="POST">
+                <form action="validar.php?" id="formEnviaParaCarrinho" name="frmEnviaParaCarrinho" method="POST">
                   <input class="inpProduto" type="number" name="txtidProduto" id="idProduto" value="'.$produto["ID"].'">
                   <button class="btnAddCarrinho">Adicionar ao carrinho</button>
                 </form>
