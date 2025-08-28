@@ -25,6 +25,8 @@
   use APP\Services\Categoria\CategoriaService;
   use APP\Services\Pedido\PedidoService;
   use APP\Services\Pedido\IPedidoService;
+  use APP\Services\CarrinhoCompra\CarrinhoCompraService;
+  use APP\Services\CarrinhoCompra\ICarrinhoCompraService;
 
   use APP\Repositories\MotivoContato\IMotivoContatoRepository;
   use APP\Repositories\MotivoContato\MotivoContatoRepository;
@@ -40,6 +42,8 @@
   use APP\Repositories\Categoria\ICategoriaRepository;
   use APP\Repositories\Pedido\IPedidoRepository;
   use APP\Repositories\Pedido\PedidoRepository;
+  use APP\Repositories\CarrinhoCompra\ICarrinhoCompraRepository;
+  use APP\Repositories\CarrinhoCompra\CarrinhoCompraRepository;
   
   use APP\Repositories\Connections\MySql\IMySqlConnection;
   use APP\Repositories\Connections\MySql\MySqlConnection;
@@ -65,6 +69,7 @@
     IUsuarioService::class => autowire(UsuarioService::class),
     ICategoriaService::class => autowire(CategoriaService::class),
     IPedidoService::class => autowire(PedidoService::class),
+    ICarrinhoCompraService::class => autowire(CarrinhoCompraService::class),
 
     IMotivoContatoRepository::class => autowire(MotivoContatoRepository::class),
     IProdutoRepository::class => autowire(ProdutoRepository::class),
@@ -73,6 +78,7 @@
     IUsuarioRepository::class => autowire(UsuarioRepository::class),
     ICategoriaRepository::class => autowire(CategoriaRepository::class),
     IPedidoRepository::class => autowire(PedidoRepository::class),
+    ICarrinhoCompraRepository::class => autowire(CarrinhoCompraRepository::class),
 
     IMySqlConnection::class => autowire(MySqlConnection::class)
   ]);
