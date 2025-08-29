@@ -1,13 +1,12 @@
 <?php namespace APP\Messaging\RawQueryResult\Pedido;
 
-  use APP\Assets\Enums\SituacaoPedido;
   use DateTime;
 
   class PedidoAtivoUsuarioRawQueryResult
   {
     public int $ID;
-    public DateTime $DtInclusao;
-    public SituacaoPedido $Situacao;
+    public string $DtInclusao;
+    public int $Situacao;
     public int $UsuarioID;
   }
 ?>

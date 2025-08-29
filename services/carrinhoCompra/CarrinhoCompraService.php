@@ -1,7 +1,6 @@
 <?php namespace APP\Services\CarrinhoCompra;
 
 use APP\Entities\CarrinhoCompra;
-use APP\Messaging\Request\CarrinhoCompra\CarrinhoCompraRequest;
 use APP\Repositories\CarrinhoCompra\ICarrinhoCompraRepository;
 use APP\Services\Pedido\IPedidoService;
 
@@ -18,24 +17,27 @@ class CarrinhoCompraService implements ICarrinhoCompraService
     $this->_pedidoService = $pedidoService;
   }
 
-  public function inserir(CarrinhoCompraRequest $request) : void
+  public function inserir(
+    int $quantidadeItem,
+    int $usuarioID,
+    int $produtoID) : void
   {
-    $pedidoID = $this->_pedidoService->inserir($request->UsuarioID);
-    $carrinhoRawQuery = $this->_carrinhoCompraRepository->obter($pedidoID, $request->ProdutoID);
+    $pedidoID = $this->_pedidoService->inserir($usuarioID);
+    $carrinhoRawQuery = $this->_carrinhoCompraRepository->obter($pedidoID, $produtoID);
 
     if ($carrinhoRawQuery == null)
     {
       $carrinhoCompra = new CarrinhoCompra(
-                          $request->QuantidadeItem,
+                          $quantidadeItem,
                           $pedidoID,
-                          $request->ProdutoID);
+                          $produtoID);
 
       $this->_carrinhoCompraRepository->inserir($carrinhoCompra);
 
       return;
     }
 
-    $quantidadeNova = $carrinhoRawQuery->QuantidadeItem + $request->QuantidadeItem;
+    $quantidadeNova = $carrinhoRawQuery->QuantidadeItem + $quantidadeItem;
 
     $this->_carrinhoCompraRepository->atualizarQuantidadeItem(
       $carrinhoRawQuery->ID, 

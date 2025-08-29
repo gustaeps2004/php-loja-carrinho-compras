@@ -7,13 +7,13 @@ use DateTime;
   class Pedido extends EntitieBase
   {
     public DateTime $DtInclusao;
-    public SituacaoPedido $Situacao;
+    public int $Situacao;
     public int $UsuarioID;
 
     public function __construct(int $usuarioID)
     {
       $this->DtInclusao = new DateTime();
-      $this->Situacao = SituacaoPedido::Ativo;
+      $this->Situacao = SituacaoPedido::Ativo->value;
       $this->UsuarioID = $usuarioID;
     }
 

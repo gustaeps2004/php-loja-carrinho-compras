@@ -15,7 +15,7 @@ class CarrinhoCompraRepository implements ICarrinhoCompraRepository
 
   public function inserir(CarrinhoCompra $carrinhoCompra) : void
   {
-    $sql = "INSERT INT CarrinhoCompra(
+    $sql = "INSERT INTO CarrinhoCompra(
               DtInclusao,
               QuantidadeItem,
               PedidoID,
@@ -30,14 +30,14 @@ class CarrinhoCompraRepository implements ICarrinhoCompraRepository
 
     $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
     $stmt->execute([
-      ':dtInclusao' => $carrinhoCompra->DtInclusao,
+      ':dtInclusao' => $carrinhoCompra->DtInclusao->format('Y-m-d H:i:s'),
       ':quantidadeItem' => $carrinhoCompra->QuantidadeItem,
       ':pedidoID' => $carrinhoCompra->PedidoID,
       ':produtoID' => $carrinhoCompra->ProdutoID
     ]);
   }
 
-  public function obter(int $pedidoID, int $produtoID) : CarrinhoCompraExistenteRawQueryResult
+  public function obter(int $pedidoID, int $produtoID) : ?CarrinhoCompraExistenteRawQueryResult
   {
     $sql = "SELECT
               ID,
@@ -55,7 +55,7 @@ class CarrinhoCompraRepository implements ICarrinhoCompraRepository
       ':produtoID' => $produtoID
     ]);
 
-    return $stmt->fetchObject(CarrinhoCompra::class);
+    return $stmt->fetchObject(CarrinhoCompraExistenteRawQueryResult::class) ?: null;
   }
 
   public function atualizarQuantidadeItem($id, $quantidadeNova) : void

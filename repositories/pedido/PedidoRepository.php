@@ -14,7 +14,7 @@ class PedidoRepository implements IPedidoRepository
     $this->_mySqlConnection = $mySqlConnection;
   }
 
-  public function obterAtivoPorUsuario($usuarioID) : PedidoAtivoUsuarioRawQueryResult
+  public function obterAtivoPorUsuario($usuarioID) : ?PedidoAtivoUsuarioRawQueryResult
   {
     $sql = "SELECT
               ID,
@@ -33,12 +33,12 @@ class PedidoRepository implements IPedidoRepository
       ':situacao' => SituacaoPedido::Ativo->value
     ]);
 
-    return $stmt->fetchObject(PedidoAtivoUsuarioRawQueryResult::class);
+    return $stmt->fetchObject(PedidoAtivoUsuarioRawQueryResult::class) ?: null;
   }
 
   public function inserir(Pedido $pedido) : void
   {
-    $sql = "INSERT INT Pedido(
+    $sql = "INSERT INTO Pedido(
               Situacao,
               DtInclusao,
               UsuarioID
@@ -51,8 +51,8 @@ class PedidoRepository implements IPedidoRepository
 
     $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
     $stmt->execute([
-      ':situacao' => $pedido->Situacao->value,
-      ':dtInclusao' => $pedido->DtInclusao,
+      ':situacao' => $pedido->Situacao,
+      ':dtInclusao' => $pedido->DtInclusao->format('Y-m-d H:i:s'),
       ':usuarioID' => $pedido->UsuarioID
     ]);
   }

@@ -1,7 +1,6 @@
 <?php namespace APP\Controllers;
 
 use APP\Controllers\Base\BaseController;
-use APP\Messaging\Request\CarrinhoCompra\CarrinhoCompraRequest;
 use APP\Services\CarrinhoCompra\ICarrinhoCompraService;
 
 class CarrinhoCompraController extends BaseController
@@ -13,11 +12,13 @@ class CarrinhoCompraController extends BaseController
     $this->_carrinhoCompraService = $carrinhoCompraService;
   }
 
-  public function inserir(CarrinhoCompraRequest $request)
+  public function inserir(int $quantidadeItem, int $produtoID)
   {
-    $request->atualizarUsuarioID($this->obterUsuarioLogado());
-
-    $this->_carrinhoCompraService->inserir($request);
+    $this->_carrinhoCompraService->inserir(
+      $quantidadeItem,
+      $this->obterUsuarioLogado(),
+      $produtoID
+    );
   }
 }
 ?>
