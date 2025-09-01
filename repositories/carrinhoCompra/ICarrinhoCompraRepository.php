@@ -6,7 +6,7 @@ use APP\Messaging\RawQueryResult\CarrinhoCompra\CarrinhoCompraExistenteRawQueryR
 interface ICarrinhoCompraRepository
 {
   public function inserir(CarrinhoCompra $carrinhoCompra) : void;
-  public function atualizarQuantidadeItem($id, $quantidadeNova) : void;
+  public function atualizarQuantidadeItem(int $id, int $quantidadeNova) : void;
   public function obter(int $pedidoID, int $produtoID) : ?CarrinhoCompraExistenteRawQueryResult;
 }
 ?>

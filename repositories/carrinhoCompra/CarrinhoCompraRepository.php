@@ -58,7 +58,7 @@ class CarrinhoCompraRepository implements ICarrinhoCompraRepository
     return $stmt->fetchObject(CarrinhoCompraExistenteRawQueryResult::class) ?: null;
   }
 
-  public function atualizarQuantidadeItem($id, $quantidadeNova) : void
+  public function atualizarQuantidadeItem(int $id, int $quantidadeNova) : void
   {
     $sql = "UPDATE CarrinhoCompra 
             SET QuantidadeItem = :quantidadeNova
