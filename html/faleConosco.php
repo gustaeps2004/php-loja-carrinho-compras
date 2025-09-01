@@ -7,6 +7,7 @@
 	<title>Prática 1 HTML e CSS</title>
 	<link rel="stylesheet" type="text/css" href="../assets/style/site.css">
 	<script type="text/javascript" src="../assets/js/index.js" defer></script>
+	<script type="text/javascript" src="../assets/js/carrinho.js" defer></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body onload="ValidarToken(false)">
