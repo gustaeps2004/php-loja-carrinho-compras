@@ -33,15 +33,13 @@
 		<a id="TabFaleConoscoAdm" href="../administracao/faleConoscoAdm.php"><div class="opcao">Contato</div></a>
 	</nav> 
   <section>
-  <div class="principalProdutosCarrinho">
-			<div class="linhaOpcaoCarrinho">
-				<!--
-        <?php
+  <div class="principalProdutos">
+			<div class="linhaOpcao">
+        <?php								
 					$container = require __DIR__.'../../../index.php';
 					$controller = $container->get(APP\Controllers\CarrinhoCompraController::class);
 					$controller->listar();
 				?>
-        -->
 			</div>
 		</div>	  
   </section>

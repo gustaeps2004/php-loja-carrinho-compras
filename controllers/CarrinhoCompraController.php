@@ -1,5 +1,6 @@
 <?php namespace APP\Controllers;
 
+use APP\Assets\Extensions\StringFormats;
 use APP\Controllers\Base\BaseController;
 use APP\Services\CarrinhoCompra\ICarrinhoCompraService;
 
@@ -31,7 +32,16 @@ class CarrinhoCompraController extends BaseController
 
     foreach ($produtosCarrinho as $produto)
     {
-       
+      echo '<div class="opcaoCarrinho">
+              <p>'.$produto->Titulo.'</p>
+              <img src="../../'.$produto->CaminhoImagem.'" alt="'.$produto->Titulo.'" title="'.$produto->DescricaoProduto.'">
+              <div class="texto">
+                <p>Categoria: '.$produto->Categoria.'</p>
+                <p>Quantidade: '.$produto->QuantidadeItem.'</p>
+                <p>Data inclusão: '.StringFormats::formatarData($produto->DtInclusao).'</p>
+                <p>Data alteração: '.StringFormats::formatarData($produto->DtSituacao).'</p>
+              </div>
+            </div>'; 
     }
   }
 }

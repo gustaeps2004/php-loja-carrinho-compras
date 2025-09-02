@@ -16,5 +16,10 @@
   
         return preg_replace('/[^a-zA-Z0-9]/', '', $texto);
     }
+
+    public static function formatarData(string $data)
+    {
+      return preg_replace('/(\d{4})-(\d{2})-(\d{2}) (\d{2}:\d{2})/', '$3/$2/$1 $4', $data);
+    }
   }
 ?>

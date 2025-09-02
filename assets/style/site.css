@@ -275,6 +275,7 @@ tr:nth-child(odd){
   width: 20%;
   text-align: center;
   border-radius: 10px;
+	background-color: #E8E8E8;
 }
 
 .opcoes img {
