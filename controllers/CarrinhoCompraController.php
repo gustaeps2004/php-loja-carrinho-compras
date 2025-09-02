@@ -20,5 +20,19 @@ class CarrinhoCompraController extends BaseController
       $produtoID
     );
   }
+
+  public function listar() : void
+  {
+    $usuarioID = $this->obterUsuarioLogado();
+    $produtosCarrinho = $this->_carrinhoCompraService->listar($usuarioID);
+
+    if (empty($produtosCarrinho))
+      return;
+
+    foreach ($produtosCarrinho as $produto)
+    {
+       
+    }
+  }
 }
 ?>

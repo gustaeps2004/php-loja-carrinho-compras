@@ -96,6 +96,10 @@ create table CarrinhoCompra(
     FOREIGN KEY (ProdutoID) REFERENCES Produto(ID)
 );
 
+use loja;
+alter table CarrinhoCompra
+add column DtSituacao DATETIME NULL;
+
 
 
 

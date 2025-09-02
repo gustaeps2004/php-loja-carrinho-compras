@@ -43,5 +43,10 @@ class CarrinhoCompraService implements ICarrinhoCompraService
       $carrinhoRawQuery->ID, 
       $quantidadeNova);
   }
+
+  public function listar(int $usuarioID) : array
+  {
+    return $this->_carrinhoCompraRepository->listar($usuarioID);
+  }
 }
 ?>

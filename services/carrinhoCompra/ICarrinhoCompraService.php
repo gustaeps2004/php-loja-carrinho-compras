@@ -6,5 +6,7 @@ interface ICarrinhoCompraService
     int $quantidadeItem,
     int $usuarioID,
     int $produtoID) : void;
+    
+  public function listar(int $usuarioID) : array;
 }
 ?>

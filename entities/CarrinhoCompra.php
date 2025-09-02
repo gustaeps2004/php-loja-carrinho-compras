@@ -6,6 +6,7 @@
   class CarrinhoCompra extends EntitieBase
   {
     public DateTime $DtInclusao;
+    public DateTime $DtSituacao;
     public int $QuantidadeItem;
     public int $PedidoID;
     public int $ProdutoID;
@@ -16,6 +17,7 @@
       int $produtoID)
     {
       $this->DtInclusao = new DateTime();
+      $this->DtSituacao = new DateTime();
       $this->QuantidadeItem = $quantidadeItem;
       $this->PedidoID = $pedidoID;
       $this->ProdutoID = $produtoID;
