@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="../../assets/style/site.css">
+	<link rel="stylesheet" type="text/css" href="../../assets/style/sidebar.css">
 	<script type="text/javascript" src="../../assets/js/index.js" defer></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<title>Administração</title>
@@ -23,118 +24,124 @@
 			</div>
   	</div>
 	</header>
-	<nav>
-		<a href="../inicio.php"><div class="opcao">Início</div></a>
-		<a href="../produtos.php"><div class="opcao">Geladeiras & freezers</div></a>
-		<a href="../faleConosco.php"><div class="opcao">Fale conosco</div></a>
-		<a id="TabAdministracao" href="administracao.php"><div class="opcao">Administração</div></a>
-		<a id="TabFaleConoscoAdm" href="faleConoscoAdm.php"><div class="opcao">Contato</div></a>
-	</nav> 
-  <section>
-		<div class="principalAdm">
-			<div class="admTabela">
-			<h2>Usuários</h2>
-				<table class="tabelaFuncionarios">
-					<thead>
-						<tr>
-							<th  colspan="4" class="tituloTabela">Usuários</th>
-						</tr>
-						<tr>
-							<th>Nome</th>
-							<th>Documento federal</th>
-							<th>E-mail</th>
-							<th>Permissão</th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php
-							$container = require __DIR__.'../../../index.php';
 
-							$controller = $container->get(APP\Controllers\UsuariosController::class);
-							$controller->listar();
-						?>
-					</tbody>
-				</table>
-			</div>
+	<div class="hover-area"></div>
+	<div class="sidebar">
+		<a href="../inicio.php">Início</a>
+		<a href="../produtos.php">Geladeiras & freezers</a>
+		<a href="../faleConosco.php">Fale conosco</a>
+		<a id="TabAdministracao" href="administracao.php">Administração</a>
+		<a id="TabFaleConoscoAdm" href="faleConoscoAdm.php">Contato</a>
+	</div>
 
-			<div class="admFormulario">
-				<h2>Cadastro usuário</h2>
-				<form action="../../assets/functions/processaFormCadastroUsuario.php" id="formCadastroUsuario" name="frmCadastroUsuario" method="POST">
-					<fieldset class="cadastroUsuario">
-						<legend>Dados pessoais</legend>
-						<label for = "nome">Nome:</label>
-						<input require type="text" name="txtnome" id="nome">
-						<br>
-						<span id="erroNome"></span>
+	<div class="content">
+		<section>
+			<div class="principalAdm">
+				<div class="admTabela">
+				<h2>Usuários</h2>
+					<table class="tabelaFuncionarios">
+						<thead>
+							<tr>
+								<th  colspan="4" class="tituloTabela">Usuários</th>
+							</tr>
+							<tr>
+								<th>Nome</th>
+								<th>Documento federal</th>
+								<th>E-mail</th>
+								<th>Permissão</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php
+								$container = require __DIR__.'../../../index.php';
 
-						<label for="documento">Documento federal:</label>
-						<input required maxlength="11" type="text" name="txtdocumento" id="documento" onkeyup="FormatarDocumento()">
-						<br>
-						<span id="erroCpf"></span>
+								$controller = $container->get(APP\Controllers\UsuariosController::class);
+								$controller->listar();
+							?>
+						</tbody>
+					</table>
+				</div>
 
-						<label for="email">E-mail</label>
-						<input require type="email" name="txtemail" id="email">
-						<br>
-						<span id="erroEmail"></span>
+				<div class="admFormulario">
+					<h2>Cadastro usuário</h2>
+					<form action="../../assets/functions/processaFormCadastroUsuario.php" id="formCadastroUsuario" name="frmCadastroUsuario" method="POST">
+						<fieldset class="cadastroUsuario">
+							<legend>Dados pessoais</legend>
+							<label for = "nome">Nome:</label>
+							<input require type="text" name="txtnome" id="nome">
+							<br>
+							<span id="erroNome"></span>
 
-						<label for = "nome">Senha:</label>
-						<input require type="password" name="txtsenha" id="senha">
-						<br>
+							<label for="documento">Documento federal:</label>
+							<input required maxlength="11" type="text" name="txtdocumento" id="documento" onkeyup="FormatarDocumento()">
+							<br>
+							<span id="erroCpf"></span>
 
-						<label for="permissao">Permissão:</label>
-						<select require name="selPermissao" id="permissao">
-							<option value="">Escolha</option>
+							<label for="email">E-mail</label>
+							<input require type="email" name="txtemail" id="email">
+							<br>
+							<span id="erroEmail"></span>
+
+							<label for = "nome">Senha:</label>
+							<input require type="password" name="txtsenha" id="senha">
+							<br>
+
+							<label for="permissao">Permissão:</label>
+							<select require name="selPermissao" id="permissao">
+								<option value="">Escolha</option>
+								
+								<?php								
+									$container = require __DIR__.'../../../index.php';
+									
+									$controller = $container->get(APP\Controllers\PermissoesController::class);
+									$controller->listar();
+								?>
+
+							</select>
+							<br>
+							<br>
+							<button type="reset">Limpar</button><button type="submit">Enviar</button>
+						</fieldset>
+					</form>
+				</div>
+
+				<div class="admFormulario">
+					<h2>Cadastro produto</h2>
+					<form action="../../assets/functions/processaFormCadastroProduto.php" enctype="multipart/form-data" id="formCadastroProduto" name="frmCadastroProduto" method="POST">
+						<fieldset class="cadastroProduto">
+							<legend>Dados do produto</legend>
 							
-							<?php								
-								$container = require __DIR__.'../../../index.php';
-								
-								$controller = $container->get(APP\Controllers\PermissoesController::class);
-								$controller->listar();
-							?>
+							<label for="categoria">Categoria:</label>
+							<select require name="selCategoria" id="categoria">
+								<option value="0">Escolha</option>
+								<?php								
+									$container = require __DIR__.'../../../index.php';
+									
+									$controller = $container->get(APP\Controllers\CategoriasController::class);
+									$controller->listar();
+								?>
+							</select>
 
-						</select>
-						<br>
-						<br>
-						<button type="reset">Limpar</button><button type="submit">Enviar</button>
-					</fieldset>
-				</form>
+							<label for = "titulo">Título:</label>
+							<input require type="text" name="txttitulo" id="titulo">
+
+							<label for="descricao">Descrição:</label>
+							<input required type="text" name="txtdescricao" id="descricao">
+
+							<label for="imagem">Imagem:</label>
+							<input type="file" name="arquivo" id="arquivo">
+
+							<br>
+							<br>
+
+							<button type="reset">Limpar</button><button type="submit">Enviar</button>
+						</fieldset>
+					</form>
+				</div>
 			</div>
+		</section>
+	</div>
 
-			<div class="admFormulario">
-				<h2>Cadastro produto</h2>
-				<form action="../../assets/functions/processaFormCadastroProduto.php" enctype="multipart/form-data" id="formCadastroProduto" name="frmCadastroProduto" method="POST">
-					<fieldset class="cadastroProduto">
-						<legend>Dados do produto</legend>
-						
-						<label for="categoria">Categoria:</label>
-						<select require name="selCategoria" id="categoria">
-							<option value="0">Escolha</option>
-							<?php								
-								$container = require __DIR__.'../../../index.php';
-								
-								$controller = $container->get(APP\Controllers\CategoriasController::class);
-								$controller->listar();
-							?>
-						</select>
-
-						<label for = "titulo">Título:</label>
-						<input require type="text" name="txttitulo" id="titulo">
-
-						<label for="descricao">Descrição:</label>
-						<input required type="text" name="txtdescricao" id="descricao">
-
-						<label for="imagem">Imagem:</label>
-						<input type="file" name="arquivo" id="arquivo">
-
-						<br>
-						<br>
-
-						<button type="reset">Limpar</button><button type="submit">Enviar</button>
-					</fieldset>
-				</form>
-			</div>
-		</div>
-	</section>
 	<footer>Copyright &copy; ADS2025</footer>
 </body>
 </html>

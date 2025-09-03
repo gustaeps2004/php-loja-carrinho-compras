@@ -6,6 +6,7 @@
 	<title>Início</title>
 	<script type="text/javascript" src="../assets/js/index.js" defer></script>
 	<link rel="stylesheet" type="text/css" href="../assets/style/site.css">
+	<link rel="stylesheet" type="text/css" href="../assets/style/sidebar.css">
 	<script type="text/javascript" src="../assets/js/carrinho.js" defer></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -30,31 +31,36 @@
 			</div>
 		</div>
 	</header>
-	<nav>
-		<a href="inicio.php"><div class="opcao">Início</div></a>
-		<a href="produtos.php"><div class="opcao">Geladeiras & freezers</div></a>
-		<a href="faleConosco.php"><div class="opcao">Fale conosco</div></a>
-		<a id="TabAdministracao" href="administracao/administracao.php"><div class="opcao">Administração</div></a>
-		<a id="TabFaleConoscoAdm" href="administracao/faleConoscoAdm.php"><div class="opcao">Contato</div></a>
-	</nav> 
-	<section>
-		<div id="topo">
-			<img src="../assets/imgs/geladeira1.png" alt="Imagem de uma geladeira" title="Imagem da geladeira" class="geladeira esquerda"> 
-			<div id="titulos">
-				<h2>Bem vindo ao site da<br>Coldigo Geladeiras!</h2>
-				<h3>A maior loja de geladeiras da região</h3>
-			</div> 
-			<img src="../assets/imgs/geladeira2.png" alt="Imagem de outra geladeira" title="Imagem de outra geladeira" class="geladeira direita">
-		</div>
-			<p>
-					Coldigo Geladeiras é a maior de revenda de geladeiras, refrigeradores, freezers e afins da região.
-					Desde 2007 gelando e congelando para seu prazer.      
-			</p>
-			<p>
-					Sua geladeira estragou? Estragou? Está precisando de uma maior? Quer mais conforto e praticidade? Já pensou
-					em fazer um consórcio de geladeira? Venha nos fazer uma visita ou entre em contato para mais informações;
-			</p>
-	</section>
+
+  <div class="hover-area"></div>
+	<div class="sidebar">
+	<a href="inicio.php">Início</a>
+		<a href="produtos.php">Geladeiras & freezers</a>
+		<a href="faleConosco.php">Fale conosco</a>
+		<a id="TabAdministracao" href="administracao/administracao.php">Administração</a>
+		<a id="TabFaleConoscoAdm" href="administracao/faleConoscoAdm.php">Contato</a>
+	</div>
+
+	<div class="content">
+		<section>
+			<div id="topo">
+				<img src="../assets/imgs/geladeira1.png" alt="Imagem de uma geladeira" title="Imagem da geladeira" class="geladeira esquerda"> 
+				<div id="titulos">
+					<h2>Bem vindo ao site da<br>Coldigo Geladeiras!</h2>
+					<h3>A maior loja de geladeiras da região</h3>
+				</div> 
+				<img src="../assets/imgs/geladeira2.png" alt="Imagem de outra geladeira" title="Imagem de outra geladeira" class="geladeira direita">
+			</div>
+				<p>
+						Coldigo Geladeiras é a maior de revenda de geladeiras, refrigeradores, freezers e afins da região.
+						Desde 2007 gelando e congelando para seu prazer.      
+				</p>
+				<p>
+						Sua geladeira estragou? Estragou? Está precisando de uma maior? Quer mais conforto e praticidade? Já pensou
+						em fazer um consórcio de geladeira? Venha nos fazer uma visita ou entre em contato para mais informações;
+				</p>
+		</section>
+	</div>
 	<footer>Copyright &copy; ADS2025</footer>
 </body>
 </html>

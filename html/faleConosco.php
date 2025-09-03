@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Prática 1 HTML e CSS</title>
 	<link rel="stylesheet" type="text/css" href="../assets/style/site.css">
+	<link rel="stylesheet" type="text/css" href="../assets/style/sidebar.css">
 	<script type="text/javascript" src="../assets/js/index.js" defer></script>
 	<script type="text/javascript" src="../assets/js/carrinho.js" defer></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -31,13 +32,17 @@
 			</div>
 		</div>
 	</header>
-	<nav>
-		<a href="inicio.php"><div class="opcao">Início</div></a>
-		<a href="produtos.php"><div class="opcao">Geladeiras & freezers</div></a>
-		<a href="faleConosco.php"><div class="opcao">Fale conosco</div></a>
-		<a id="TabAdministracao" href="administracao/administracao.php"><div class="opcao">Administração</div></a>
-		<a id="TabFaleConoscoAdm" href="administracao/faleConoscoAdm.php"><div class="opcao">Contato</div></a>
-	</nav> 
+
+  <div class="hover-area"></div>
+	<div class="sidebar">
+	<a href="inicio.php">Início</a>
+		<a href="produtos.php">Geladeiras & freezers</a>
+		<a href="faleConosco.php">Fale conosco</a>
+		<a id="TabAdministracao" href="administracao/administracao.php">Administração</a>
+		<a id="TabFaleConoscoAdm" href="administracao/faleConoscoAdm.php">Contato</a>
+	</div>
+
+	<div class="content">
 		<section>
 			<h2>Fale conosco!</h2>
 			<p>Entre em nosso grupo de WhatsApp!</p>
@@ -88,6 +93,7 @@
 					</fieldset>
 				</form>     
 		</section>
-		<footer>Copyright &copy; ADS2025</footer>
+	</div>
+	<footer>Copyright &copy; ADS2025</footer>
 </body>
 </html>
