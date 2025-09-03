@@ -1,3 +1,3 @@
-function abrirCarrinho() {
-  window.location.href = "./carrinho/carrinho.php"
+function abrirCarrinho(caminho) {
+  window.location.href = caminho
 }

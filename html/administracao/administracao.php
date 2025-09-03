@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="../../assets/style/site.css">
 	<link rel="stylesheet" type="text/css" href="../../assets/style/sidebar.css">
 	<script type="text/javascript" src="../../assets/js/index.js" defer></script>
+	<script type="text/javascript" src="../../assets/js/carrinho.js" defer></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<title>Administração</title>
 </head>
@@ -15,6 +16,10 @@
 		<h1>Administração</h1>
 
 		<div class="perfil-info">
+			<div class="carrinho-compras">
+				<button onclick="abrirCarrinho('../carrinho/carrinho.php')" class="btn-carrinho">Carrinho de compras</button>
+			</div>
+
 			<div class="info-texto">
 				<p>Informações de perfil</p>
 				<p><b>Nome:</b> <span id="nomeUsuario"></span></p>

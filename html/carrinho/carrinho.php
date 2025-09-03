@@ -32,8 +32,8 @@
 		<a href="../inicio.php">Início</a>
 		<a href="../produtos.php">Geladeiras & freezers</a>
 		<a href="../faleConosco.php">Fale conosco</a>
-		<a id="TabAdministracao" href="administracao.php">Administração</a>
-		<a id="TabFaleConoscoAdm" href="faleConoscoAdm.php">Contato</a>
+		<a id="TabAdministracao" href="../administracao/administracao.php">Administração</a>
+		<a id="TabFaleConoscoAdm" href="../administracao/faleConoscoAdm.php">Contato</a>
 	</div>
 
 	<div class="content">

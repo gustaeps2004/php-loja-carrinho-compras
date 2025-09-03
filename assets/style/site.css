@@ -317,13 +317,24 @@ tr:nth-child(odd){
 }
 
 .carrinho-compras {
-	margin-top: 60px;
+	height: 50px;
+	margin-top: 70px;
+	margin-right: 40px;
 }
 
-.carrinho-compras img {
-  height: 25px;
-  width: auto;
-  cursor: pointer;
+.carrinho-compras button {
+	height: 40px;
+	width: 200px;
+	font-size: 17px;
+	border-radius: 10px;
+	border: 1px solid #ffffff;
+	color: #ffffff;
+  background-color: #008eb6;
+}
+
+.carrinho-compras button:hover {
+	background-color: #84afd3;
+	transition: 0.2s;
 }
 
 .btn-carrinho {

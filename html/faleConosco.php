@@ -18,9 +18,7 @@
 
 		<div class="perfil-info">
 			<div class="carrinho-compras">
-				<button onclick="abrirCarrinho()" class="btn-carrinho" title="Abrir carrinho de compras">
-					<img src="../assets/imgs/shopping-cart-64px.png" alt="Carrinho de compras" />
-				</button>
+				<button onclick="abrirCarrinho('./carrinho/carrinho.php')" class="btn-carrinho">Carrinho de compras</button>
 			</div>
 
 			<div class="info-texto">
