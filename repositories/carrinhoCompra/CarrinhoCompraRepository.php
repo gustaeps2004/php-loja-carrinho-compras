@@ -2,6 +2,7 @@
 
 use APP\Entities\CarrinhoCompra;
 use APP\Messaging\RawQueryResult\CarrinhoCompra\CarrinhoCompraExistenteRawQueryResult;
+use APP\Messaging\RawQueryResult\CarrinhoCompra\CarrinhoCompraQtdItemRawQueryResult;
 use APP\Messaging\RawQueryResult\CarrinhoCompra\CarrinhoCompraRawQueryResult;
 use APP\Repositories\Connections\MySql\IMySqlConnection;
 use DateTime;
@@ -110,6 +111,30 @@ class CarrinhoCompraRepository implements ICarrinhoCompraRepository
     ]);
 
     return $stmt->fetchAll(PDO::FETCH_CLASS, CarrinhoCompraRawQueryResult::class) ?: [];
+  }
+
+  public function remover(int $id) : void
+  {
+    $sql = "DELETE FROM CarrinhoCompra
+            WHERE ID = :id";
+
+    $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
+    $stmt->execute([':id' => $id]);
+  }
+
+  public function obterQtdItemPorId(int $id) : ?CarrinhoCompraQtdItemRawQueryResult
+  {
+    $sql = "SELECT
+              QuantidadeItem
+            FROM
+              CarrinhoCompra
+            WHERE
+              ID = :id";
+
+    $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
+    $stmt->execute([':id' => $id]);
+
+    return $stmt->fetchObject(CarrinhoCompraQtdItemRawQueryResult::class) ?: null;
   }
 }
 ?>

@@ -8,5 +8,6 @@ interface ICarrinhoCompraService
     int $produtoID) : void;
     
   public function listar(int $usuarioID) : array;
+  public function remover(int $id, int $opcao) : void;
 }
 ?>

@@ -60,5 +60,10 @@ class CarrinhoCompraController extends BaseController
             </div>'; 
     }
   }
+
+  public function remover(int $id, int $opcao) : void
+  {
+    $this->_carrinhoCompraService->remover($id, $opcao);
+  }
 }
 ?>

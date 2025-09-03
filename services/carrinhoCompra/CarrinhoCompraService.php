@@ -1,6 +1,8 @@
 <?php namespace APP\Services\CarrinhoCompra;
 
+use APP\Assets\Enums\OpcaoExclusaoProdutoCarrinho;
 use APP\Entities\CarrinhoCompra;
+use APP\Exceptions\LojaException;
 use APP\Repositories\CarrinhoCompra\ICarrinhoCompraRepository;
 use APP\Services\Pedido\IPedidoService;
 
@@ -47,6 +49,29 @@ class CarrinhoCompraService implements ICarrinhoCompraService
   public function listar(int $usuarioID) : array
   {
     return $this->_carrinhoCompraRepository->listar($usuarioID);
+  }
+
+  public function remover(int $id, int $opcao) : void
+  {
+    $qtdRawQueryResult = $this->_carrinhoCompraRepository->obterQtdItemPorId($id);
+
+    if ($qtdRawQueryResult == null)
+      throw new LojaException("Não foi possível localizar o produto no carrinho.");
+
+    $quantidadeNova = $qtdRawQueryResult->QuantidadeItem - 1;
+
+    if ($this->existeRemocaoProduto($opcao, $quantidadeNova))
+    {
+      $this->_carrinhoCompraRepository->remover($id);
+      return;
+    }
+
+    $this->_carrinhoCompraRepository->atualizarQuantidadeItem($id, $quantidadeNova);
+  }
+
+  private function existeRemocaoProduto(int $opcao, int $quantidadeNova) : bool
+  {
+    return $opcao == OpcaoExclusaoProdutoCarrinho::Completo->value || $quantidadeNova <= 0;
   }
 }
 ?>

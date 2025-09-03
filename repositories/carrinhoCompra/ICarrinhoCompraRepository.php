@@ -2,6 +2,7 @@
 
 use APP\Entities\CarrinhoCompra;
 use APP\Messaging\RawQueryResult\CarrinhoCompra\CarrinhoCompraExistenteRawQueryResult;
+use APP\Messaging\RawQueryResult\CarrinhoCompra\CarrinhoCompraQtdItemRawQueryResult;
 
 interface ICarrinhoCompraRepository
 {
@@ -9,5 +10,7 @@ interface ICarrinhoCompraRepository
   public function atualizarQuantidadeItem(int $id, int $quantidadeNova) : void;
   public function obter(int $pedidoID, int $produtoID) : ?CarrinhoCompraExistenteRawQueryResult;
   public function listar(int $usuarioID) : array;
+  public function remover(int $id) : void;
+  public function obterQtdItemPorId(int $id) : ?CarrinhoCompraQtdItemRawQueryResult;
 }
 ?>
