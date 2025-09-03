@@ -36,11 +36,11 @@ class CarrinhoCompraRepository implements ICarrinhoCompraRepository
 
     $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
     $stmt->execute([
-      ':dtInclusao' => $carrinhoCompra->DtInclusao->format('Y-m-d H:i:s'),
+      ':dtInclusao' => $carrinhoCompra->DtInclusao->modify('-5 hours')->format('Y-m-d H:i:s'),
       ':quantidadeItem' => $carrinhoCompra->QuantidadeItem,
       ':pedidoID' => $carrinhoCompra->PedidoID,
       ':produtoID' => $carrinhoCompra->ProdutoID,
-      ':dtSituacao' => $carrinhoCompra->DtSituacao->format('Y-m-d H:i:s')
+      ':dtSituacao' => $carrinhoCompra->DtSituacao->modify('-5 hours')->format('Y-m-d H:i:s')
     ]);
   }
 
@@ -79,7 +79,7 @@ class CarrinhoCompraRepository implements ICarrinhoCompraRepository
     $stmt->execute([
       ':id' => $id,
       ':quantidadeNova' => $quantidadeNova,
-      ':dtSituacao' => $dtSituacao->format('Y-m-d H:i:s')
+      ':dtSituacao' => $dtSituacao->modify('-5 hours')->format('Y-m-d H:i:s')
     ]);
   }
 

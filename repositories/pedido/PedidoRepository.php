@@ -52,7 +52,7 @@ class PedidoRepository implements IPedidoRepository
     $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
     $stmt->execute([
       ':situacao' => $pedido->Situacao,
-      ':dtInclusao' => $pedido->DtInclusao->format('Y-m-d H:i:s'),
+      ':dtInclusao' => $pedido->DtInclusao->modify('-5 hours')->format('Y-m-d H:i:s'),
       ':usuarioID' => $pedido->UsuarioID
     ]);
   }
