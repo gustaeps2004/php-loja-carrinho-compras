@@ -8,8 +8,12 @@ if ($_SERVER["REQUEST_METHOD"] != "POST")
 
 $carrinhoCompraController = $container->get(CarrinhoCompraController::class);
 
-$carrinhoCompraController->inserir(1, (int)$_POST["txtidProduto"]);
+$carrinhoCompraController->inserir(
+  1, 
+  (int)$_POST["txtidProduto"],
+  (int)$_GET["usuarioID"]);
 
 header("Location: ../../html/produtos.php");
 exit;
+
 ?>

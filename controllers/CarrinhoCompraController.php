@@ -14,18 +14,17 @@ class CarrinhoCompraController extends BaseController
     $this->_carrinhoCompraService = $carrinhoCompraService;
   }
 
-  public function inserir(int $quantidadeItem, int $produtoID)
+  public function inserir(int $quantidadeItem, int $produtoID, int $usuarioID)
   {
     $this->_carrinhoCompraService->inserir(
       $quantidadeItem,
-      $this->obterUsuarioLogado(),
+      $usuarioID,
       $produtoID
     );
   }
 
-  public function listar() : void
+  public function listar($usuarioID) : void
   {
-    $usuarioID = $this->obterUsuarioLogado();
     $produtosCarrinho = $this->_carrinhoCompraService->listar($usuarioID);
 
     if (empty($produtosCarrinho))

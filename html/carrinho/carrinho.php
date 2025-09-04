@@ -50,7 +50,8 @@
 					<?php								
 						$container = require __DIR__.'../../../index.php';
 						$controller = $container->get(APP\Controllers\CarrinhoCompraController::class);
-						$controller->listar();
+						
+						$controller->listar($_GET["usuarioID"]);
 					?>
 				</div>
 			</div>	  
