@@ -70,3 +70,29 @@
   align-items: center;
   gap: 5px;
 }
+
+.opcoes-finalizacao-carrinho {
+  background-color: #E8E8E8;
+  border-radius: 10px;
+  height: 50px;
+  margin-top: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.opcoes-finalizacao-carrinho button {
+  height: 40px;
+	width: 200px;
+  font-size: 17px;
+	border-radius: 10px;
+  border: 1px solid #ffffff;
+	color: #ffffff;
+  background-color: #008eb6;
+  margin-left: 35px;
+}
+
+.opcoes-finalizacao-carrinho button:hover {
+  background-color: #84afd3;
+	transition: 0.2s;
+}

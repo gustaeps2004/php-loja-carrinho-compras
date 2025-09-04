@@ -9,14 +9,17 @@
 
   $produtosController = $container->get(ProdutosController::class);
 
+  $valor = str_replace("R$", "", $_POST["txtvalor"]);
+
   $request = new ProdutoRequest(
     $_POST["txtdescricao"],
     $_POST["txttitulo"],
     $_FILES["arquivo"]["tmp_name"],
     $_FILES["arquivo"]["name"],
-    $_POST["selCategoria"]
+    $_POST["selCategoria"],
+    str_replace(",", ".", $valor)
   );
-
+  
   $response = $produtosController->inserir($request);
 
   header("Location: ../../html/administracao/administracao.php");

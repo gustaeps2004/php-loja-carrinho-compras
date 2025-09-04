@@ -133,6 +133,9 @@
 							<label for="descricao">Descrição:</label>
 							<input required type="text" name="txtdescricao" id="descricao">
 
+							<label for="valor">Valor:</label>
+							<input required type="text" name="txtvalor" id="valorProduto" onkeyup="formatarValorProduto()">
+
 							<label for="imagem">Imagem:</label>
 							<input type="file" name="arquivo" id="arquivo">
 

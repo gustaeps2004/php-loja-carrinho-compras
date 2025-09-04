@@ -13,7 +13,7 @@
 <body onload="ValidarToken(false)">
 	<header>
 		<img src="../assets/imgs/logo.png" alt="Logo da página" title="Logo da página">
-		<h1>Geladeiras & Outros - PRINCIPAL</h1>
+		<h1>Seja Bem-Vindo</h1>
 
 		<div class="perfil-info">
 			<div class="carrinho-compras">

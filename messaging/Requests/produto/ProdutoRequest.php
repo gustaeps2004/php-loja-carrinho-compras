@@ -11,19 +11,22 @@
     public string $tempArquivo = "";
     public string $nomeArquivo = "";
     public int $categoriaID = 0;
+    public float $valor = 0.0;
 
     public function __construct(
       string $descricao,
       string $titulo,
       string $tempArquivo,
       string $nomeArquivo,
-      int $categoriaID)
+      int $categoriaID,
+      float $valor)
     {
       $this->descricao = $descricao;
       $this->titulo = $titulo;
       $this->tempArquivo = $tempArquivo;
       $this->nomeArquivo = $nomeArquivo;
       $this->categoriaID = $categoriaID;
+      $this->valor = $valor;
     }
 
     public function validar()
@@ -39,6 +42,9 @@
 
       if (StringExtensions::isNullOrWhiteSpace($this->tempArquivo) || StringExtensions::isNullOrWhiteSpace($this->nomeArquivo)) 
         throw new LojaException("Não foi possível identificar as informações da imagem.");
+
+      if ($this->valor <= 0)
+        throw new LojaException("O valor do produto não pode ser menor ou igual a zero.");
 
       $this->nomeArquivo = GuidExtensions::gerarAleatorio().'_'.$this->nomeArquivo;
     }

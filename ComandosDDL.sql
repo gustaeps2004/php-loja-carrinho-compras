@@ -101,6 +101,10 @@ alter table CarrinhoCompra
 add column DtSituacao DATETIME NULL;
 
 
+use loja;
+alter table Produto
+add column Valor decimal(18, 2);
+
 
 
 

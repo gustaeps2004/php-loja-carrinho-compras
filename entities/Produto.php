@@ -9,6 +9,7 @@
     public string $Descricao;
     public string $CaminhoImagem;
     public int $CategoriaID;
+    public float $Valor;
 
     public function __construct(ProdutoRequest $produtorequest, string $caminhoImagem)
     {
@@ -16,6 +17,7 @@
       $this->Descricao = $produtorequest->descricao;
       $this->CaminhoImagem = $caminhoImagem;
       $this->CategoriaID = $produtorequest->categoriaID;
+      $this->Valor = $produtorequest->valor;
     }
 
     public function validar() : void

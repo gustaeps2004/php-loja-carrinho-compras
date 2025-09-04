@@ -23,7 +23,8 @@
                 Titulo,
                 Descricao,
                 CaminhoImagem,
-                CategoriaID
+                CategoriaID,
+                Valor
               FROM
                 Produto";
 
@@ -47,13 +48,15 @@
                 Titulo, 
                 Descricao, 
                 CaminhoImagem, 
-                CategoriaID)
+                CategoriaID,
+                Valor)
               VALUES 
               (
                 :Titulo,
                 :Descricao,
                 :CaminhoImagem,
-                :CategoriaID
+                :CategoriaID,
+                :Valor
               )";
 
       $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
@@ -61,7 +64,8 @@
         ':Titulo' => $produto->Titulo,
         ':Descricao' => $produto->Descricao,
         ':CaminhoImagem' => $produto->CaminhoImagem,
-        ':CategoriaID' => $produto->CategoriaID
+        ':CategoriaID' => $produto->CategoriaID,
+        ':Valor' => $produto->Valor
       ]);
     }
   }

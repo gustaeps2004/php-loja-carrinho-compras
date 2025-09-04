@@ -34,14 +34,20 @@ class CarrinhoCompraController extends BaseController
     $apensUmItem = OpcaoExclusaoProdutoCarrinho::Item->value;
     $completo = OpcaoExclusaoProdutoCarrinho::Completo->value;
 
+    $valorTotal = 0.0;
+
     foreach ($produtosCarrinho as $produto)
     {
+      $valorTotal += $produto->Valor * $produto->QuantidadeItem;
+
       echo '<div class="opcaoCarrinho">
               <p>'.$produto->Titulo.'</p>
               <img src="../../'.$produto->CaminhoImagem.'" alt="'.$produto->Titulo.'" title="'.$produto->DescricaoProduto.'">
               <div class="texto">
                 <p>Categoria: '.$produto->Categoria.'</p>
                 <p>Quantidade: '.$produto->QuantidadeItem.'</p>
+                <p>Valor unitário: R$ '.number_format($produto->Valor, 2, ',', '.').'</p>
+                <p>Valor total: R$ '.number_format($produto->Valor * $produto->QuantidadeItem, 2, ',', '.').'</p>
                 <p>Data inclusão: '.StringFormats::formatarData($produto->DtInclusao).'</p>
                 <p>Data alteração: '.StringFormats::formatarData($produto->DtSituacao).'</p>
               </div>
@@ -59,6 +65,13 @@ class CarrinhoCompraController extends BaseController
               </div>
             </div>'; 
     }
+
+    echo "<script>
+            document.getElementById('valorTotalCarrinho').textContent = ".$valorTotal.".toLocaleString('pt-BR', {
+                                                                                          minimumFractionDigits: 2,
+                                                                                          maximumFractionDigits: 2
+                                                                                        })
+          </script>";
   }
 
   public function remover(int $id, int $opcao) : void

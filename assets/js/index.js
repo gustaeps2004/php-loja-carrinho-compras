@@ -88,6 +88,11 @@ function InserirValoresIniciais(data) {
   document.getElementById("permissaoUsuario").textContent = data?.permissao;
 }
 
+function formatarValorProduto() {
+  let valor = ObterCampoInput("valorProduto").replace(/[^0-9,]/g, '').replace(/,(?=.*?,)/g, '');
+  InserirValorInput("valorProduto", `R$ ${valor}`)
+}
+
 $(document).ready(function () {
   $('#formFaleConosco').on('submit', function (e) {
     let cpf = $('#documento').val().trim()

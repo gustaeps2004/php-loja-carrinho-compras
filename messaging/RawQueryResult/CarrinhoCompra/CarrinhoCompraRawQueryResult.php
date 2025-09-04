@@ -10,5 +10,6 @@
     public string $DescricaoProduto;
     public string $CaminhoImagem;
     public string $Categoria;
+    public string $Valor;
   }
 ?>

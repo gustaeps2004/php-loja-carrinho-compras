@@ -93,7 +93,8 @@ class CarrinhoCompraRepository implements ICarrinhoCompraRepository
               p.Titulo,
               p.Descricao DescricaoProduto,
               p.CaminhoImagem,
-              c.Descricao Categoria
+              c.Descricao Categoria,
+              p.Valor
             FROM
               CarrinhoCompra cc
             INNER JOIN Produto p

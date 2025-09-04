@@ -38,7 +38,14 @@
 
 	<div class="content">
 		<section>
-		<div class="principalProdutos">
+			<div class="opcoes-finalizacao-carrinho">
+				<form action="">
+					<button>Finalizar</button>
+				</form>
+				<p><b>Valor total: R$ <span id="valorTotalCarrinho"></b> </span></p>
+			</div>
+
+			<div class="principalProdutos">
 				<div class="linhaOpcao">
 					<?php								
 						$container = require __DIR__.'../../../index.php';
