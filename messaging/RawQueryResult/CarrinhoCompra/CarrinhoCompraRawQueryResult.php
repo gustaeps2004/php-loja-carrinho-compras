@@ -11,5 +11,6 @@
     public string $CaminhoImagem;
     public string $Categoria;
     public string $Valor;
+    public ?bool $Selecionado;
   }
 ?>

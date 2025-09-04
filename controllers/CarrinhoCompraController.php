@@ -29,7 +29,10 @@ class CarrinhoCompraController extends BaseController
     $produtosCarrinho = $this->_carrinhoCompraService->listar($usuarioID);
 
     if (empty($produtosCarrinho))
+    {
+      $this->inserirValorTotal("0,00");
       return;
+    }
 
     $apensUmItem = OpcaoExclusaoProdutoCarrinho::Item->value;
     $completo = OpcaoExclusaoProdutoCarrinho::Completo->value;
@@ -39,6 +42,7 @@ class CarrinhoCompraController extends BaseController
     foreach ($produtosCarrinho as $produto)
     {
       $valorTotal += $produto->Valor * $produto->QuantidadeItem;
+      $checked = $produto->Selecionado == true ? "checked" : "";
 
       echo '<div class="opcaoCarrinho">
               <p>'.$produto->Titulo.'</p>
@@ -49,7 +53,6 @@ class CarrinhoCompraController extends BaseController
                 <p>Valor unitário: R$ '.number_format($produto->Valor, 2, ',', '.').'</p>
                 <p>Valor total: R$ '.number_format($produto->Valor * $produto->QuantidadeItem, 2, ',', '.').'</p>
                 <p>Data inclusão: '.StringFormats::formatarData($produto->DtInclusao).'</p>
-                <p>Data alteração: '.StringFormats::formatarData($produto->DtSituacao).'</p>
               </div>
               <div class="opcoesCarrinhoButtons">
                 <form action="../../assets/functions/processaFormRemoveProdutoCarrinho.php?opcao='.$apensUmItem.'&carrinhoID='.$produto->ID.'" method="POST">
@@ -59,24 +62,36 @@ class CarrinhoCompraController extends BaseController
                   <button class="btnRemoveProduto">REMOVER PRODUTO</button>
                 </form>
                 <div class="checkboxWrapper">
-                  <input type="checkbox" id="checkProduto" name="checkProduto" />
-                  <label for="checkProduto">Selecionar produto</label>
+                  <input 
+                      type="checkbox" 
+                      id="checkProduto_'.$produto->ID.'" 
+                      name="checkProduto" 
+                      '.$checked.'
+                      onchange="marcarProdutoSelecionado('.$produto->ID.')"/>
+                  <label for="checkProduto_'.$produto->ID.'">Selecionar produto</label>
                 </div>
               </div>
-            </div>'; 
+            </div>';
     }
 
-    echo "<script>
-            document.getElementById('valorTotalCarrinho').textContent = ".$valorTotal.".toLocaleString('pt-BR', {
-                                                                                          minimumFractionDigits: 2,
-                                                                                          maximumFractionDigits: 2
-                                                                                        })
-          </script>";
+    $this->inserirValorTotal(number_format($valorTotal, 2, ',', '.'));
   }
 
   public function remover(int $id, int $opcao) : void
   {
     $this->_carrinhoCompraService->remover($id, $opcao);
+  }
+
+  public function atualizarSelecionado(int $id, bool $selecionado) : void
+  {
+    $this->_carrinhoCompraService->atualizarSelecionado($id, $selecionado);
+  }
+
+  private function inserirValorTotal(string $valorTotal)
+  {
+    echo "<script>
+            document.getElementById('valorTotalCarrinho').textContent = '".$valorTotal."'
+          </script>";
   }
 }
 ?>

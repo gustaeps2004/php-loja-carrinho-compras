@@ -69,6 +69,11 @@ class CarrinhoCompraService implements ICarrinhoCompraService
     $this->_carrinhoCompraRepository->atualizarQuantidadeItem($id, $quantidadeNova);
   }
 
+  public function atualizarSelecionado(int $id, bool $selecionado) : void
+  {
+    $this->_carrinhoCompraRepository->atualizarSelecionado($id, $selecionado);
+  }
+
   private function existeRemocaoProduto(int $opcao, int $quantidadeNova) : bool
   {
     return $opcao == OpcaoExclusaoProdutoCarrinho::Completo->value || $quantidadeNova <= 0;

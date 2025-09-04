@@ -94,7 +94,8 @@ class CarrinhoCompraRepository implements ICarrinhoCompraRepository
               p.Descricao DescricaoProduto,
               p.CaminhoImagem,
               c.Descricao Categoria,
-              p.Valor
+              p.Valor,
+              cc.Selecionado
             FROM
               CarrinhoCompra cc
             INNER JOIN Produto p
@@ -136,6 +137,19 @@ class CarrinhoCompraRepository implements ICarrinhoCompraRepository
     $stmt->execute([':id' => $id]);
 
     return $stmt->fetchObject(CarrinhoCompraQtdItemRawQueryResult::class) ?: null;
+  }
+
+  public function atualizarSelecionado(int $id, bool $selecionado) : void
+  {
+    $sql = "UPDATE CarrinhoCompra
+            SET Selecionado = :selecionado
+            WHERE ID = :id
+            LIMIT 1";
+
+    $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
+    $stmt->execute([
+      ':id' => $id,
+      ':selecionado' => $selecionado]);
   }
 }
 ?>

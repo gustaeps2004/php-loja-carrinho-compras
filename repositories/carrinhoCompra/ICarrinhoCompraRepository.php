@@ -12,5 +12,6 @@ interface ICarrinhoCompraRepository
   public function listar(int $usuarioID) : array;
   public function remover(int $id) : void;
   public function obterQtdItemPorId(int $id) : ?CarrinhoCompraQtdItemRawQueryResult;
+  public function atualizarSelecionado(int $id, bool $selecionado) : void;
 }
 ?>

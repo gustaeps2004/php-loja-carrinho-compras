@@ -10,6 +10,7 @@
     public int $QuantidadeItem;
     public int $PedidoID;
     public int $ProdutoID;
+    public ?bool $Selecionado;
 
     public function __construct(
       int $quantidadeItem,
@@ -21,6 +22,7 @@
       $this->QuantidadeItem = $quantidadeItem;
       $this->PedidoID = $pedidoID;
       $this->ProdutoID = $produtoID;
+      $this->Selecionado = false;
     }
 
     public function validar() : void
