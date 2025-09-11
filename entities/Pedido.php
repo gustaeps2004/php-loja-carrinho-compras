@@ -9,6 +9,8 @@ use DateTime;
     public DateTime $DtInclusao;
     public int $Situacao;
     public int $UsuarioID;
+    public ?float $ValorTotal;
+    public ?int $FormaPagamento;
 
     public function __construct(int $usuarioID)
     {

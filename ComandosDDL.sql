@@ -100,12 +100,30 @@ use loja;
 alter table CarrinhoCompra
 add column DtSituacao DATETIME NULL;
 
-
 use loja;
 alter table Produto
 add column Valor decimal(18, 2);
 
+use loja;
+alter table Pedido
+add column ValorTotal decimal(18,2) null;
 
+use loja;
+alter table Pedido
+add column FormaPagamento INT null;
+
+use loja;
+create table PedidoProduto(
+	ID INT NOT NULL auto_increment,
+    PedidoID INT NOT NULL,
+    ProdutoID INT NOT NULL,
+    Quantidade INT NOT NULL,
+    DtInclusao DATETIME NOT NULL,
+    
+	PRIMARY KEY(ID),
+    FOREIGN KEY (PedidoID) REFERENCES Pedido(ID),
+    FOREIGN KEY (ProdutoID) REFERENCES Produto(ID)
+);
 
 
 
