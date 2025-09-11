@@ -11,7 +11,7 @@ function obterUsuario() {
 
 function marcarProdutoSelecionado(id) {
   const checkbox = document.getElementById('checkProduto_' + id);
-  window.location.href = `../../assets/functions/marcaCheckboxProduto.php?produtoID=${id}&checked=${checkbox.checked}`
+  window.location.href = `../../assets/functions/marcaCheckboxProduto.php?produtoID=${id}&checked=${checkbox.checked}&usuarioID=${obterUsuario()}`
 }
 
 function parseJwt(token) {

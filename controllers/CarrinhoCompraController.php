@@ -54,10 +54,10 @@ class CarrinhoCompraController extends BaseController
                 <p>Data inclusão: '.StringFormats::formatarData($produto->DtInclusao).'</p>
               </div>
               <div class="opcoesCarrinhoButtons">
-                <form action="../../assets/functions/processaFormRemoveProdutoCarrinho.php?opcao='.$apensUmItem.'&carrinhoID='.$produto->ID.'" method="POST">
+                <form action="../../assets/functions/processaFormRemoveProdutoCarrinho.php?opcao='.$apensUmItem.'&carrinhoID='.$produto->ID.'&usuarioID='.$usuarioID.'" method="POST">
                   <button class="btnRemoveItem">REMOVER ITEM</button>
                 </form>
-                <form action="../../assets/functions/processaFormRemoveProdutoCarrinho.php?opcao='.$completo.'&carrinhoID='.$produto->ID.'" method="POST">
+                <form action="../../assets/functions/processaFormRemoveProdutoCarrinho.php?opcao='.$completo.'&carrinhoID='.$produto->ID.'&usuarioID='.$usuarioID.'" method="POST">
                   <button class="btnRemoveProduto">REMOVER PRODUTO</button>
                 </form>
                 <div class="checkboxWrapper">

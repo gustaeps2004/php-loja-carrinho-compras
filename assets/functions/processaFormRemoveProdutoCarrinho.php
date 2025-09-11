@@ -14,6 +14,6 @@ use APP\Controllers\CarrinhoCompraController;
 
   $carrinhoController->remover($carrinhoID, $opcao);
 
-  header("Location: ../../html/carrinho/carrinho.php");
+  header("Location: ../../html/carrinho/carrinho.php?usuarioID=".$_GET["usuarioID"]);
   exit;
 ?>
