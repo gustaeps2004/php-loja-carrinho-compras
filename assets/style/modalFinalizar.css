@@ -1,0 +1,101 @@
+.modal{
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 30px;
+  width: 450px;
+  max-height: 45vh;
+  position: relative;
+  border-radius: 8px;
+  overflow-y: scroll;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  color: black;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.step {
+  display: none;
+  color: black;
+}
+
+.step.active {
+  display: block;
+}
+
+
+.modal-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-buttons-progress {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-buttons-regress {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 10px;
+}
+
+.next-btn,
+.finish-btn,
+.prev-btn {
+  height: 35px;
+  width: 100px;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #ffff;
+  border: 1px solid #ffff;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.next-btn {
+  background-color: #03A9F4;
+}
+
+.prev-btn {
+  background-color: #6B7280;
+}
+
+.finish-btn:hover {
+  transition: 0.3s;
+  background-color: #BD2130;
+}
+
+.finish-btn {
+  background-color: #FF0000;
+}
+
+.prev-btn:hover {
+  transition: 0.3s;
+  background-color: #9E9E9E;
+}
+
+.next-btn:hover {
+  transition: 0.3s;
+  background-color: #036499;
+}

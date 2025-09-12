@@ -6,8 +6,10 @@
 	<link rel="stylesheet" type="text/css" href="../../assets/style/carrinho.css">
 	<link rel="stylesheet" type="text/css" href="../../assets/style/site.css">
 	<link rel="stylesheet" type="text/css" href="../../assets/style/sidebar.css">
+	<link rel="stylesheet" type="text/css" href="../../assets/style/modalFinalizar.css">
 	<script type="text/javascript" src="../../assets/js/carrinho.js" defer></script>
 	<script type="text/javascript" src="../../assets/js/index.js" defer></script>
+	<script type="text/javascript" src="../../assets/js/modalFinalizar.js" defer></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <title>Carrinho</title>
 </head>
@@ -39,9 +41,7 @@
 	<div class="content">
 		<section>
 			<div class="opcoes-finalizacao-carrinho">
-				<form action="">
-					<button>Finalizar</button>
-				</form>
+				<button id="openModalForm">Finalizar</button>
 				<p><b>Valor total: R$ <span id="valorTotalCarrinho"></b> </span></p>
 			</div>
 
@@ -54,7 +54,67 @@
 						$controller->listar($_GET["usuarioID"]);
 					?>
 				</div>
-			</div>	  
+			</div>
+
+			<div id="modal" class="modal">
+				<div class="modal-content">
+					<span class="close-btn" id="closeModalBtn">&times;</span>
+
+					<div class="step" id="step1">
+						<h1>Confirmar produtos</h1>
+						<P>CONTEÚDO 1</P>
+
+						<div class="modal-buttons">
+							<div class="modal-buttons-regress"></div>
+							<div class="modal-buttons-progress">
+								<button class="next-btn">Próximo</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="step" id="step2">
+						<h1>Confirmar endereço</h1>
+						<P>CONTEÚDO 2</P>
+
+						<div class="modal-buttons">
+							<div class="modal-buttons-regress">
+								<button class="prev-btn">Voltar</button>
+							</div>
+							<div class="modal-buttons-progress">
+								<button class="next-btn">Próximo</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="step" id="step3">
+						<h1>Métodos de pagamento</h1>
+						<P>CONTEÚDO 3</P>
+
+						<div class="modal-buttons">
+							<div class="modal-buttons-regress">
+								<button class="prev-btn">Voltar</button>
+							</div>
+							<div class="modal-buttons-progress">
+								<button class="next-btn">Concluir</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="step" id="step4">
+						<h1>Pagamento finalizado</h1>
+						<P>CONTEÚDO 4</P>
+
+						<div class="modal-buttons">
+							<div class="modal-buttons-regress">
+								<button class="prev-btn">Voltar</button>
+							</div>
+							<div class="modal-buttons-progress">
+							<button class="finish-btn">Fechar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</section>
 	</div>
 	<footer>Copyright &copy; ADS2025</footer>
