@@ -7,9 +7,11 @@
 	<link rel="stylesheet" type="text/css" href="../../assets/style/site.css">
 	<link rel="stylesheet" type="text/css" href="../../assets/style/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="../../assets/style/modalFinalizar.css">
+	<link rel="stylesheet" type="text/css" href="../../assets/style/popUp.css">
 	<script type="text/javascript" src="../../assets/js/carrinho.js" defer></script>
 	<script type="text/javascript" src="../../assets/js/index.js" defer></script>
-	<script type="text/javascript" src="../../assets/js/modalFinalizar.js" defer></script>
+	<script type="module" src="../../assets/js/modalFinalizar.js"></script>
+	<script type="module" src="../../assets/js/popUp.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <title>Carrinho</title>
 </head>
@@ -74,8 +76,36 @@
 
 					<div class="step" id="step2">
 						<h1>Confirmar endereço</h1>
-						<P>CONTEÚDO 2</P>
-
+						
+						<div class="content-step">
+							<div class="content-step-inputs">
+								<div class="field">
+									<input id="cep" type="text" placeholder=" " required>
+									<label for="cep">CEP</label>
+								</div>
+								<div class="field">
+									<input id="logradouro" type="text" placeholder=" " required>
+									<label for="logradouro">Logradouro</label>
+								</div>
+								<div class="field">
+									<input id="numero" type="text" placeholder=" " required>
+									<label for="numero">Número</label>
+								</div>
+								<div class="field">
+									<input id="complemento" type="text" placeholder=" " required>
+									<label for="complemento">Complemento</label>
+								</div>
+								<div class="field">
+									<input id="cidade" type="text" placeholder=" " required>
+									<label for="cidade">Cidade</label>
+								</div>
+								<div class="field">
+									<input id="estado" type="text" placeholder=" " required>
+									<label for="estado">Estado</label>
+								</div>
+							</div>
+						</div>
+						<br>
 						<div class="modal-buttons">
 							<div class="modal-buttons-regress">
 								<button class="prev-btn">Voltar</button>
@@ -117,6 +147,13 @@
 			</div>
 		</section>
 	</div>
+	<div id="popup" class="popup">
+		<div class="popup-content">
+			<span id="fecharPopup" class="fechar">&times;</span>
+			<p id="mensagem-pop-up"></p>
+		</div>
+	</div>
+
 	<footer>Copyright &copy; ADS2025</footer>
 </body>
 </html>

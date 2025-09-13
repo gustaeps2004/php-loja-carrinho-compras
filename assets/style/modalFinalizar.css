@@ -14,7 +14,7 @@
   background-color: #fff;
   margin: 10% auto;
   padding: 30px;
-  width: 450px;
+  width: 350px;
   max-height: 45vh;
   position: relative;
   border-radius: 8px;
@@ -98,4 +98,53 @@
 .next-btn:hover {
   transition: 0.3s;
   background-color: #036499;
+}
+
+.field {
+  position: relative;
+  margin: 16px 0;
+  width: 280px;
+}
+
+.field input {
+  width: 100%;
+  height: 5px;
+  padding: 14px 12px;
+  font-size: 14px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  background: transparent;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.field input:focus {
+  border-color: #03A9F4;
+  box-shadow: 0 0 0 3px rgba(3,169,244,.15);
+}
+
+.field label {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  padding: 0 4px;
+  background: #fff;       
+  color: #6b7280;
+  font-size: 14px;
+  pointer-events: none;
+  transition: .18s ease;
+}
+
+.field input:focus + label,
+.field input:not(:placeholder-shown) + label {
+  top: -8px;
+  font-size: 12px;
+  color: #03A9F4;
+}
+
+.content-step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
