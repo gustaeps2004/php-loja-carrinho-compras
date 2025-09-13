@@ -10,12 +10,11 @@ fechar.addEventListener("click", () => {
 export function abrirPopup(sucesso, mensagem) {
   popup.style.display = "block";
 
-  if (sucesso)
-    popup.style.backgroundColor = "#008eb6";
-  else
-    popup.style.backgroundColor = "#FF0000";
+  const color = sucesso ? "#008eb6" : "#FF0000"
 
-   document.getElementById("mensagem-pop-up").textContent = mensagem
+  popup.style.backgroundColor = color
+
+  document.getElementById("mensagem-pop-up").textContent = mensagem
 
   clearTimeout(timeoutId);
   timeoutId = setTimeout(() => {
