@@ -2,13 +2,14 @@
 
 interface ICarrinhoCompraService
 {
-  public function inserir(
+  function inserir(
     int $quantidadeItem,
     int $usuarioID,
     int $produtoID) : void;
     
-  public function listar(int $usuarioID) : array;
-  public function remover(int $id, int $opcao) : void;
-  public function atualizarSelecionado(int $id, bool $selecionado) : void;
+  function listar(int $usuarioID) : array;
+  function remover(int $id, int $opcao) : void;
+  function atualizarSelecionado(int $id, bool $selecionado) : void;
+  function listarSelecionados(int $usuarioID) : array;
 }
 ?>

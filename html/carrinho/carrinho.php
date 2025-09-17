@@ -64,7 +64,13 @@
 
 					<div class="step" id="step1">
 						<h1>Confirmar produtos</h1>
-						<P>CONTEÚDO 1</P>
+						
+						<?php
+							$container = require __DIR__.'../../../index.php';
+							$controller = $container->get(APP\Controllers\CarrinhoCompraController::class);
+							
+							$controller->listarSelecionados($_GET["usuarioID"]);							
+						?>
 
 						<div class="modal-buttons">
 							<div class="modal-buttons-regress"></div>
@@ -118,7 +124,18 @@
 
 					<div class="step" id="step3">
 						<h1>Métodos de pagamento</h1>
-						<P>CONTEÚDO 3</P>
+
+						<div class="content-step-metodo">
+							<div class="content-step-metodo-pagamento">
+								<p>Selecione um método de paramento:</p>
+								<select name="selmetodopagamento" id="metodo-pagamento">
+									<option value="">Escolha</option>
+									<option value="1">Débito</option>
+									<option value="2">Crédito</option>
+									<option value="3">Pix</option>
+								</select>
+							</div>
+						</div>
 
 						<div class="modal-buttons">
 							<div class="modal-buttons-regress">
@@ -126,20 +143,6 @@
 							</div>
 							<div class="modal-buttons-progress">
 								<button class="next-btn">Concluir</button>
-							</div>
-						</div>
-					</div>
-
-					<div class="step" id="step4">
-						<h1>Pagamento finalizado</h1>
-						<P>CONTEÚDO 4</P>
-
-						<div class="modal-buttons">
-							<div class="modal-buttons-regress">
-								<button class="prev-btn">Voltar</button>
-							</div>
-							<div class="modal-buttons-progress">
-							<button class="finish-btn">Fechar</button>
 							</div>
 						</div>
 					</div>

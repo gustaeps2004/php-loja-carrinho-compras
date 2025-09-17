@@ -78,5 +78,19 @@ class CarrinhoCompraService implements ICarrinhoCompraService
   {
     return $opcao == OpcaoExclusaoProdutoCarrinho::Completo->value || $quantidadeNova <= 0;
   }
+
+  public function listarSelecionados(int $usuarioID) : array
+  {
+    $carrinho = $this->_carrinhoCompraRepository->listarSelecionados($usuarioID);
+    
+    $selecionados = array_filter($carrinho, function ($item) {
+      return $item->Selecionado == true;
+    });
+  
+    if (empty($selecionados))
+      return $carrinho;
+
+    return $selecionados;
+  }
 }
 ?>

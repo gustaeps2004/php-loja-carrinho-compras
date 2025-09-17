@@ -1,9 +1,11 @@
 <?php namespace APP\Repositories\CarrinhoCompra;
 
 use APP\Entities\CarrinhoCompra;
+use APP\Messaging\RawQueryResult\Base\ResultadoRawQueryResult;
 use APP\Messaging\RawQueryResult\CarrinhoCompra\CarrinhoCompraExistenteRawQueryResult;
 use APP\Messaging\RawQueryResult\CarrinhoCompra\CarrinhoCompraQtdItemRawQueryResult;
 use APP\Messaging\RawQueryResult\CarrinhoCompra\CarrinhoCompraRawQueryResult;
+use APP\Messaging\RawQueryResult\CarrinhoCompra\CarrinhoConfirmaProdutosRawQueryResult;
 use APP\Repositories\Connections\MySql\IMySqlConnection;
 use DateTime;
 use PDO;
@@ -150,6 +152,30 @@ class CarrinhoCompraRepository implements ICarrinhoCompraRepository
     $stmt->execute([
       ':id' => $id,
       ':selecionado' => $selecionado]);
+  }
+
+  public function listarSelecionados(int $usuarioID) : array
+  {
+    $sql = "SELECT
+              prd.Titulo,
+              prd.Valor,
+              cc.QuantidadeItem,
+              cc.Selecionado
+            FROM
+              CarrinhoCompra cc
+            INNER JOIN Pedido p
+              ON cc.PedidoID = p.ID
+            INNER JOIN Produto prd
+              ON cc.ProdutoID = prd.ID
+            WHERE
+              p.UsuarioID = :usuarioID";
+
+    $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
+    $stmt->execute([
+      ':usuarioID' => $usuarioID
+    ]);
+
+    return $stmt->fetchAll(PDO::FETCH_CLASS, CarrinhoConfirmaProdutosRawQueryResult::class) ?: [];
   }
 }
 ?>

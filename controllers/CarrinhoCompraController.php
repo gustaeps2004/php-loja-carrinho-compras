@@ -86,6 +86,29 @@ class CarrinhoCompraController extends BaseController
     $this->_carrinhoCompraService->atualizarSelecionado($id, $selecionado);
   }
 
+  public function listarSelecionados(int $usuarioID)
+  {
+    $carrinho = $this->_carrinhoCompraService->listarSelecionados($usuarioID);
+    
+    if (empty($carrinho))
+    {
+      return;
+    }
+
+    foreach ($carrinho as $produtoCarrinho)
+    {
+      $valorTotalItem = $produtoCarrinho->QuantidadeItem * $produtoCarrinho->Valor;
+
+      echo '<div class="content-step-confirmacao">
+              <div class="content-step-confirmacao-produto">
+                <p class="content-step-confirmacao-produto-paragrafo">Produto: '.$produtoCarrinho->Titulo.'</p>
+                <p class="content-step-confirmacao-produto-paragrafo">Quantidade: '.$produtoCarrinho->QuantidadeItem.'</p>
+                <p class="content-step-confirmacao-produto-paragrafo">Valor total: '.number_format($valorTotalItem, 2, ',', '.').'</p>
+              </div>
+            </div>';
+    }
+  }
+
   private function inserirValorTotal(string $valorTotal)
   {
     echo "<script>

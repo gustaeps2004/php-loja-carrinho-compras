@@ -6,12 +6,13 @@ use APP\Messaging\RawQueryResult\CarrinhoCompra\CarrinhoCompraQtdItemRawQueryRes
 
 interface ICarrinhoCompraRepository
 {
-  public function inserir(CarrinhoCompra $carrinhoCompra) : void;
-  public function atualizarQuantidadeItem(int $id, int $quantidadeNova) : void;
-  public function obter(int $pedidoID, int $produtoID) : ?CarrinhoCompraExistenteRawQueryResult;
-  public function listar(int $usuarioID) : array;
-  public function remover(int $id) : void;
-  public function obterQtdItemPorId(int $id) : ?CarrinhoCompraQtdItemRawQueryResult;
-  public function atualizarSelecionado(int $id, bool $selecionado) : void;
+  function inserir(CarrinhoCompra $carrinhoCompra) : void;
+  function atualizarQuantidadeItem(int $id, int $quantidadeNova) : void;
+  function obter(int $pedidoID, int $produtoID) : ?CarrinhoCompraExistenteRawQueryResult;
+  function listar(int $usuarioID) : array;
+  function remover(int $id) : void;
+  function obterQtdItemPorId(int $id) : ?CarrinhoCompraQtdItemRawQueryResult;
+  function atualizarSelecionado(int $id, bool $selecionado) : void;
+  function listarSelecionados(int $usuarioID) : array;
 }
 ?>
