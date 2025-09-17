@@ -142,7 +142,7 @@
 								<button class="prev-btn">Voltar</button>
 							</div>
 							<div class="modal-buttons-progress">
-								<button class="next-btn">Concluir</button>
+								<button class="finish-btn">Concluir</button>
 							</div>
 						</div>
 					</div>

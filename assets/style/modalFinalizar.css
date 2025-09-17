@@ -73,7 +73,7 @@
   cursor: pointer;
 }
 
-.next-btn {
+.next-btn, .finish-btn {
   background-color: #03A9F4;
 }
 
@@ -81,21 +81,12 @@
   background-color: #6B7280;
 }
 
-.finish-btn:hover {
-  transition: 0.3s;
-  background-color: #BD2130;
-}
-
-.finish-btn {
-  background-color: #FF0000;
-}
-
 .prev-btn:hover {
   transition: 0.3s;
   background-color: #9E9E9E;
 }
 
-.next-btn:hover {
+.next-btn:hover, .finish-btn:hover  {
   transition: 0.3s;
   background-color: #036499;
 }
@@ -173,7 +164,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: red;
   height: 100%;
 }
 
