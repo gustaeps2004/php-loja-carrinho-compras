@@ -12,6 +12,9 @@ class PedidosController implements BaseController
     $this->_pedidoService = $pedidoService;
   }
 
-  
+  public function finalizar(int $usuarioID, int $metodoPagamento)
+  {
+    
+  }
 }
 ?>

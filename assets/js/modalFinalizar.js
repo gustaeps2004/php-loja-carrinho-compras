@@ -16,6 +16,7 @@ function showStep(index) {
 }
 
 openBtn.addEventListener('click', () => {
+  limparCampos()
   modal.style.display = 'block';
   showStep(currentStep);
 });
@@ -48,8 +49,8 @@ prevBtns.forEach(btn => {
 
 finishBtn.addEventListener('click', () => {
   limparCampos()
-  modal.style.display = 'none';
-  currentStep = 0;
+  
+  redirecionarPagamento()
 });
 
 document.getElementById("cep")?.addEventListener('input', function(e) {
@@ -69,9 +70,9 @@ function limparCampos() {
   document.getElementById("estado").value = null
 }
 
-document.getElementById("cep").addEventListener("blur", buscarCep);
+document.getElementById("cep").addEventListener("blur", buscarCepAsync);
 
-async function buscarCep() {
+async function buscarCepAsync() {
     const cep = document.getElementById("cep").value.replace(/\D/g, "")
     
     if (cep.length !== 8)
@@ -131,4 +132,10 @@ function enderecoValido() {
   }
 
   return true;
+}
+
+function redirecionarPagamento() {
+  const usuarioID = new URLSearchParams(document.location.search).get("usuarioID")
+  const metodoPagamento = document.getElementById('metodo-pagamento').value
+  window.location.href = `../../assets/functions/finalizarPagamentoCarrinho.php?usuarioID=${usuarioID}&metodoPagamento=${metodoPagamento}`
 }
