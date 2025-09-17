@@ -3,7 +3,7 @@
 use APP\Services\Pedido\IPedidoService;
 use APP\Controllers\Base\BaseController;
 
-class PedidosController implements BaseController
+class PedidosController extends BaseController
 {
   private readonly IPedidoService $_pedidoService;
 
@@ -14,7 +14,7 @@ class PedidosController implements BaseController
 
   public function finalizar(int $usuarioID, int $metodoPagamento)
   {
-    
+    $this->_pedidoService->finalizar($usuarioID, $metodoPagamento);
   }
 }
 ?>

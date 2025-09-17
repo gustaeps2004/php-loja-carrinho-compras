@@ -2,10 +2,6 @@
 
 class BaseController
 {
-  public function obterUsuarioLogado() : int
-  {
-    
-    return 1;
-  }
+
 }
 ?>

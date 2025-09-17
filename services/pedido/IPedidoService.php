@@ -2,6 +2,7 @@
 
 interface IPedidoService
 {
-  public function inserir(int $usuarioID) : int;
+  function inserir(int $usuarioID) : int;
+  function finalizar(int $usuarioID, int $metodoPagamento) : void;
 }
 ?>

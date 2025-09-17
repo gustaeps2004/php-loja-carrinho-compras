@@ -1,11 +1,14 @@
 <?php namespace APP\repositories\Pedido;
 
 use APP\Entities\Pedido;
+use APP\Entities\PedidoProduto;
 use APP\Messaging\RawQueryResult\Pedido\PedidoAtivoUsuarioRawQueryResult;
 
 interface IPedidoRepository
 {
-  public function obterAtivoPorUsuario($usuarioID) : ?PedidoAtivoUsuarioRawQueryResult;
-  public function inserir(Pedido $pedido) : void;
+  function obterAtivoPorUsuario($usuarioID) : ?PedidoAtivoUsuarioRawQueryResult;
+  function inserir(Pedido $pedido) : void;
+  function inserirPedidoProduto(PedidoProduto $pedidoProduto) : void;
+  function finalizar(int $id, float $valorTotal, int $formaPagamento) : void;
 }
 ?>

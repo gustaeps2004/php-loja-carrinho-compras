@@ -2,6 +2,7 @@
 
 use APP\Assets\Enums\SituacaoPedido;
 use APP\Entities\Pedido;
+use APP\Entities\PedidoProduto;
 use APP\Messaging\RawQueryResult\Pedido\PedidoAtivoUsuarioRawQueryResult;
 use APP\Repositories\Connections\MySql\IMySqlConnection;
 
@@ -54,6 +55,49 @@ class PedidoRepository implements IPedidoRepository
       ':situacao' => $pedido->Situacao,
       ':dtInclusao' => $pedido->DtInclusao->modify('-5 hours')->format('Y-m-d H:i:s'),
       ':usuarioID' => $pedido->UsuarioID
+    ]);
+  }
+
+  public function inserirPedidoProduto(PedidoProduto $pedidoProduto) : void
+  {
+    $sql = "INSERT INTO PedidoProduto(
+              PedidoID,
+              ProdutoID,
+              Quantidade,
+              Valor,
+              DtInclusao)
+            VALUES(
+              :pedidoID,
+              :produtoID,
+              :quantidade,
+              :valor,
+              :dtInclusao)";
+
+    $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
+    $stmt->execute([
+      ':pedidoID' => $pedidoProduto->PedidoID,
+      ':produtoID' => $pedidoProduto->ProdutoID,
+      ':quantidade' => $pedidoProduto->Quantidade,
+      ':valor' => $pedidoProduto->Valor,
+      ':dtInclusao' => $pedidoProduto->DtInclusao->modify('-5 hours')->format('Y-m-d H:i:s'),
+    ]);
+  }
+
+  public function finalizar(int $id, float $valorTotal, int $formaPagamento) : void
+  {
+    $sql = "UPDATE Pedido
+            SET ValorTotal = :valorTotal,
+              FormaPagamento = :formaPagamento,
+              Situacao = :situacao
+            WHERE
+              ID = :id";
+
+    $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
+    $stmt->execute([
+      ':valorTotal' => $valorTotal,
+      ':formaPagamento' => $formaPagamento,
+      ':situacao' => SituacaoPedido::Finalizado->value,
+      ':id' => $id
     ]);
   }
 }

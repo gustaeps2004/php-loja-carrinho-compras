@@ -14,5 +14,6 @@ interface ICarrinhoCompraRepository
   function obterQtdItemPorId(int $id) : ?CarrinhoCompraQtdItemRawQueryResult;
   function atualizarSelecionado(int $id, bool $selecionado) : void;
   function listarSelecionados(int $usuarioID) : array;
+  function atualizarNaoFinalizados(int $usuarioID, int $pedidoID) : void;
 }
 ?>

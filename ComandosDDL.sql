@@ -125,5 +125,9 @@ create table PedidoProduto(
     FOREIGN KEY (ProdutoID) REFERENCES Produto(ID)
 );
 
+use loja;
+alter table PedidoProduto
+add column Valor decimal(18, 2) null;
+
 
 

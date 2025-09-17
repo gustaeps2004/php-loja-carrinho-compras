@@ -4,8 +4,12 @@ use APP\Controllers\PedidosController;
 
 $pedidosController = $container->get(PedidosController::class);
 
+$usuarioID = 
+
 $pedidosController->finalizar(
   (int)$_GET["usuarioID"],
   (int)$_GET["metodoPagamento"]
 );
+
+
 ?>

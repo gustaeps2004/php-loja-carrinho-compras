@@ -1,7 +1,6 @@
 <?php namespace APP\Repositories\CarrinhoCompra;
 
 use APP\Entities\CarrinhoCompra;
-use APP\Messaging\RawQueryResult\Base\ResultadoRawQueryResult;
 use APP\Messaging\RawQueryResult\CarrinhoCompra\CarrinhoCompraExistenteRawQueryResult;
 use APP\Messaging\RawQueryResult\CarrinhoCompra\CarrinhoCompraQtdItemRawQueryResult;
 use APP\Messaging\RawQueryResult\CarrinhoCompra\CarrinhoCompraRawQueryResult;
@@ -160,7 +159,9 @@ class CarrinhoCompraRepository implements ICarrinhoCompraRepository
               prd.Titulo,
               prd.Valor,
               cc.QuantidadeItem,
-              cc.Selecionado
+              cc.Selecionado,
+              cc.ID,
+              cc.ProdutoID
             FROM
               CarrinhoCompra cc
             INNER JOIN Pedido p
@@ -176,6 +177,26 @@ class CarrinhoCompraRepository implements ICarrinhoCompraRepository
     ]);
 
     return $stmt->fetchAll(PDO::FETCH_CLASS, CarrinhoConfirmaProdutosRawQueryResult::class) ?: [];
+  }
+
+  public function atualizarNaoFinalizados(int $usuarioID, int $pedidoID) : void
+  {
+    $sql = "UPDATE CarrinhoCompra
+            SET PedidoID = :pedidoID
+            WHERE ID IN (
+                SELECT * FROM (
+                  SELECT cc.ID
+                  FROM CarrinhoCompra cc
+                  INNER JOIN Pedido p ON cc.PedidoID = p.ID
+                  WHERE p.UsuarioID = :usuarioID
+                ) AS temp_upd
+            )";
+
+    $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
+    $stmt->execute([
+      ':pedidoID' => $pedidoID,
+      ':usuarioID' => $usuarioID
+    ]);
   }
 }
 ?>

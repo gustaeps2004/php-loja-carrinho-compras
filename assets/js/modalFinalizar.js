@@ -137,5 +137,6 @@ function enderecoValido() {
 function redirecionarPagamento() {
   const usuarioID = new URLSearchParams(document.location.search).get("usuarioID")
   const metodoPagamento = document.getElementById('metodo-pagamento').value
+  
   window.location.href = `../../assets/functions/finalizarPagamentoCarrinho.php?usuarioID=${usuarioID}&metodoPagamento=${metodoPagamento}`
 }
