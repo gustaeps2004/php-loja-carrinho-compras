@@ -8,14 +8,14 @@
 	<link rel="stylesheet" type="text/css" href="../../assets/style/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="../../assets/style/modalFinalizar.css">
 	<link rel="stylesheet" type="text/css" href="../../assets/style/popUp.css">
-	<script type="text/javascript" src="../../assets/js/carrinho.js" defer></script>
-	<script type="text/javascript" src="../../assets/js/index.js" defer></script>
 	<script type="module" src="../../assets/js/modalFinalizar.js"></script>
+	<script type="text/javascript" src="../../assets/js/carrinho.js" defer></script>
+	<script type="module" src="../../assets/js/index.js"></script>
 	<script type="module" src="../../assets/js/popUp.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <title>Carrinho</title>
 </head>
-<body onload="ValidarToken(false)">
+<body>
   <header>
 		<img src="../../assets/imgs/logo.png" alt="Logo da página" title="Logo da página">
 		<h1>Fechar Pedido</h1>

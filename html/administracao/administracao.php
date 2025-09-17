@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="../../assets/style/site.css">
 	<link rel="stylesheet" type="text/css" href="../../assets/style/sidebar.css">
-	<script type="text/javascript" src="../../assets/js/index.js" defer></script>
+	<script type="module" src="../../assets/js/index.js"></script>
 	<script type="text/javascript" src="../../assets/js/carrinho.js" defer></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<title>Administração</title>
 </head>
-<body onload="ValidarToken(true)">
+<body>
   <header>
 		<img src="../../assets/imgs/logo.png" alt="Logo da página" title="Logo da página">
 		<h1>Administração</h1>

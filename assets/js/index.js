@@ -1,3 +1,5 @@
+const urlLogin = "http://localhost:8080/LojaCarrinhoCompras/html/login/login.php"
+
 function FormatarDocumento(){
   var documento = ObterCampoInput("documento").replace(/\D/g, '')
 
@@ -55,13 +57,7 @@ function ValidarToken(telaAdm) {
 
 function RedirecionarLogin(telaAdm) {
   RemoverToken()
-
-  if (telaAdm){
-    window.location.href = "../login/login.php"
-    return
-  }
-
- window.location.href = "../html/login/login.php"
+  window.location.href = urlLogin
 }
 
 function RemoverToken() {
@@ -91,6 +87,10 @@ function InserirValoresIniciais(data) {
 function formatarValorProduto() {
   let valor = ObterCampoInput("valorProduto").replace(/[^0-9,]/g, '').replace(/,(?=.*?,)/g, '');
   InserirValorInput("valorProduto", `R$ ${valor}`)
+}
+
+export function validarTokenCompraFinalizada() {
+  ValidarToken()
 }
 
 $(document).ready(function () {
@@ -148,3 +148,9 @@ $(document).ready(function () {
     $(this).val(formatado)
   })
 })
+
+window.onload = function() {
+  if (window.location.href == urlLogin) return
+
+  ValidarToken();
+};

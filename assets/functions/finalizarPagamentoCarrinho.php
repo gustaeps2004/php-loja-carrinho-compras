@@ -9,6 +9,6 @@ $pedidosController->finalizar(
   (int)$_GET["metodoPagamento"]
 );
 
-header("Location: ../../html/carrinho/carrinho.php?usuarioID=".$_GET["usuarioID"])."&compraFinalizada=true";
+header("Location: ../../html/carrinho/carrinho.php?usuarioID=".$_GET["usuarioID"]."&compraFinalizada=true");
 exit;
 ?>
