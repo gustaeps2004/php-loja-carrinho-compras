@@ -89,10 +89,6 @@ function formatarValorProduto() {
   InserirValorInput("valorProduto", `R$ ${valor}`)
 }
 
-export function validarTokenCompraFinalizada() {
-  ValidarToken()
-}
-
 $(document).ready(function () {
   $('#formFaleConosco').on('submit', function (e) {
     let cpf = $('#documento').val().trim()
