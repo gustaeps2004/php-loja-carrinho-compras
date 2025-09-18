@@ -43,8 +43,10 @@
 	<div class="content">
 		<section>
 			<div class="opcoes-finalizacao-carrinho">
-				<button id="openModalForm">Finalizar</button>
+				<button id="openModalForm" class="carrinho-btn-finalizar">Finalizar</button>
 				<p><b>Valor total: R$ <span id="valorTotalCarrinho"></b> </span></p>
+
+				<button id="cancelar-carrinho" class="carrinho-btn-cancelar">Cancelar</button>
 			</div>
 
 			<div class="principalProdutos">

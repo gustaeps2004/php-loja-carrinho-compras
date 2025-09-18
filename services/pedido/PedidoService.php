@@ -78,5 +78,15 @@ class PedidoService implements IPedidoService
 
     return $selecionados;
   }
+
+  public function cancelar(int $usuarioID) : void
+  {
+    $pedido = $this->_pedidoRepository->obterAtivoPorUsuario($usuarioID);
+
+    if ($pedido == null)
+      return;
+
+    $this->_pedidoRepository->cancelar($pedido->ID);
+  }
 }
 ?>

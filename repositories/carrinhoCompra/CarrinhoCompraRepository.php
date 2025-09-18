@@ -1,5 +1,6 @@
 <?php namespace APP\Repositories\CarrinhoCompra;
 
+use APP\Assets\Enums\SituacaoPedido;
 use APP\Entities\CarrinhoCompra;
 use APP\Messaging\RawQueryResult\CarrinhoCompra\CarrinhoCompraExistenteRawQueryResult;
 use APP\Messaging\RawQueryResult\CarrinhoCompra\CarrinhoCompraQtdItemRawQueryResult;
@@ -106,11 +107,13 @@ class CarrinhoCompraRepository implements ICarrinhoCompraRepository
             INNER JOIN Pedido pd
               ON cc.PedidoID = pd.ID
             WHERE
-              pd.UsuarioID = :usuarioID";
+              pd.UsuarioID = :usuarioID
+            AND pd.Situacao = :situacao";
 
     $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
     $stmt->execute([
-      ':usuarioID' => $usuarioID
+      ':usuarioID' => $usuarioID,
+      ':situacao' => SituacaoPedido::Ativo->value
     ]);
 
     return $stmt->fetchAll(PDO::FETCH_CLASS, CarrinhoCompraRawQueryResult::class) ?: [];
@@ -169,11 +172,13 @@ class CarrinhoCompraRepository implements ICarrinhoCompraRepository
             INNER JOIN Produto prd
               ON cc.ProdutoID = prd.ID
             WHERE
-              p.UsuarioID = :usuarioID";
+              p.UsuarioID = :usuarioID
+            AND p.Situacao = :situacao";
 
     $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
     $stmt->execute([
-      ':usuarioID' => $usuarioID
+      ':usuarioID' => $usuarioID,
+      ':situacao' => SituacaoPedido::Ativo->value
     ]);
 
     return $stmt->fetchAll(PDO::FETCH_CLASS, CarrinhoConfirmaProdutosRawQueryResult::class) ?: [];

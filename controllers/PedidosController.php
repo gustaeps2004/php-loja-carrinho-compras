@@ -16,5 +16,10 @@ class PedidosController extends BaseController
   {
     $this->_pedidoService->finalizar($usuarioID, $metodoPagamento);
   }
+
+  public function cancelar(int $usuarioID)
+  {
+    $this->_pedidoService->cancelar($usuarioID);
+  }
 }
 ?>

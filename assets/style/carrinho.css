@@ -81,18 +81,31 @@
   justify-content: flex-start;
 }
 
-.opcoes-finalizacao-carrinho button {
+.opcoes-finalizacao-carrinho button{
   height: 40px;
 	width: 200px;
-  font-size: 17px;
+  font-size: 18px;
 	border-radius: 10px;
   border: 1px solid #ffffff;
 	color: #ffffff;
+}
+
+.carrinho-btn-finalizar {
   background-color: #008eb6;
   margin-left: 35px;
 }
 
-.opcoes-finalizacao-carrinho button:hover {
+.carrinho-btn-finalizar:hover {
   background-color: #84afd3;
 	transition: 0.2s;
+}
+
+.carrinho-btn-cancelar {
+  background-color: #FF0000;
+  margin-left: 50%;
+}
+
+.carrinho-btn-cancelar:hover {
+  transition: 0.3s;
+  background-color: #BD2130;
 }

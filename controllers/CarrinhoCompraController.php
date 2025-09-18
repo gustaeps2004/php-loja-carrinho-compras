@@ -92,6 +92,11 @@ class CarrinhoCompraController extends BaseController
     
     if (empty($carrinho))
     {
+      echo '<div class="content-step-confirmacao">
+              <div class="content-step-confirmacao-produto">
+                <p class="content-step-confirmacao-produto-paragrafo">Adicione um produto em seu carrinho!</p>
+              </div>
+            </div>';
       return;
     }
 

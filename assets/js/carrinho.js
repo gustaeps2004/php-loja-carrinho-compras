@@ -1,3 +1,5 @@
+const cancelarBtn = document.getElementById("cancelar-carrinho")
+
 function abrirCarrinho(caminho) {
   window.location.href = `${caminho}?usuarioID=${obterUsuario()}`
 }
@@ -35,3 +37,9 @@ function adicionarUsuarioNaURL(form) {
   form.action += `?usuarioID=${encodeURIComponent(usuarioID)}`;
   return true; 
 }
+
+cancelarBtn.addEventListener('click', () => {
+  const usuarioID = new URLSearchParams(document.location.search).get("usuarioID")
+  
+  window.location.href = `../../assets/functions/cancelarCarrinho.php?usuarioID=${usuarioID}`
+});

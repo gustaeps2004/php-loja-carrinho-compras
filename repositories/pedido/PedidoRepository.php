@@ -100,5 +100,19 @@ class PedidoRepository implements IPedidoRepository
       ':id' => $id
     ]);
   }
+
+  public function cancelar(int $id) : void
+  {
+    $sql = "UPDATE Pedido
+            SET Situacao = :situacao
+            WHERE
+              ID = :id";
+
+    $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
+    $stmt->execute([
+    ':situacao' => SituacaoPedido::Cancelado->value,
+    ':id' => $id
+    ]);
+  }
 }
 ?>
