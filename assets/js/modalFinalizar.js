@@ -6,6 +6,7 @@ const nextBtns = document.querySelectorAll('.next-btn')
 const prevBtns = document.querySelectorAll('.prev-btn')
 const finishBtn = document.querySelector('.finish-btn')
 import { abrirPopup } from './popUp.js'
+import { validarTokenCompraFinalizada } from './index.js'
 
 let currentStep = 0;
 
@@ -142,6 +143,7 @@ function redirecionarPagamento() {
 }
 
 function compraFinalizada() {
+  validarTokenCompraFinalizada()
   const compraFinalizada = new URLSearchParams(document.location.search).get("compraFinalizada")
 
   if (compraFinalizada != 'true') return
