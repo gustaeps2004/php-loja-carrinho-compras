@@ -194,13 +194,15 @@ class CarrinhoCompraRepository implements ICarrinhoCompraRepository
                   FROM CarrinhoCompra cc
                   INNER JOIN Pedido p ON cc.PedidoID = p.ID
                   WHERE p.UsuarioID = :usuarioID
+                  AND p.Situacao != :situacao
                 ) AS temp_upd
             )";
 
     $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
     $stmt->execute([
       ':pedidoID' => $pedidoID,
-      ':usuarioID' => $usuarioID
+      ':usuarioID' => $usuarioID,
+      ':situacao' => SituacaoPedido::Cancelado->value
     ]);
   }
 }
