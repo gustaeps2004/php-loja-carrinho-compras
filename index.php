@@ -49,7 +49,11 @@
   use APP\Repositories\Connections\MySql\MySqlConnection;
 
   use APP\Assets\Extensions\StringFormats;
-  
+  use APP\Repositories\Connections\FirebaseRepository;
+  use APP\Repositories\Connections\IFirebaseRepository;
+  use APP\Socket\Connection\WebSocketConnection;
+  use APP\Socket\PedidoEntregaSocket;
+
   $containerBuilder = new ContainerBuilder();
   
   $containerBuilder->addDefinitions([
@@ -80,7 +84,11 @@
     IPedidoRepository::class => autowire(PedidoRepository::class),
     ICarrinhoCompraRepository::class => autowire(CarrinhoCompraRepository::class),
 
-    IMySqlConnection::class => autowire(MySqlConnection::class)
+    IMySqlConnection::class => autowire(MySqlConnection::class),
+    IFirebaseRepository::class => autowire(FirebaseRepository::class),
+
+    PedidoEntregaSocket::class => autowire(PedidoEntregaSocket::class),
+    WebSocketConnection::class => autowire(WebSocketConnection::class)
   ]);
 
   return $containerBuilder->build();
