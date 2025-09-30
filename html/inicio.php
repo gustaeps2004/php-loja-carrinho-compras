@@ -35,6 +35,7 @@
 	<a href="inicio.php">Início</a>
 		<a href="produtos.php">Geladeiras & freezers</a>
 		<a href="faleConosco.php">Fale conosco</a>
+		<a href="historico/pedidos.php">Histórico de pedidos</a>
 		<a id="TabAdministracao" href="administracao/administracao.php">Administração</a>
 		<a id="TabFaleConoscoAdm" href="administracao/faleConoscoAdm.php">Contato</a>
 	</div>
