@@ -2,20 +2,25 @@
 
 use APP\Entities\Pedido;
 use APP\Entities\PedidoProduto;
+use APP\Messaging\Requests\Entrega\EntregaRequest;
 use APP\Repositories\CarrinhoCompra\ICarrinhoCompraRepository;
+use APP\Repositories\Connections\Firebase\IFirebaseRepository;
 use APP\Repositories\Pedido\IPedidoRepository;
 
 class PedidoService implements IPedidoService
 {
   private readonly IPedidoRepository $_pedidoRepository;
   private readonly ICarrinhoCompraRepository $_carrinhoCompraRepository;
+  private readonly IFirebaseRepository $_firebaseRepository; 
 
   public function __construct(
     IPedidoRepository $pedidoRepository,
-    ICarrinhoCompraRepository $carrinhoCompraRepository)
+    ICarrinhoCompraRepository $carrinhoCompraRepository,
+    IFirebaseRepository $firebaseRepository)
   {
     $this->_pedidoRepository = $pedidoRepository;
     $this->_carrinhoCompraRepository = $carrinhoCompraRepository;
+    $this->_firebaseRepository = $firebaseRepository;
   }
 
   public function inserir(int $usuarioID) : int
@@ -63,6 +68,11 @@ class PedidoService implements IPedidoService
 
     $novoPedidoID = $this->inserir($usuarioID);
     $this->_carrinhoCompraRepository->atualizarNaoFinalizados($usuarioID, $novoPedidoID);
+
+    $this->_firebaseRepository->inserir(
+      $pedido->ID,
+      new EntregaRequest()
+    );
   }
 
   private function filtrarSelecionado(int $usuarioID) : array

@@ -5,6 +5,7 @@ use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
 use SplObjectStorage;
 
+date_default_timezone_set("America/Sao_Paulo");
 class WebSocketConnection implements  MessageComponentInterface
 {
   protected SplObjectStorage $clients;
@@ -12,6 +13,12 @@ class WebSocketConnection implements  MessageComponentInterface
   public function __construct()
   {
     $this->clients = new SplObjectStorage;
+    $this->setLog("Servidor iniciado as");
+  }
+
+  protected function setLog($log)
+  {
+    echo $log." ".date("d/m/Y H:i:s");
   }
 
   public function onOpen(ConnectionInterface $conn)
@@ -21,25 +28,7 @@ class WebSocketConnection implements  MessageComponentInterface
 
   public function onMessage(ConnectionInterface $from, $msg)
   {
-    $decoded = json_decode($msg, true);
-
-    if (!$decoded || !isset($decoded['event'])) {
-      $from->send(json_encode([
-        "error" => "Formato inválido. Use {event: string, data: mixed}"
-      ]));
-      return;
-    }
-
-    $event = ucfirst($decoded['event']);
-    $method = "on{$event}";
-
-    if (method_exists($this, $method)) {
-      $this->$method($from, $decoded['data'] ?? null);
-    } else {
-      $from->send(json_encode([
-        "error" => "Evento '{$decoded['event']}' não suportado"
-      ]));
-    }
+    $from->send("chegou");
   }
 
   public function onClose(ConnectionInterface $conn)
@@ -52,4 +41,3 @@ class WebSocketConnection implements  MessageComponentInterface
     $conn->close();
   }
 }
-?>

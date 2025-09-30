@@ -1,4 +1,4 @@
-<?php namespace APP\Repositories\Connections;
+<?php namespace APP\Repositories\Connections\Firebase;
 require __DIR__ . '../../../../vendor/autoload.php';
 
 use Kreait\Firebase\Factory;
@@ -6,7 +6,7 @@ use Kreait\Firebase\Contract\Database;
 
 class FirebaseRepository implements IFirebaseRepository
 {
-  private string $serviceAccountPath = __DIR__ . '../../../loja-carrinho-compras-firebase-adminsdk.json';
+  private string $serviceAccountPath = __DIR__ . '../../../../loja-carrinho-compras-firebase-adminsdk.json';
   private string $databaseUri = 'https://loja-carrinho-compras-default-rtdb.firebaseio.com/';
   private ?Database $database = null;
 
@@ -15,11 +15,11 @@ class FirebaseRepository implements IFirebaseRepository
     $this->conectar();
   }
 
-  public function inserir(string $key, $obj) : void
+  public function inserir(string $key, $value) : void
   {
     $this->database
       ->getReference($key)
-      ->set(json_encode($obj));
+      ->set(json_encode($value));
   }
 
   public function obter(string $key) : string
@@ -39,4 +39,3 @@ class FirebaseRepository implements IFirebaseRepository
     $this->database = $factory->createDatabase(); 
   }
 }
-?>

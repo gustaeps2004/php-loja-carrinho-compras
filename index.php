@@ -49,10 +49,8 @@
   use APP\Repositories\Connections\MySql\MySqlConnection;
 
   use APP\Assets\Extensions\StringFormats;
-  use APP\Repositories\Connections\FirebaseRepository;
-  use APP\Repositories\Connections\IFirebaseRepository;
-  use APP\Socket\Connection\WebSocketConnection;
-  use APP\Socket\PedidoEntregaSocket;
+  use APP\Repositories\Connections\Firebase\FirebaseRepository;
+  use APP\Repositories\Connections\Firebase\IFirebaseRepository;
 
   $containerBuilder = new ContainerBuilder();
   
@@ -85,11 +83,7 @@
     ICarrinhoCompraRepository::class => autowire(CarrinhoCompraRepository::class),
 
     IMySqlConnection::class => autowire(MySqlConnection::class),
-    IFirebaseRepository::class => autowire(FirebaseRepository::class),
-
-    PedidoEntregaSocket::class => autowire(PedidoEntregaSocket::class),
-    WebSocketConnection::class => autowire(WebSocketConnection::class)
+    IFirebaseRepository::class => autowire(FirebaseRepository::class)
   ]);
 
   return $containerBuilder->build();
-?>

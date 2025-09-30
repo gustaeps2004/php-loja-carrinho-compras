@@ -6,4 +6,3 @@
     case Cancelado = 2;
     case Finalizado = 3;
   }
-?>

@@ -1,14 +1,19 @@
 <?php
-use Ratchet\App;
-use APP\Socket\PedidoEntregaSocket;
+
+use APP\Socket\Connection\WebSocketConnection;
+use Ratchet\Server\IoServer;
+use Ratchet\Http\HttpServer;
+use Ratchet\WebSocket\WsServer;
 
 require __DIR__.'/vendor/autoload.php';
 
-$container = require __DIR__.'/index.php';
+$server = IoServer::factory(
+  new HttpServer(
+    new WsServer(
+      new WebSocketConnection()
+    )
+  ),
+  3333
+);
 
-$pedidoEntregaSocket = $container->get(PedidoEntregaSocket::class);
-
-$app = new App('localhost', 3333);
-//$app->route('/entrega', $pedidoEntrega, ['*']);
-$app->run();
-?>
+$server->run();
