@@ -1,26 +1,32 @@
 <?php namespace APP\Services\Pedido;
 
+use APP\Assets\Enums\SituacaoEntrega;
 use APP\Entities\Pedido;
+use APP\Entities\PedidoEntrega;
 use APP\Entities\PedidoProduto;
 use APP\Messaging\Requests\Entrega\EntregaRequest;
 use APP\Repositories\CarrinhoCompra\ICarrinhoCompraRepository;
 use APP\Repositories\Connections\Firebase\IFirebaseRepository;
 use APP\Repositories\Pedido\IPedidoRepository;
+use APP\Repositories\PedidoEntrega\IPedidoEntregaRepository;
 
 class PedidoService implements IPedidoService
 {
   private readonly IPedidoRepository $_pedidoRepository;
   private readonly ICarrinhoCompraRepository $_carrinhoCompraRepository;
   private readonly IFirebaseRepository $_firebaseRepository; 
+  private readonly IPedidoEntregaRepository $_pedidoEntregaRepository;
 
   public function __construct(
     IPedidoRepository $pedidoRepository,
     ICarrinhoCompraRepository $carrinhoCompraRepository,
-    IFirebaseRepository $firebaseRepository)
+    IFirebaseRepository $firebaseRepository,
+    IPedidoEntregaRepository $pedidoEntregaRepository)
   {
     $this->_pedidoRepository = $pedidoRepository;
     $this->_carrinhoCompraRepository = $carrinhoCompraRepository;
     $this->_firebaseRepository = $firebaseRepository;
+    $this->_pedidoEntregaRepository = $pedidoEntregaRepository;
   }
 
   public function inserir(int $usuarioID) : int
@@ -69,6 +75,13 @@ class PedidoService implements IPedidoService
     $novoPedidoID = $this->inserir($usuarioID);
     $this->_carrinhoCompraRepository->atualizarNaoFinalizados($usuarioID, $novoPedidoID);
 
+    $this->_pedidoEntregaRepository->inserir(
+      new PedidoEntrega(
+        $pedido->ID,
+        SituacaoEntrega::PedidoSeparado->value
+      )
+    );
+
     $this->_firebaseRepository->inserir(
       $pedido->ID,
       new EntregaRequest()
@@ -98,5 +111,9 @@ class PedidoService implements IPedidoService
 
     $this->_pedidoRepository->cancelar($pedido->ID);
   }
+
+  public function listarHistorico(int $usuarioID) : array
+  {
+    return $this->_pedidoRepository->listarHistorico($usuarioID);
+  }
 }
-?>

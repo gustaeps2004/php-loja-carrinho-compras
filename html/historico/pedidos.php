@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="../../assets/style/site.css">
 	<link rel="stylesheet" type="text/css" href="../../assets/style/sidebar.css">
 	<script type="module" src="../../assets/js/index.js"></script>
+	<script type="text/javascript" src="../../assets/js/acompanhaEntrega.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <title>Histórico de pedidos</title>
 </head>
@@ -38,15 +39,14 @@
   <div class="content">
     <div class="principalProdutos">
       <div class="linhaOpcao">
-        <div class="opcao-historico-pedido">
-					<div  class="opcao-historico-pedido-box-text">
-						<p><b>Data da compra:</b> 18/08/2004 18:08:08</p>
-						<p><b>Situação:</b> Em andamento</p>
-					</div>
-          <div class="opcao-historico-pedido-box-botao">
-            <button>Acompanhar entrega</button>
-          </div>
-        </div>
+        
+				<?php								
+					$container = require __DIR__.'../../../index.php';
+					$controller = $container->get(APP\Controllers\PedidosController::class);
+					
+					$controller->listarHistorico($_GET["usuarioID"]);
+				?>
+
       </div>
     </div>
   </div>

@@ -134,7 +134,7 @@ create table PedidoEntrega(
 	ID INT NOT NULL auto_increment,
     PedidoID INT NOT NULL,
     Situacao INT NOT NULL,
-    DtInclucao DATETIME NOT NULL,
+    DtInclusao DATETIME NOT NULL,
     
     PRIMARY KEY(ID),
     FOREIGN KEY (PedidoID) REFERENCES Pedido(ID)

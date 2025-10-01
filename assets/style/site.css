@@ -373,7 +373,7 @@ tr:nth-child(odd){
 }
 
 .opcao-historico-pedido-box-text {
-	padding: 5px;
+	padding-left: 8px;
 }
 
 .opcao-historico-pedido-box-botao button {

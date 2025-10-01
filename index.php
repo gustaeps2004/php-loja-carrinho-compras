@@ -51,6 +51,8 @@
   use APP\Assets\Extensions\StringFormats;
   use APP\Repositories\Connections\Firebase\FirebaseRepository;
   use APP\Repositories\Connections\Firebase\IFirebaseRepository;
+use APP\Repositories\PedidoEntrega\IPedidoEntregaRepository;
+use APP\Repositories\PedidoEntrega\PedidoEntregaRepository;
 
   $containerBuilder = new ContainerBuilder();
   
@@ -81,6 +83,7 @@
     ICategoriaRepository::class => autowire(CategoriaRepository::class),
     IPedidoRepository::class => autowire(PedidoRepository::class),
     ICarrinhoCompraRepository::class => autowire(CarrinhoCompraRepository::class),
+    IPedidoEntregaRepository::class => autowire(PedidoEntregaRepository::class),
 
     IMySqlConnection::class => autowire(MySqlConnection::class),
     IFirebaseRepository::class => autowire(FirebaseRepository::class)
