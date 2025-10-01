@@ -36,7 +36,17 @@
 	</div>
 
   <div class="content">
-
+    <div class="principalProdutos">
+      <div class="linhaOpcao">
+        <div class="opcao-historico-pedido">
+          <p><b>Data da compra:</b> 18/08/2004 18:08:08</p>
+          <p><b>Situação:</b> Em andamento</p>
+          <div class="opcao-historico-pedido-box-botao">
+            <button>Acompanhar entrega</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <footer>Copyright &copy; ADS2025</footer>
 </body>
