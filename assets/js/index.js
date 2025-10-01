@@ -1,4 +1,7 @@
-const urlLogin = "http://localhost:8080/LojaCarrinhoCompras/html/login/login.php"
+const urlBase = "http://localhost:8080/LojaCarrinhoCompras"
+
+const urlLogin =  urlBase + "/html/login/login.php"
+const urlHistoricoPedidos =  urlBase + "/html/historico/pedidos.php"
 
 function FormatarDocumento(){
   var documento = ObterCampoInput("documento").replace(/\D/g, '')
@@ -89,8 +92,35 @@ function formatarValorProduto() {
   InserirValorInput("valorProduto", `R$ ${valor}`)
 }
 
-export function validarTokenCompraFinalizada() {
-  ValidarToken()
+function adicionarParametro(event) {
+  const link = event.currentTarget; 
+  event.preventDefault();
+
+  const novoParametro = `usuarioID=${obterUsuario() }`
+  const urlBaseNova = link.getAttribute('href'); 
+  
+  const novoHref = urlBase.includes('?') 
+      ? `${urlBaseNova}&${novoParametro}` 
+      : `${urlBaseNova}?${novoParametro}`;
+
+  link.setAttribute('href', novoHref);
+
+  window.location.href = novoHref; 
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const linkElement = document.getElementById('linkHistoricoPedidos');
+
+  if (linkElement) {
+    linkElement.addEventListener('click', adicionarParametro);
+  }
+});
+
+function obterUsuario() {
+  const token = localStorage.getItem('auth')
+  const decoded = parseJwt(token)
+
+  return decoded.data.id
 }
 
 $(document).ready(function () {

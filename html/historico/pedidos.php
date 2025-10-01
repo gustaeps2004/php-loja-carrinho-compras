@@ -30,7 +30,7 @@
 		<a href="../inicio.php">Início</a>
 		<a href="../produtos.php">Geladeiras & freezers</a>
 		<a href="../faleConosco.php">Fale conosco</a>
-		<a href="pedidos.php">Histórico de pedidos</a>
+		<a id="linkHistoricoPedidos" href="pedidos.php">Histórico de pedidos</a>
 		<a id="TabAdministracao" href="../administracao/administracao.php">Administração</a>
 		<a id="TabFaleConoscoAdm" href="../administracao/faleConoscoAdm.php">Contato</a>
 	</div>
@@ -38,5 +38,6 @@
   <div class="content">
 
   </div>
+  <footer>Copyright &copy; ADS2025</footer>
 </body>
 </html>
