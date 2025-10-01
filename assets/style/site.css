@@ -370,7 +370,11 @@ tr:nth-child(odd){
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}	
+}
+
+.opcao-historico-pedido-box-text {
+	padding: 5px;
+}
 
 .opcao-historico-pedido-box-botao button {
   color: black;

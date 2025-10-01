@@ -39,8 +39,10 @@
     <div class="principalProdutos">
       <div class="linhaOpcao">
         <div class="opcao-historico-pedido">
-          <p><b>Data da compra:</b> 18/08/2004 18:08:08</p>
-          <p><b>Situação:</b> Em andamento</p>
+					<div  class="opcao-historico-pedido-box-text">
+						<p><b>Data da compra:</b> 18/08/2004 18:08:08</p>
+						<p><b>Situação:</b> Em andamento</p>
+					</div>
           <div class="opcao-historico-pedido-box-botao">
             <button>Acompanhar entrega</button>
           </div>
