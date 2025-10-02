@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="../../assets/style/site.css">
 	<link rel="stylesheet" type="text/css" href="../../assets/style/sidebar.css">
-	<script type="module" src="../../assets/js/index.js"></script>
-	<script type="text/javascript" src="../../assets/js/acompanhaEntrega.js"></script>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../assets/style/modalFinalizar.css">
   <title>Histórico de pedidos</title>
 </head>
 <body>
@@ -49,7 +47,26 @@
 
       </div>
     </div>
+
+		<div id="modal" class="modal">
+				<div class="modal-content">
+					<span class="close-btn" id="closeModalBtn">&times;</span>
+
+					<div class="step" id="step1">
+						<h1>Confirmar produtos</h1>
+
+						<p><b>Situação entrega:</b> <span id="situacaoEntrega"></span></p>
+						<p><b>Data situação:</b> <span id="dtSituacao"></span></p>
+						
+					</div>
+				</div>
+			</div>
+		
   </div>
   <footer>Copyright &copy; ADS2025</footer>
+
+	<script type="module" src="../../assets/js/index.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="../../assets/js/acompanhaEntrega.js"></script>
 </body>
 </html>

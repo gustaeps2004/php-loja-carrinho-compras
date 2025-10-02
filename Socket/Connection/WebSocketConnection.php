@@ -32,8 +32,6 @@ class WebSocketConnection implements  MessageComponentInterface
 
   public function onMessage(ConnectionInterface $from, $msg)
   {
-    echo $msg."\n";
-
     $data = $this->_firebaseRepository->obter($msg);
     $from->send($data);
   }
