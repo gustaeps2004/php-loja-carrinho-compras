@@ -116,4 +116,20 @@ class PedidoService implements IPedidoService
   {
     return $this->_pedidoRepository->listarHistorico($usuarioID);
   }
+
+  public function atualizarEntrega($data, $pedidoID) : void
+  {
+    $entregaRequest = json_decode($data, false);
+    $pedidoEntrega = $this->_pedidoEntregaRepository->obterPorPedidoID($pedidoID);
+    
+    if ($pedidoEntrega->Situacao == $entregaRequest->SituacaoEntrega)
+      return;
+
+    $this->_pedidoEntregaRepository->inserir(
+      new PedidoEntrega(
+        $pedidoID,
+        $entregaRequest->SituacaoEntrega
+      )
+    );
+  }
 }
