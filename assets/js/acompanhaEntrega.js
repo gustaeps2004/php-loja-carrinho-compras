@@ -10,11 +10,6 @@ function showStep(index) {
   })
 }
 
-closeBtn.addEventListener('click', () => {
-  modal.style.display = 'none';
-  currentStep = 0;
-});
-
 function abrirModalEntrega(pedidoID) {
   conectarWebSocket(pedidoID)
 
@@ -41,11 +36,17 @@ function conectarWebSocket(pedidoID) {
     document.getElementById("situacaoEntrega").textContent = obterDescricaoSituacaoEntrega(response.SituacaoEntrega)
     document.getElementById("dtSituacao").textContent = response.DtSituacao
   };
+
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+    currentStep = 0;
+
+    socket.close()
+  })
 }
 
 function obterDescricaoSituacaoEntrega(situacao) {
-    
-  const STATUS_MAP = {
+  const situacaoEntrega = {
       1: "Pedido separado",
       2: "Com a transportadora",
       3: "Em trânsito",
@@ -53,5 +54,5 @@ function obterDescricaoSituacaoEntrega(situacao) {
       5: "Entregue",
   };
 
-  return STATUS_MAP[situacao] ?? "Situação não encontrada";
+  return situacaoEntrega[situacao] ?? "Situação não encontrada";
 }
