@@ -11,7 +11,7 @@
 <body>
   <header>
 		<img src="../../assets/imgs/logo.png" alt="Logo da página" title="Logo da página">
-		<h1>Pedidos</h1>
+		<h1>Entregas</h1>
 
 		<div class="perfil-info">
 			<div class="info-texto">
