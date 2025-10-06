@@ -112,9 +112,9 @@ class PedidoService implements IPedidoService
     $this->_pedidoRepository->cancelar($pedido->ID);
   }
 
-  public function listarHistorico(int $usuarioID) : array
+  public function listarEntregas(int $usuarioID) : array
   {
-    return $this->_pedidoRepository->listarHistorico($usuarioID);
+    return $this->_pedidoRepository->listarEntregas($usuarioID);
   }
 
   public function atualizarEntrega($data, $pedidoID) : void

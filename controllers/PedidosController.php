@@ -24,22 +24,22 @@ class PedidosController extends BaseController
     $this->_pedidoService->cancelar($usuarioID);
   }
 
-  public function listarHistorico(int $usuarioID)
+  public function listarEntregas(int $usuarioID)
   {
-    $pedidoHistorico = $this->_pedidoService->listarHistorico($usuarioID);
+    $entregas = $this->_pedidoService->listarEntregas($usuarioID);
 
-    if (empty($pedidoHistorico))
+    if (empty($entregas))
       return;
 
-    foreach ($pedidoHistorico as $historico)
+    foreach ($entregas as $entrega)
     {
       echo '<div class="opcao-historico-pedido">
               <div  class="opcao-historico-pedido-box-text">
-                <p><b>Data da compra:</b> '.StringFormats::formatarData($historico->DtAtualizacaoEntrega).'</p>
-                <p><b>Situação:</b> '.EnumExtensions::obterDescricaoSituacaoEntrega($historico->SituacaoEntrega).'</p>
+                <p><b>Data da compra:</b> '.StringFormats::formatarData($entrega->DtAtualizacaoEntrega).'</p>
+                <p><b>Situação:</b> '.EnumExtensions::obterDescricaoSituacaoEntrega($entrega->SituacaoEntrega).'</p>
               </div>
               <div class="opcao-historico-pedido-box-botao">
-                <button onclick="abrirModalEntrega('.$historico->ID.')">Acompanhar entrega</button>
+                <button onclick="abrirModalEntrega('.$entrega->ID.')">Acompanhar entrega</button>
               </div>
             </div>';
     }  

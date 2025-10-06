@@ -42,6 +42,7 @@ function conectarWebSocket(pedidoID) {
     currentStep = 0;
 
     socket.close()
+    window.location.reload(true);
   })
 }
 

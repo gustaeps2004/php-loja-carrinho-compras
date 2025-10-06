@@ -382,11 +382,11 @@ tr:nth-child(odd){
 	font-size: 17px;
 	border-radius: 10px;
 	border: 1px solid #28a745;
-	background-color: #28a745;
+	background-color: #1bdb48;
 	
 }
 
 .opcao-historico-pedido-box-botao button:hover {
 	transition: 0.5s;
-	background-color: #1bdb48;
+	background-color: #28a745;
 }

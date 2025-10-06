@@ -118,7 +118,7 @@ class PedidoRepository implements IPedidoRepository
     ]);
   }
 
-  public function listarHistorico(int $usuarioID) : array
+  public function listarEntregas(int $usuarioID) : array
   {
     $sql = "SELECT
               p.ID,
@@ -141,6 +141,13 @@ class PedidoRepository implements IPedidoRepository
             WHERE
               p.UsuarioID = :usuarioID
             AND p.Situacao != :situacao
+            AND IFNULL((
+                SELECT pe.Situacao 
+                FROM PedidoEntrega pe 
+                WHERE pe.PedidoID = p.ID 
+                ORDER BY pe.ID DESC 
+                LIMIT 1
+              ), :situacaoPedidoEntregue) <> :situacaoPedidoEntregue
             ORDER BY p.ID DESC";
 
     $stmt = $this->_mySqlConnection->conectar()->prepare($sql);

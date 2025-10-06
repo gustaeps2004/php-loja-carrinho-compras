@@ -11,5 +11,5 @@ interface IPedidoRepository
   function inserirPedidoProduto(PedidoProduto $pedidoProduto) : void;
   function finalizar(int $id, float $valorTotal, int $formaPagamento) : void;
   function cancelar(int $id) : void;
-  function listarHistorico(int $usuarioID) : array;
+  function listarEntregas(int $usuarioID) : array;
 }

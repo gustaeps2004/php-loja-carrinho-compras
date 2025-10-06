@@ -11,7 +11,7 @@
 <body>
   <header>
 		<img src="../../assets/imgs/logo.png" alt="Logo da página" title="Logo da página">
-		<h1>Histórico de Pedidos</h1>
+		<h1>Pedidos</h1>
 
 		<div class="perfil-info">
 			<div class="info-texto">
@@ -29,7 +29,7 @@
 		<a href="../inicio.php">Início</a>
 		<a href="../produtos.php">Geladeiras & freezers</a>
 		<a href="../faleConosco.php">Fale conosco</a>
-		<a id="linkHistoricoPedidos" href="pedidos.php">Histórico de pedidos</a>
+		<a id="linkHistoricoPedidos" href="entregas.php">Entregas</a>
 		<a id="TabAdministracao" href="../administracao/administracao.php">Administração</a>
 		<a id="TabFaleConoscoAdm" href="../administracao/faleConoscoAdm.php">Contato</a>
 	</div>
@@ -42,7 +42,7 @@
 					$container = require __DIR__.'../../../index.php';
 					$controller = $container->get(APP\Controllers\PedidosController::class);
 					
-					$controller->listarHistorico($_GET["usuarioID"]);
+					$controller->listarEntregas($_GET["usuarioID"]);
 				?>
 
       </div>
