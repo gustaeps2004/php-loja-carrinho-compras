@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="../../assets/style/site.css">
 	<link rel="stylesheet" type="text/css" href="../../assets/style/sidebar.css">
-	<link rel="stylesheet" type="text/css" href="../../assets/style/modalFinalizar.css">
+	<link rel="stylesheet" type="text/css" href="../../assets/style/modalEntregas.css">
   <title>Histórico de pedidos</title>
 </head>
 <body>
@@ -35,32 +35,33 @@
 	</div>
 
   <div class="content">
-    <div class="principalProdutos">
-      <div class="linhaOpcao">
-        
-				<?php								
-					$container = require __DIR__.'../../../index.php';
-					$controller = $container->get(APP\Controllers\PedidosController::class);
+		<section>
+			<div class="principalProdutos">
+				<div class="linhaOpcao">
 					
-					$controller->listarEntregas($_GET["usuarioID"]);
-				?>
+					<?php								
+						$container = require __DIR__.'../../../index.php';
+						$controller = $container->get(APP\Controllers\PedidosController::class);
+						
+						$controller->listarEntregas($_GET["usuarioID"]);
+					?>
 
-      </div>
-    </div>
-
-		<div id="modal" class="modal">
-			<div class="modal-content">
-				<span class="close-btn" id="closeModalBtn">&times;</span>
-				<div class="step" id="step1">
-					<h1>Confirmar produtos</h1>
-
-					<p><b>Situação entrega:</b> <span id="situacaoEntrega"></span></p>
-					<p><b>Data situação:</b> <span id="dtSituacao"></span></p>
-					
 				</div>
 			</div>
-		</div>
-		
+
+			<div id="modal" class="modal">
+				<div class="modal-content">
+					<span class="close-btn" id="closeModalBtn">&times;</span>
+					<div class="step" id="step1">
+						<h1>Confirmar produtos</h1>
+
+						<p><b>Situação entrega:</b> <span id="situacaoEntrega"></span></p>
+						<p><b>Data situação:</b> <span id="dtSituacao"></span></p>
+						
+					</div>
+				</div>
+			</div>
+		</section>
   </div>
   <footer>Copyright &copy; ADS2025</footer>
 

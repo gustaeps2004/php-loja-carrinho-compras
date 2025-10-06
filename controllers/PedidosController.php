@@ -33,12 +33,12 @@ class PedidosController extends BaseController
 
     foreach ($entregas as $entrega)
     {
-      echo '<div class="opcao-historico-pedido">
-              <div  class="opcao-historico-pedido-box-text">
+      echo '<div class="opcao-entrega-pedido">
+              <div  class="opcao-entrega-pedido-box-text">
                 <p><b>Data da compra:</b> '.StringFormats::formatarData($entrega->DtAtualizacaoEntrega).'</p>
                 <p><b>Situação:</b> '.EnumExtensions::obterDescricaoSituacaoEntrega($entrega->SituacaoEntrega).'</p>
               </div>
-              <div class="opcao-historico-pedido-box-botao">
+              <div class="opcao-entrega-pedido-box-botao">
                 <button onclick="abrirModalEntrega('.$entrega->ID.')">Acompanhar entrega</button>
               </div>
             </div>';

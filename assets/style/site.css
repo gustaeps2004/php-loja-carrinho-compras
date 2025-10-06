@@ -357,36 +357,3 @@ tr:nth-child(odd){
   padding: 10px;
   box-sizing: border-box;
 }
-
-.opcao-historico-pedido {
-	width: 20%;
-	height: 150px;
-  color: black;
-	border-radius: 10px;
-	background-color: #d6d5d5;
-}
-
-.opcao-historico-pedido-box-botao {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.opcao-historico-pedido-box-text {
-	padding-left: 8px;
-}
-
-.opcao-historico-pedido-box-botao button {
-  color: black;
-	height: 35px;
-	font-size: 17px;
-	border-radius: 10px;
-	border: 1px solid #28a745;
-	background-color: #1bdb48;
-	
-}
-
-.opcao-historico-pedido-box-botao button:hover {
-	transition: 0.5s;
-	background-color: #28a745;
-}

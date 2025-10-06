@@ -1,0 +1,71 @@
+.modal{
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 30px;
+  width: 28%;
+  max-height: 45vh;
+  position: relative;
+  border-radius: 8px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  color: black;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.step {
+  display: none;
+  color: black;
+}
+
+.step.active {
+  display: block;
+}
+
+.opcao-entrega-pedido {
+	width: 30%;
+	height: 150px;
+  color: black;
+	border-radius: 10px;
+	background-color: #d6d5d5;
+}
+
+.opcao-entrega-pedido-box-botao {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.opcao-entrega-pedido-box-text {
+	padding-left: 8px;
+}
+
+.opcao-entrega-pedido-box-botao button {
+  color: black;
+	height: 35px;
+	font-size: 17px;
+	border-radius: 10px;
+	border: 1px solid #28a745;
+	background-color: #1bdb48;
+	
+}
+
+.opcao-entrega-pedido-box-botao button:hover {
+	transition: 0.5s;
+	background-color: #28a745;
+}
