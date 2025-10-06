@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="../../assets/style/site.css">
 	<link rel="stylesheet" type="text/css" href="../../assets/style/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="../../assets/style/modalEntregas.css">
+	<link rel="stylesheet" type="text/css" href="../../assets/style/carrinho.css">
   <title>Histórico de pedidos</title>
 </head>
 <body>
@@ -14,6 +15,10 @@
 		<h1>Entregas</h1>
 
 		<div class="perfil-info">
+			<div class="carrinho-compras">
+				<button onclick="abrirCarrinho('../carrinho/carrinho.php')" class="btn-carrinho">Carrinho de compras</button>
+			</div>
+
 			<div class="info-texto">
 				<p>Informações de perfil</p>
 				<p><b>Nome:</b> <span id="nomeUsuario"></span></p>
@@ -68,5 +73,6 @@
 	<script type="module" src="../../assets/js/index.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="../../assets/js/acompanhaEntrega.js"></script>
+	<script type="text/javascript" src="../../assets/js/carrinho.js"></script>
 </body>
 </html>
