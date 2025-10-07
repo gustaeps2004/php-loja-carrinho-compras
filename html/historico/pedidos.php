@@ -6,6 +6,7 @@
   <link rel="stylesheet" type="text/css" href="../../assets/style/site.css">
 	<link rel="stylesheet" type="text/css" href="../../assets/style/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="../../assets/style/carrinho.css">
+	<link rel="stylesheet" type="text/css" href="../../assets/style/historicoPedidos.css">
   <title>Histórico de pedidos</title>
 </head>
 <body>
@@ -43,7 +44,21 @@
 		<section>
       <div class="principalProdutos">
         <div class="linhaOpcao">
-          
+          <div class="opcao-pedido-historico">
+						<div class="opcao-pedido-historico-text">
+							<p><b>Situação pedido: </b>Finalizado</p>
+							<p><b>Situação entrega: </b>Entregue</p>
+							<p><b>Data pedido: </b>18/08/2004 18:08:08</p>
+							<p><b>Data entrega: </b>18/08/2004 18:08:08</p>
+						</div>
+						<div class="opcao-pedido-historico-botoes">
+							<button 
+								class="opcao-pedido-historico-botoes-abrir-detalhes" 
+								onclick="abrirModal('alo')">
+									Abrir detalhes
+							</button>
+						</div>
+					</div>
         </div>
       </div>
     </section>
@@ -53,6 +68,7 @@
 
   <script type="module" src="../../assets/js/index.js"></script>
 	<script type="text/javascript" src="../../assets/js/carrinho.js"></script>
+	<script type="text/javascript" src="../../assets/js/historicoPedidos.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>

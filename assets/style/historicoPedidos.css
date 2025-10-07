@@ -1,0 +1,34 @@
+.opcao-pedido-historico {
+	background-color: #d6d5d5;
+  width: 23%;
+  display: flex;
+	align-items: center;
+	justify-content: center;
+  flex-direction: column;
+  margin: 5px;
+  white-space: nowrap;
+  border-radius: 10px;
+  font-size: 17px;
+}
+
+.opcao-pedido-historico-text p {
+  margin-bottom: 6px;
+  margin-top: 5px;
+}
+
+.opcao-pedido-historico-botoes-abrir-detalhes {
+  height: 30px;
+  width: 170px;
+  background-color: #008eb6;
+  color: #ffffff;
+  margin: 15px;
+	border-radius: 10px;
+  font-size: 17px;
+  border: 1px solid #008eb6;
+}
+
+.opcao-pedido-historico-botoes-abrir-detalhes:hover {
+  transition: 0.5s;
+  background-color: #017b9c;
+  border: 1px solid #ffffff;
+}
