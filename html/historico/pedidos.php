@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="../../assets/style/site.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/style/site.css">
 	<link rel="stylesheet" type="text/css" href="../../assets/style/sidebar.css">
-	<link rel="stylesheet" type="text/css" href="../../assets/style/modalEntregas.css">
 	<link rel="stylesheet" type="text/css" href="../../assets/style/carrinho.css">
   <title>Histórico de pedidos</title>
 </head>
 <body>
   <header>
 		<img src="../../assets/imgs/logo.png" alt="Logo da página" title="Logo da página">
-		<h1>Entregas</h1>
+		<h1>Histórico de pedidos</h1>
 
 		<div class="perfil-info">
 			<div class="carrinho-compras">
@@ -35,45 +34,25 @@
 		<a href="../produtos.php">Geladeiras & freezers</a>
 		<a href="../faleConosco.php">Fale conosco</a>
 		<a id="linkHistoricoPedidos" href="entregas.php">Entregas</a>
-		<a id="linkHistorico" href="pedidos.php">Histórico de pedidos</a>
+		<a id="linkHistoricoPedidos" href="pedidos.php">Histórico de pedidos</a>
 		<a id="TabAdministracao" href="../administracao/administracao.php">Administração</a>
 		<a id="TabFaleConoscoAdm" href="../administracao/faleConoscoAdm.php">Contato</a>
 	</div>
-
+  
   <div class="content">
 		<section>
-			<div class="principalProdutos">
-				<div class="linhaOpcao">
-					
-					<?php								
-						$container = require __DIR__.'../../../index.php';
-						$controller = $container->get(APP\Controllers\PedidosController::class);
-						
-						$controller->listarEntregas($_GET["usuarioID"]);
-					?>
-
-				</div>
-			</div>
-
-			<div id="modal" class="modal">
-				<div class="modal-content">
-					<span class="close-btn" id="closeModalBtn">&times;</span>
-					<div class="step" id="step1">
-						<h1>Confirmar produtos</h1>
-
-						<p><b>Situação entrega:</b> <span id="situacaoEntrega"></span></p>
-						<p><b>Data situação:</b> <span id="dtSituacao"></span></p>
-						
-					</div>
-				</div>
-			</div>
-		</section>
+      <div class="principalProdutos">
+        <div class="linhaOpcao">
+          
+        </div>
+      </div>
+    </section>
   </div>
+
   <footer>Copyright &copy; ADS2025</footer>
 
-	<script type="module" src="../../assets/js/index.js"></script>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script type="text/javascript" src="../../assets/js/acompanhaEntrega.js"></script>
+  <script type="module" src="../../assets/js/index.js"></script>
 	<script type="text/javascript" src="../../assets/js/carrinho.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>

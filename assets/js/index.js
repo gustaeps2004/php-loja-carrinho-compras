@@ -110,9 +110,14 @@ function adicionarParametro(event) {
 
 document.addEventListener('DOMContentLoaded', () => {
   const linkElement = document.getElementById('linkHistoricoPedidos');
+  const linkElementHistorico = document.getElementById('linkHistorico');
 
   if (linkElement) {
     linkElement.addEventListener('click', adicionarParametro);
+  }
+
+  if (linkElementHistorico) {
+    linkElementHistorico.addEventListener('click', adicionarParametro);
   }
 });
 
