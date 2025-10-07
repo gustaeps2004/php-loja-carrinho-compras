@@ -43,6 +43,10 @@
   color: black;
 	border-radius: 10px;
 	background-color: #d6d5d5;
+  display: flex;
+	align-items: center;
+	justify-content: center;
+  flex-direction: column;
 }
 
 .opcao-entrega-pedido-box-botao {
