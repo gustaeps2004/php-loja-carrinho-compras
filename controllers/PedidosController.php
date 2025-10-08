@@ -14,17 +14,17 @@ class PedidosController extends BaseController
     $this->_pedidoService = $pedidoService;
   }
 
-  public function finalizar(int $usuarioID, int $metodoPagamento)
+  public function finalizar(int $usuarioID, int $metodoPagamento): void
   {
     $this->_pedidoService->finalizar($usuarioID, $metodoPagamento);
   }
 
-  public function cancelar(int $usuarioID)
+  public function cancelar(int $usuarioID): void
   {
     $this->_pedidoService->cancelar($usuarioID);
   }
 
-  public function listarEntregas(int $usuarioID)
+  public function listarEntregas(int $usuarioID): void
   {
     $entregas = $this->_pedidoService->listarEntregas($usuarioID);
 
@@ -43,5 +43,10 @@ class PedidosController extends BaseController
               </div>
             </div>';
     }  
+  }
+
+  public function listarHistorico(int $usuarioID): void
+  {
+    
   }
 }
