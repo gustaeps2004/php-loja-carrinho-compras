@@ -132,4 +132,9 @@ class PedidoService implements IPedidoService
       )
     );
   }
+
+  public function listarHistorico(int $usuarioID) : array
+  {
+    return $this->_pedidoRepository->listarHistorico($usuarioID);
+  }
 }

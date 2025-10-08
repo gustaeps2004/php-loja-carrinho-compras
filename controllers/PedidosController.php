@@ -47,6 +47,28 @@ class PedidosController extends BaseController
 
   public function listarHistorico(int $usuarioID): void
   {
+    $pedidos = $this->_pedidoService->listarHistorico($usuarioID);
     
+    if (empty($pedidos))
+      return;
+
+    foreach ($pedidos as $pedido)
+    {
+      echo '<div class="opcao-pedido-historico">
+						<div class="opcao-pedido-historico-text">
+							<p><b>Situação pedido: </b>'.$pedido->Situacao.'</p>
+							<p><b>Situação entrega: </b>'.EnumExtensions::obterDescricaoSituacaoEntrega($pedido->SituacaoEntrega).'</p>
+							<p><b>Data pedido: </b>'.StringFormats::formatarData($pedido->DtInclusao).'</p>
+							<p><b>Data entrega: </b>'.StringFormats::formatarData($pedido->DtInclusaoEntrega).'</p>
+						</div>
+						<div class="opcao-pedido-historico-botoes">
+							<button 
+								class="opcao-pedido-historico-botoes-abrir-detalhes" 
+								onclick="abrirModal('.$pedido->ID.')">
+									Abrir detalhes
+							</button>
+						</div>
+					</div>';
+    }
   }
 }

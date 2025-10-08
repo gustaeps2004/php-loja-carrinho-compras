@@ -1,8 +1,10 @@
 <?php namespace APP\Messaging\RawQueryResult\Pedido;
 
-class EntregaHistoricoRawQueryResult
+class PedidoHistoricoRawQueryResult
 {
   public int $ID;
-  public int $SituacaoEntrega;
-  public ?string $DtAtualizacaoEntrega;
+  public int $Situacao;
+  public ?int $SituacaoEntrega;
+  public ?string $DtInclusaoEntrega;
+  public string $DtInclusao;
 }

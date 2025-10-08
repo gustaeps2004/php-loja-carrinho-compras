@@ -1,3 +1,3 @@
-function abrirModal(pedido) {
-  console.log(pedido)
+function abrirModal(pedidoID) {
+  console.log(pedidoID)
 }

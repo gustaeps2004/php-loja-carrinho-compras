@@ -7,4 +7,5 @@ interface IPedidoService
   function cancelar(int $usuarioID) : void;
   function listarEntregas(int $usuarioID) : array;
   function atualizarEntrega($data, $pedidoID) : void;
+  function listarHistorico(int $usuarioID) : array;
 }

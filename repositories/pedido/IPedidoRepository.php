@@ -12,4 +12,5 @@ interface IPedidoRepository
   function finalizar(int $id, float $valorTotal, int $formaPagamento) : void;
   function cancelar(int $id) : void;
   function listarEntregas(int $usuarioID) : array;
+  function listarHistorico(int $usuarioID) : array;
 }

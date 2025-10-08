@@ -6,6 +6,7 @@ use APP\Entities\Pedido;
 use APP\Entities\PedidoProduto;
 use APP\Messaging\RawQueryResult\Pedido\PedidoAtivoUsuarioRawQueryResult;
 use APP\Messaging\RawQueryResult\Pedido\EntregaHistoricoRawQueryResult;
+use APP\Messaging\RawQueryResult\Pedido\PedidoHistoricoRawQueryResult;
 use APP\Repositories\Connections\MySql\IMySqlConnection;
 use PDO;
 
@@ -191,15 +192,16 @@ class PedidoRepository implements IPedidoRepository
               Pedido p
             WHERE
               p.UsuarioID = :usuarioID
-            AND p.Situacao != :situacao";
+            AND p.Situacao != :situacao
+            ORDER BY p.DtInclusao DESC";
 
-  $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
+    $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
 
-  $stmt->execute([
-    ':usuarioID' => $usuarioID,
-    ':situacao' => SituacaoPedido::Ativo->value
-  ]);
+    $stmt->execute([
+      ':usuarioID' => $usuarioID,
+      ':situacao' => SituacaoPedido::Ativo->value
+    ]);
 
-  return $stmt->fetchAll(PDO::FETCH_CLASS, EntregaHistoricoRawQueryResult::class) ?: [];
+    return $stmt->fetchAll(PDO::FETCH_CLASS, PedidoHistoricoRawQueryResult::class) ?: [];
   }
 }

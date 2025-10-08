@@ -44,21 +44,15 @@
 		<section>
       <div class="principalProdutos">
         <div class="linhaOpcao">
-          <div class="opcao-pedido-historico">
-						<div class="opcao-pedido-historico-text">
-							<p><b>Situação pedido: </b>Finalizado</p>
-							<p><b>Situação entrega: </b>Entregue</p>
-							<p><b>Data pedido: </b>18/08/2004 18:08:08</p>
-							<p><b>Data entrega: </b>18/08/2004 18:08:08</p>
-						</div>
-						<div class="opcao-pedido-historico-botoes">
-							<button 
-								class="opcao-pedido-historico-botoes-abrir-detalhes" 
-								onclick="abrirModal('alo')">
-									Abrir detalhes
-							</button>
-						</div>
-					</div>
+        
+				<?php
+				
+				$container = require __DIR__.'../../../index.php';
+				$controller = $container->get(APP\Controllers\PedidosController::class);
+				
+				$controller->listarHistorico($_GET["usuarioID"]);
+				?>
+
         </div>
       </div>
     </section>
