@@ -53,22 +53,33 @@ class PedidosController extends BaseController
       return;
 
     foreach ($pedidos as $pedido)
-    {
-      echo '<div class="opcao-pedido-historico">
-						<div class="opcao-pedido-historico-text">
-							<p><b>Situação pedido: </b>'.$pedido->Situacao.'</p>
-							<p><b>Situação entrega: </b>'.EnumExtensions::obterDescricaoSituacaoEntrega($pedido->SituacaoEntrega).'</p>
-							<p><b>Data pedido: </b>'.StringFormats::formatarData($pedido->DtInclusao).'</p>
-							<p><b>Data entrega: </b>'.StringFormats::formatarData($pedido->DtInclusaoEntrega).'</p>
-						</div>
-						<div class="opcao-pedido-historico-botoes">
-							<button 
-								class="opcao-pedido-historico-botoes-abrir-detalhes" 
-								onclick="abrirModal('.$pedido->ID.')">
-									Abrir detalhes
-							</button>
-						</div>
-					</div>';
+    { 
+      $html = '<div class="opcao-pedido-historico">
+                <div class="opcao-pedido-historico-text">
+                  <p><b>Situação pedido: </b>'.EnumExtensions::obterDescricaoSituacaoPedido($pedido->Situacao).'</p>
+                  <p><b>Data pedido: </b>'.StringFormats::formatarData($pedido->DtInclusao).'</p>';
+
+      if ($pedido->SituacaoEntrega != null)
+      {
+        $html .= '<p><b>Situação entrega: </b>'.EnumExtensions::obterDescricaoSituacaoEntrega($pedido->SituacaoEntrega).'</p>
+                  <p><b>Data entrega: </b>'.StringFormats::formatarData($pedido->DtInclusaoEntrega).'</p>
+                </div>';
+      }
+      else
+      {
+        $html .= '</div>';
+      }
+
+      $html .= ' <div class="opcao-pedido-historico-botoes">
+                  <button 
+                    class="opcao-pedido-historico-botoes-abrir-detalhes" 
+                    onclick="abrirModal('.$pedido->ID.')">
+                      Abrir detalhes
+                  </button>
+                </div>
+              </div>';
+
+      echo $html; 
     }
   }
 }
