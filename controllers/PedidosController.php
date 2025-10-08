@@ -66,9 +66,7 @@ class PedidosController extends BaseController
                 </div>';
       }
       else
-      {
         $html .= '</div>';
-      }
 
       $html .= ' <div class="opcao-pedido-historico-botoes">
                   <button 

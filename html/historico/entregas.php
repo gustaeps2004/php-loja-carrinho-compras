@@ -59,9 +59,9 @@
 				<div class="modal-content">
 					<span class="close-btn" id="closeModalBtn">&times;</span>
 					<div class="step" id="step1">
-						<h1>Confirmar produtos</h1>
+						<h1>Detalhes entrega</h1>
 
-						<p><b>Situação entrega:</b> <span id="situacaoEntrega"></span></p>
+						<p><b>Situação:</b> <span id="situacaoEntrega"></span></p>
 						<p><b>Data situação:</b> <span id="dtSituacao"></span></p>
 						
 					</div>

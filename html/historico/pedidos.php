@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="../../assets/style/site.css">
 	<link rel="stylesheet" type="text/css" href="../../assets/style/sidebar.css">
-	<link rel="stylesheet" type="text/css" href="../../assets/style/carrinho.css">
 	<link rel="stylesheet" type="text/css" href="../../assets/style/historicoPedidos.css">
   <title>Histórico de pedidos</title>
 </head>
@@ -56,12 +55,59 @@
         </div>
       </div>
     </section>
+
+		<div id="modal" class="modal">
+			<div class="modal-content">
+				<span class="close-btn" id="closeModalBtn">&times;</span>
+				<div class="step" id="step1">
+					<h1>Detalhes pedido</h1>
+
+					<p>primeiro step</p>		
+
+					<div class="modal-buttons">
+						<div class="modal-buttons-regress"></div>
+						<div class="modal-buttons-progress">
+							<button class="next-btn">Próximo</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="step" id="step2">
+					<h1>Produtos</h1>
+
+					<p>segundo step</p>		
+
+					<div class="modal-buttons">
+							<div class="modal-buttons-regress">
+								<button class="prev-btn">Voltar</button>
+							</div>
+							<div class="modal-buttons-progress">
+								<button class="next-btn">Próximo</button>
+							</div>
+						</div>
+				</div>
+
+				<div class="step" id="step3">
+					<h1>Entrega</h1>
+
+					<p>terceiro step</p>		
+
+					<div class="modal-buttons">
+							<div class="modal-buttons-regress">
+								<button class="prev-btn">Voltar</button>
+							</div>
+							<div class="modal-buttons-progress">
+								<button class="finish-btn">Fechar</button>
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
   </div>
 
   <footer>Copyright &copy; ADS2025</footer>
 
   <script type="module" src="../../assets/js/index.js"></script>
-	<script type="text/javascript" src="../../assets/js/carrinho.js"></script>
 	<script type="text/javascript" src="../../assets/js/historicoPedidos.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>

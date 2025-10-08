@@ -1,4 +1,7 @@
 const cancelarBtn = document.getElementById("cancelar-carrinho")
+const modal = document.getElementById('modal')
+const steps = document.querySelectorAll('.step')
+const closeBtn = document.getElementById('closeModalBtn')
 
 function abrirCarrinho(caminho) {
   window.location.href = `${caminho}?usuarioID=${obterUsuario()}`
