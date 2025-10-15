@@ -71,7 +71,7 @@ class PedidosController extends BaseController
       $html .= ' <div class="opcao-pedido-historico-botoes">
                   <button 
                     class="opcao-pedido-historico-botoes-abrir-detalhes" 
-                    onclick="abrirModal('.$pedido->ID.')">
+                    onclick="abrirModalAsync('.$pedido->ID.')">
                       Abrir detalhes
                   </button>
                 </div>
@@ -79,5 +79,10 @@ class PedidosController extends BaseController
 
       echo $html; 
     }
+  }
+
+  public function obter(int $id)
+  {
+    
   }
 }

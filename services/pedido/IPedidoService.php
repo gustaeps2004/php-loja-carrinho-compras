@@ -1,5 +1,7 @@
 <?php namespace APP\Services\Pedido;
 
+use APP\Messaging\Responses\Historico\HistoricoPedidosResponse;
+
 interface IPedidoService
 {
   function inserir(int $usuarioID) : int;
@@ -8,4 +10,5 @@ interface IPedidoService
   function listarEntregas(int $usuarioID) : array;
   function atualizarEntrega($data, $pedidoID) : void;
   function listarHistorico(int $usuarioID) : array;
+  function obter(int $id) : HistoricoPedidosResponse;
 }

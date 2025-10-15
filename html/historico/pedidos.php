@@ -62,7 +62,8 @@
 				<div class="step" id="step1">
 					<h1>Detalhes pedido</h1>
 
-					<p>primeiro step</p>		
+					<p>Data pedido: <span id="data-pedido-historico"></span></p>
+					<p>Valor total: R$ <span id="valor-total-pedido-historico"></span></p>
 
 					<div class="modal-buttons">
 						<div class="modal-buttons-regress"></div>

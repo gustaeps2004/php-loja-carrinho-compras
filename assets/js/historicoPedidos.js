@@ -1,3 +1,5 @@
+const urlFetch = 'http://localhost:8080/LojaCarrinhoCompras/assets/functions/obterDadosModalHistoricoPedidos.php'
+
 const modal = document.getElementById('modal')
 const steps = document.querySelectorAll('.step')
 const closeBtn = document.getElementById('closeModalBtn')
@@ -17,9 +19,27 @@ closeBtn.addEventListener('click', () => {
   fecharModal()
 })
 
-function abrirModal(pedidoID) {
+async function abrirModalAsync(pedidoID) {
   modal.style.display = 'block';
   showStep(currentStep);
+
+  await fetch(urlFetch, {
+    method: 'POST', 
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    
+    body: JSON.stringify({ pedidoID }), 
+  }).then(response => {
+      
+    if (!response.ok) {
+      throw new Error('Erro na rede ou resposta do servidor: ' + response.statusText);
+    }
+    
+    console.log(response.json()); 
+  }).catch(ex => {
+    console.log(ex)
+  })
 }
 
 nextBtns.forEach(btn => {

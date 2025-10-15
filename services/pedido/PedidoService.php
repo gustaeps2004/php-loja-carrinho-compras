@@ -5,6 +5,7 @@ use APP\Entities\Pedido;
 use APP\Entities\PedidoEntrega;
 use APP\Entities\PedidoProduto;
 use APP\Messaging\Requests\Entrega\EntregaRequest;
+use APP\Messaging\Responses\Historico\HistoricoPedidosResponse;
 use APP\Repositories\CarrinhoCompra\ICarrinhoCompraRepository;
 use APP\Repositories\Connections\Firebase\IFirebaseRepository;
 use APP\Repositories\Pedido\IPedidoRepository;
@@ -136,5 +137,10 @@ class PedidoService implements IPedidoService
   public function listarHistorico(int $usuarioID) : array
   {
     return $this->_pedidoRepository->listarHistorico($usuarioID);
+  }
+
+  public function obter(int $id) : HistoricoPedidosResponse
+  {
+    
   }
 }
