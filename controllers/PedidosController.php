@@ -4,6 +4,7 @@ use APP\Assets\Extensions\EnumExtensions;
 use APP\Assets\Extensions\StringFormats;
 use APP\Services\Pedido\IPedidoService;
 use APP\Controllers\Base\BaseController;
+use APP\Messaging\Responses\Historico\HistoricoPedidosResponse;
 
 class PedidosController extends BaseController
 {
@@ -81,8 +82,8 @@ class PedidosController extends BaseController
     }
   }
 
-  public function obter(int $id)
+  public function obter(int $id) : HistoricoPedidosResponse
   {
-    
+    return $this->_pedidoService->obter($id);
   }
 }

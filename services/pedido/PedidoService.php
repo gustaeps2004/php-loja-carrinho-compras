@@ -141,6 +141,8 @@ class PedidoService implements IPedidoService
 
   public function obter(int $id) : HistoricoPedidosResponse
   {
+    $pedidoRawQuery = $this->_pedidoRepository->obter($id);
     
+    return new HistoricoPedidosResponse($pedidoRawQuery);
   }
 }

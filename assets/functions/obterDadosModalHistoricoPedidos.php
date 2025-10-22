@@ -16,6 +16,7 @@ $data = json_decode($jsonData, false);
 
 $pedidosController = $container->get(PedidosController::class);
 
+$response = $pedidosController->obter($data["pedidoID"]);
 
 $response = [
   'status' => "success",

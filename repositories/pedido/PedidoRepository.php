@@ -4,6 +4,7 @@ use APP\Assets\Enums\SituacaoEntrega;
 use APP\Assets\Enums\SituacaoPedido;
 use APP\Entities\Pedido;
 use APP\Entities\PedidoProduto;
+use APP\Messaging\RawQueryResult\Historico\DetalhePedidosRawQueryResult;
 use APP\Messaging\RawQueryResult\Pedido\PedidoAtivoUsuarioRawQueryResult;
 use APP\Messaging\RawQueryResult\Pedido\EntregaHistoricoRawQueryResult;
 use APP\Messaging\RawQueryResult\Pedido\PedidoHistoricoRawQueryResult;
@@ -203,5 +204,22 @@ class PedidoRepository implements IPedidoRepository
     ]);
 
     return $stmt->fetchAll(PDO::FETCH_CLASS, PedidoHistoricoRawQueryResult::class) ?: [];
+  }
+
+  public function obter(int $id): DetalhePedidosRawQueryResult
+  {
+    $sql = "SELECT
+              p.ValorTotal,
+              p.FormaPagamento,
+              p.DtInclusao
+            FROM
+              Pedido p
+            WHERE
+              p.ID = :id";
+
+    $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
+    $stmt->execute([':id' => $id]);
+
+    return $stmt->fetchObject(DetalhePedidosRawQueryResult::class);
   }
 }

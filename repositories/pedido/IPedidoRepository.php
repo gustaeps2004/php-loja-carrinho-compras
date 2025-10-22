@@ -2,6 +2,7 @@
 
 use APP\Entities\Pedido;
 use APP\Entities\PedidoProduto;
+use APP\Messaging\RawQueryResult\Historico\DetalhePedidosRawQueryResult;
 use APP\Messaging\RawQueryResult\Pedido\PedidoAtivoUsuarioRawQueryResult;
 
 interface IPedidoRepository
@@ -13,4 +14,5 @@ interface IPedidoRepository
   function cancelar(int $id) : void;
   function listarEntregas(int $usuarioID) : array;
   function listarHistorico(int $usuarioID) : array;
+  function obter(int $id): DetalhePedidosRawQueryResult;
 }
