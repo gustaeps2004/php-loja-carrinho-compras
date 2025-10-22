@@ -2,7 +2,7 @@
 
 class DetalhePedidosRawQueryResult
 {
-  public int $ValorTotal;
-  public string $DataPedido;
-  public int $FormaPagamento;
+  public string $ValorTotal = "";
+  public string $DtInclusao = "";
+  public int $FormaPagamento = 0;
 }

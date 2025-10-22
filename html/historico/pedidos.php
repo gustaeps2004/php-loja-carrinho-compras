@@ -64,6 +64,7 @@
 
 					<p>Data pedido: <span id="data-pedido-historico"></span></p>
 					<p>Valor total: R$ <span id="valor-total-pedido-historico"></span></p>
+					<p>Forma de pagamento: <span id="metodo-pagamento-pedido-historico"></span></p>
 
 					<div class="modal-buttons">
 						<div class="modal-buttons-regress"></div>

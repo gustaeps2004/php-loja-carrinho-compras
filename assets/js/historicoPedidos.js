@@ -36,9 +36,15 @@ async function abrirModalAsync(pedidoID) {
       throw new Error('Erro na rede ou resposta do servidor: ' + response.statusText);
     }
     
-    console.log(response.json()); 
+    return response.json(); 
+  }).then(dadosDaResposta => {
+
+    document.getElementById("valor-total-pedido-historico").textContent = dadosDaResposta.mensagem.ValorTotal
+    document.getElementById("data-pedido-historico").textContent = dadosDaResposta.mensagem.DataPedido
+    document.getElementById("metodo-pagamento-pedido-historico").textContent = dadosDaResposta.mensagem.FormaPagamento
+
   }).catch(ex => {
-    console.log(ex)
+    console.log('Ocorreu um erro genérico: ', ex)
   })
 }
 

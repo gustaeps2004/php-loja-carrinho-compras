@@ -4,14 +4,14 @@ use APP\Messaging\RawQueryResult\Historico\DetalhePedidosRawQueryResult;
 
 class HistoricoPedidosResponse
 {
-  public int $ValorTotal = 0;
+  public string $ValorTotal = "";
   public string $DataPedido = "";
   public int $FormaPagamento = 0;
 
   public function __construct(DetalhePedidosRawQueryResult $detalheRawQuery)
   {
     $this->ValorTotal = $detalheRawQuery->ValorTotal;
-    $this->DataPedido = $detalheRawQuery->DataPedido;
+    $this->DataPedido = $detalheRawQuery->DtInclusao;
     $this->FormaPagamento = $detalheRawQuery->FormaPagamento;
   }
 }
