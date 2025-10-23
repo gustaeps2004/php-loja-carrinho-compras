@@ -20,9 +20,6 @@ closeBtn.addEventListener('click', () => {
 })
 
 async function abrirModalAsync(pedidoID) {
-  modal.style.display = 'block';
-  showStep(currentStep);
-
   await fetch(urlFetch, {
     method: 'POST', 
     headers: {
@@ -41,11 +38,14 @@ async function abrirModalAsync(pedidoID) {
 
     document.getElementById("valor-total-pedido-historico").textContent = dadosDaResposta.mensagem.ValorTotal
     document.getElementById("data-pedido-historico").textContent = dadosDaResposta.mensagem.DataPedido
-    document.getElementById("metodo-pagamento-pedido-historico").textContent = dadosDaResposta.mensagem.FormaPagamento
+    document.getElementById("metodo-pagamento-pedido-historico").textContent = obterDescricaoFormaPagamento(dadosDaResposta.mensagem.FormaPagamento)
 
   }).catch(ex => {
     console.log('Ocorreu um erro genérico: ', ex)
   })
+
+  modal.style.display = 'block';
+  showStep(currentStep);
 }
 
 nextBtns.forEach(btn => {
@@ -65,6 +65,7 @@ prevBtns.forEach(btn => {
 });
 
 finishBtn.addEventListener('click', () => {
+  limparCampos()
   fecharModal()
 });
 
@@ -72,3 +73,19 @@ function fecharModal() {
   modal.style.display = 'none';
   currentStep = 0;
 }
+
+function limparCampos() {
+  document.getElementById("valor-total-pedido-historico").textContent = null
+  document.getElementById("data-pedido-historico").textContent = null
+  document.getElementById("metodo-pagamento-pedido-historico").textContent = null
+}
+
+function obterDescricaoFormaPagamento(situacao) {
+  const situacaoPagamento = {
+    1: "Débito",
+    2: "Crédito",
+    3: "Pix"
+  };
+
+  return situacaoPagamento[situacao] ?? "Situação não encontrada";
+} 

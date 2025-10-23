@@ -211,7 +211,7 @@ class PedidoRepository implements IPedidoRepository
     $sql = "SELECT
               p.ValorTotal,
               p.FormaPagamento,
-              p.DtInclusao
+              DATE_FORMAT(p.DtInclusao, '%d/%m/%Y %H:%i:%s') DtInclusao
             FROM
               Pedido p
             WHERE
