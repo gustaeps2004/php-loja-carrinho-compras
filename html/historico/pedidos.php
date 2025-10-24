@@ -94,7 +94,7 @@
 				<div class="step" id="step3">
 					<h1>Entrega</h1>
 
-					<p>terceiro step</p>		
+					<div id="detalhes-entregas"></div>	
 
 					<div class="modal-buttons">
 							<div class="modal-buttons-regress">

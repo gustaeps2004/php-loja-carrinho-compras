@@ -36,12 +36,14 @@ async function abrirModalAsync(pedidoID) {
     return response.json(); 
   }).then(dadosDaResposta => {
 
-    document.getElementById("valor-total-pedido-historico").textContent = dadosDaResposta.mensagem.ValorTotal.toString().replace('.', ',')
-    document.getElementById("data-pedido-historico").textContent = dadosDaResposta.mensagem.DataPedido
-    document.getElementById("metodo-pagamento-pedido-historico").textContent = obterDescricaoFormaPagamento(dadosDaResposta.mensagem.FormaPagamento)
+    const dados = dadosDaResposta.mensagem
+    document.getElementById("valor-total-pedido-historico").textContent = dados.ValorTotal.toString().replace('.', ',')
+    document.getElementById("data-pedido-historico").textContent = dados.DataPedido
+    document.getElementById("metodo-pagamento-pedido-historico").textContent = obterDescricaoFormaPagamento(dados.FormaPagamento)
     
-    inserirDetalhesProdutos(dadosDaResposta.mensagem.DetalhesProdutos)
-    
+    inserirDetalhesProdutos(dados.DetalhesProdutos)
+    inserirDetalhesEntregas(dados.DetalhesEntregas)
+    console.log(dados)
   }).catch(ex => {
     console.log('Ocorreu um erro genérico: ', ex)
   })
@@ -95,6 +97,23 @@ function inserirDetalhesProdutos(detalhes) {
   document.getElementById('detalhes-produtos').innerHTML = htmlContent
 }
 
+function inserirDetalhesEntregas(detalhes) {
+  let htmlContent = '';
+
+  detalhes.forEach(detalhe => {
+    htmlContent += `
+      <div class="content-step-confirmacao">
+        <div class="content-step-confirmacao-produto">
+          <p class="content-step-confirmacao-produto-paragrafo">Situação: ${obterDescricaoSituacaoEntrega(detalhe.Situacao)}</p>
+          <p class="content-step-confirmacao-produto-paragrafo">Data atualização: ${detalhe.DtInclusao}</p>
+        </div>
+      </div>
+    `
+  })
+
+  document.getElementById('detalhes-entregas').innerHTML = htmlContent
+}
+
 function limparCampos() {
   document.getElementById("valor-total-pedido-historico").textContent = null
   document.getElementById("data-pedido-historico").textContent = null
@@ -109,4 +128,16 @@ function obterDescricaoFormaPagamento(situacao) {
   };
 
   return situacaoPagamento[situacao] ?? "Situação não encontrada";
-} 
+}
+
+function obterDescricaoSituacaoEntrega(situacao) {
+  const situacaoPagamento = {
+    1: "Pedido separado",
+    2: "Com a transportadora",
+    3: "Em trânsito",
+    4: "Rota de entrega",
+    5: "Entregue"
+  };
+
+  return situacaoPagamento[situacao] ?? "Situação não encontrada";
+}

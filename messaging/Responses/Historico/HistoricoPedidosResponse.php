@@ -9,15 +9,18 @@ class HistoricoPedidosResponse
   public string $DataPedido = "";
   public int $FormaPagamento = 0;
   public array $DetalhesProdutos = [];
+  public array $DetalhesEntregas = [];
 
   public function __construct(
     DetalhePedidosRawQueryResult $detalheRawQuery,
-    array $detalhesProdutos)
+    array $detalhesProdutos,
+    array $detalhesEntregas)
   {
     $this->ValorTotal = $detalheRawQuery->ValorTotal;
     $this->DataPedido = $detalheRawQuery->DtInclusao;
     $this->FormaPagamento = $detalheRawQuery->FormaPagamento;
 
     $this->DetalhesProdutos = $detalhesProdutos;
+    $this->DetalhesEntregas = $detalhesEntregas;
   }
 }

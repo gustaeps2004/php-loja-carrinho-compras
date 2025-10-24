@@ -143,10 +143,12 @@ class PedidoService implements IPedidoService
   {
     $pedidoRawQuery = $this->_pedidoRepository->obter($id);
     $detalheProdutos = $this->_pedidoRepository->obterDetalhePedidosProdutos($id);
+    $detalhesEntregas = $this->_pedidoRepository->obterHistoricoEntregas($id);
     
     return new HistoricoPedidosResponse(
       $pedidoRawQuery, 
-      $detalheProdutos
+      $detalheProdutos,
+      $detalhesEntregas
     );
   }
 }

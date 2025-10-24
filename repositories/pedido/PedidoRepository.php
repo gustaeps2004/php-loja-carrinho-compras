@@ -6,6 +6,7 @@ use APP\Entities\Pedido;
 use APP\Entities\PedidoProduto;
 use APP\Messaging\RawQueryResult\Historico\DetalhePedidosRawQueryResult;
 use APP\Messaging\RawQueryResult\Pedido\DetalhePedidosProdutosRawQueryResult;
+use APP\Messaging\RawQueryResult\Pedido\DetalhesEntregasRawQueryResult;
 use APP\Messaging\RawQueryResult\Pedido\PedidoAtivoUsuarioRawQueryResult;
 use APP\Messaging\RawQueryResult\Pedido\EntregaHistoricoRawQueryResult;
 use APP\Messaging\RawQueryResult\Pedido\PedidoHistoricoRawQueryResult;
@@ -244,5 +245,23 @@ class PedidoRepository implements IPedidoRepository
     $stmt->execute([':id' => $id]);
 
     return $stmt->fetchAll(PDO::FETCH_CLASS, DetalhePedidosProdutosRawQueryResult::class);
+  }
+
+  public function obterHistoricoEntregas($id) : array
+  {
+    $sql = "SELECT
+              pe.Situacao,
+              DATE_FORMAT(pe.DtInclusao, '%d/%m/%Y %H:%i:%s') DtInclusao
+            FROM
+              Pedido p
+            INNER JOIN PedidoEntrega pe
+              ON p.ID = pe.PedidoID
+            WHERE
+              p.ID = :id";
+
+    $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
+    $stmt->execute([':id' => $id]);
+
+    return $stmt->fetchAll(PDO::FETCH_CLASS, DetalhesEntregasRawQueryResult::class);
   }
 }
