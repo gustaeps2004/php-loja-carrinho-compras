@@ -15,4 +15,5 @@ interface IPedidoRepository
   function listarEntregas(int $usuarioID) : array;
   function listarHistorico(int $usuarioID) : array;
   function obter(int $id): DetalhePedidosRawQueryResult;
+  function obterDetalhePedidosProdutos(int $id) : array;
 }

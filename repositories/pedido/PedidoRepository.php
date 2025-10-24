@@ -5,6 +5,7 @@ use APP\Assets\Enums\SituacaoPedido;
 use APP\Entities\Pedido;
 use APP\Entities\PedidoProduto;
 use APP\Messaging\RawQueryResult\Historico\DetalhePedidosRawQueryResult;
+use APP\Messaging\RawQueryResult\Pedido\DetalhePedidosProdutosRawQueryResult;
 use APP\Messaging\RawQueryResult\Pedido\PedidoAtivoUsuarioRawQueryResult;
 use APP\Messaging\RawQueryResult\Pedido\EntregaHistoricoRawQueryResult;
 use APP\Messaging\RawQueryResult\Pedido\PedidoHistoricoRawQueryResult;
@@ -221,5 +222,27 @@ class PedidoRepository implements IPedidoRepository
     $stmt->execute([':id' => $id]);
 
     return $stmt->fetchObject(DetalhePedidosRawQueryResult::class);
+  }
+
+  public function obterDetalhePedidosProdutos(int $id) : array
+  {
+    $sql = "SELECT
+              prod.ID,
+              prod.Titulo,
+              prod.Valor,
+              pp.Quantidade
+            FROM
+              Pedido p
+            INNER JOIN PedidoProduto pp
+              ON p.ID = pp.PedidoID
+            INNER JOIN Produto prod
+              ON pp.ProdutoID = prod.ID
+            WHERE
+              p.ID = :id";
+
+    $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
+    $stmt->execute([':id' => $id]);
+
+    return $stmt->fetchAll(PDO::FETCH_CLASS, DetalhePedidosProdutosRawQueryResult::class);
   }
 }

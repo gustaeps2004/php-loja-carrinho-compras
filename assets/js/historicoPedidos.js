@@ -36,10 +36,12 @@ async function abrirModalAsync(pedidoID) {
     return response.json(); 
   }).then(dadosDaResposta => {
 
-    document.getElementById("valor-total-pedido-historico").textContent = dadosDaResposta.mensagem.ValorTotal
+    document.getElementById("valor-total-pedido-historico").textContent = dadosDaResposta.mensagem.ValorTotal.toString().replace('.', ',')
     document.getElementById("data-pedido-historico").textContent = dadosDaResposta.mensagem.DataPedido
     document.getElementById("metodo-pagamento-pedido-historico").textContent = obterDescricaoFormaPagamento(dadosDaResposta.mensagem.FormaPagamento)
-
+    
+    inserirDetalhesProdutos(dadosDaResposta.mensagem.DetalhesProdutos)
+    
   }).catch(ex => {
     console.log('Ocorreu um erro genérico: ', ex)
   })
@@ -72,6 +74,25 @@ finishBtn.addEventListener('click', () => {
 function fecharModal() {
   modal.style.display = 'none';
   currentStep = 0;
+}
+
+function inserirDetalhesProdutos(detalhes) {
+  let htmlContent = '';
+
+  detalhes.forEach(detalhe => {
+    htmlContent += `
+                  <div class="content-step-confirmacao">
+                    <div class="content-step-confirmacao-produto">
+                      <p class="content-step-confirmacao-produto-paragrafo">Produto: ${detalhe.Titulo}</p>
+                      <p class="content-step-confirmacao-produto-paragrafo">Quantidade: ${detalhe.Quantidade}</p>
+                      <p class="content-step-confirmacao-produto-paragrafo">Valor unitário: R$ ${detalhe.Valor.toFixed(2).replace('.', ',')}</p>
+                      <p class="content-step-confirmacao-produto-paragrafo">Valor Total: R$ ${(detalhe.Valor * detalhe.Quantidade).toFixed(2).replace('.', ',')}</p>
+                    </div>
+                  </div>
+                  `
+  })
+
+  document.getElementById('detalhes-produtos').innerHTML = htmlContent
 }
 
 function limparCampos() {

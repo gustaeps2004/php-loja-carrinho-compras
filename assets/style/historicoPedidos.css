@@ -52,6 +52,7 @@
   max-height: 45vh;
   position: relative;
   border-radius: 8px;
+  overflow-y: scroll;
 }
 
 .close-btn {
@@ -76,6 +77,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .modal-buttons-progress {
@@ -130,4 +132,29 @@
 .finish-btn:hover {
   transition: 0.3s;
   background-color: #BD2130;
+}
+
+.content-step-confirmacao {
+  height: 100px;
+  margin-top: 25px;
+}
+
+.content-step-confirmacao-produto {
+  background-color: #c9c9c9;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-radius: 8px;
+
+}
+
+.content-step-confirmacao-produto-paragrafo {
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 3px;
+}
+
+.detalhes-principais {
+  
 }

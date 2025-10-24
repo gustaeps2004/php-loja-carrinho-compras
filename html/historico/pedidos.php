@@ -14,10 +14,6 @@
 		<h1>Histórico de pedidos</h1>
 
 		<div class="perfil-info">
-			<div class="carrinho-compras">
-				<button onclick="abrirCarrinho('../carrinho/carrinho.php')" class="btn-carrinho">Carrinho de compras</button>
-			</div>
-
 			<div class="info-texto">
 				<p>Informações de perfil</p>
 				<p><b>Nome:</b> <span id="nomeUsuario"></span></p>
@@ -61,10 +57,16 @@
 				<span class="close-btn" id="closeModalBtn">&times;</span>
 				<div class="step" id="step1">
 					<h1>Detalhes pedido</h1>
-
-					<p>Data pedido: <span id="data-pedido-historico"></span></p>
-					<p>Valor total: R$ <span id="valor-total-pedido-historico"></span></p>
-					<p>Forma de pagamento: <span id="metodo-pagamento-pedido-historico"></span></p>
+					
+					<div id="detalhes-principais">
+						<div class="content-step-confirmacao">
+							<div class="content-step-confirmacao-produto">
+								<p class="content-step-confirmacao-produto-paragrafo">Data pedido: <span id="data-pedido-historico"></span></p>
+								<p class="content-step-confirmacao-produto-paragrafo">Valor total: R$ <span id="valor-total-pedido-historico"></span></p>
+								<p class="content-step-confirmacao-produto-paragrafo">Forma de pagamento: <span id="metodo-pagamento-pedido-historico"></span></p>
+							</div>
+						</div>
+					</div>
 
 					<div class="modal-buttons">
 						<div class="modal-buttons-regress"></div>
@@ -77,16 +79,16 @@
 				<div class="step" id="step2">
 					<h1>Produtos</h1>
 
-					<p>segundo step</p>		
+					<div id="detalhes-produtos"></div>
 
 					<div class="modal-buttons">
-							<div class="modal-buttons-regress">
-								<button class="prev-btn">Voltar</button>
-							</div>
-							<div class="modal-buttons-progress">
-								<button class="next-btn">Próximo</button>
-							</div>
+						<div class="modal-buttons-regress">
+							<button class="prev-btn">Voltar</button>
 						</div>
+						<div class="modal-buttons-progress">
+							<button class="next-btn">Próximo</button>
+						</div>
+					</div>
 				</div>
 
 				<div class="step" id="step3">
