@@ -80,6 +80,13 @@
   margin-top: 20px;
 }
 
+.modal-buttons-entrega {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -20px;
+}
+
 .modal-buttons-progress {
   width: 50%;
   display: flex;
@@ -146,11 +153,19 @@
   align-items: flex-start;
   justify-content: flex-start;
   border-radius: 8px;
-
 }
 
 .content-step-confirmacao-produto-paragrafo {
   align-items: flex-start;
   justify-content: flex-start;
   margin: 3px;
+}
+
+.content-step-confirmacao-entrega {
+  height: 100px;
+  margin-top: -20px;
+}
+
+.titulo-terceiro-step {
+  margin-bottom: 50px;
 }

@@ -92,11 +92,11 @@
 				</div>
 
 				<div class="step" id="step3">
-					<h1>Entrega</h1>
+					<h1 class="titulo-terceiro-step">Entrega</h1>
 
 					<div id="detalhes-entregas"></div>	
 
-					<div class="modal-buttons">
+					<div class="modal-buttons-entrega">
 							<div class="modal-buttons-regress">
 								<button class="prev-btn">Voltar</button>
 							</div>

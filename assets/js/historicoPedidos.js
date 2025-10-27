@@ -102,7 +102,7 @@ function inserirDetalhesEntregas(detalhes) {
 
   detalhes.forEach(detalhe => {
     htmlContent += `
-      <div class="content-step-confirmacao">
+      <div class="content-step-confirmacao-entrega">
         <div class="content-step-confirmacao-produto">
           <p class="content-step-confirmacao-produto-paragrafo">Situação: ${obterDescricaoSituacaoEntrega(detalhe.Situacao)}</p>
           <p class="content-step-confirmacao-produto-paragrafo">Data atualização: ${detalhe.DtInclusao}</p>
