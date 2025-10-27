@@ -43,7 +43,6 @@ async function abrirModalAsync(pedidoID) {
     
     inserirDetalhesProdutos(dados.DetalhesProdutos)
     inserirDetalhesEntregas(dados.DetalhesEntregas)
-    console.log(dados)
   }).catch(ex => {
     console.log('Ocorreu um erro genérico: ', ex)
   })
