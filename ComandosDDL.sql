@@ -43,6 +43,7 @@ create table Usuario(
     DocumentoFederal varchar(14) NOT NULL,
     Email varchar(100) NOT NULL,
     PermissaoID int not null,
+    Senha varchar(500) null,
     
     primary key (ID),
     FOREIGN KEY (PermissaoID) REFERENCES Permissao(ID)
