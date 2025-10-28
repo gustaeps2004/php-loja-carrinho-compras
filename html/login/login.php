@@ -8,7 +8,7 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <title>Login</title>
 </head>
-<body onload="RemoverToken()">
+<body>
   <div class="modalPrincipal">
     <h2>Faça o seu login!!</h2>
 
@@ -22,16 +22,17 @@
     <form action="../../assets/functions/processaFormLogin.php"  id="formLogin" name="frmLogin" method="POST">
 
       <fieldset class="loginAutenticacao">
-        <label for = "login">Usuário:</label>
-        <input require type="text" name="txtlogin" id="login">
-        <br>
-
-        <label for = "senha">Senha:</label>
-        <input require type="password" name="txtsenha" id="senha">
-        <br>
-        <br>
-        <br>
-        <button type="submit">Entrar</button>
+        <div class="field">
+            <input id="login" type="text" placeholder=" " required name="txtlogin">
+            <label for="login">Usuário</label>
+        </div>
+        <div class="field">
+            <input id="senha" type="password" placeholder=" " required name="txtsenha">
+            <label for="senha">Senha</label>
+        </div>
+        <div class="modal-login-campos">
+          <button type="submit">Entrar</button>
+        </div>
       </fieldset>
     </form>
 

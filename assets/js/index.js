@@ -185,7 +185,10 @@ $(document).ready(function () {
 })
 
 window.onload = function() {
-  if (window.location.href == urlLogin) return
+  if (window.location.href == urlLogin) {
+    RemoverToken()
+    return
+  }
 
   ValidarToken();
 };
