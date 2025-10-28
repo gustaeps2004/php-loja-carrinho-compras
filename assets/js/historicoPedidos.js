@@ -1,4 +1,4 @@
-const urlFetch = 'http://localhost:8080/LojaCarrinhoCompras/assets/functions/obterDadosModalHistoricoPedidos.php'
+const urlFetch = 'http://localhost:8080/php-loja-carrinho-compras/assets/functions/obterDadosModalHistoricoPedidos.php'
 
 const modal = document.getElementById('modal')
 const steps = document.querySelectorAll('.step')

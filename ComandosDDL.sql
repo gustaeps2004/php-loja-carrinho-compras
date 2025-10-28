@@ -94,7 +94,7 @@ use loja;
 create table Pedido(
 	ID INT NOT NULL auto_increment,
     Situacao TINYINT NOT NULL, /* 1 -> Ativo, 2 -> Cacelado, 3 -> Finalizado */
-    DtInclucao DATETIME NOT NULL,
+    DtInclusao DATETIME NOT NULL,
     UsuarioID INT NOT NULL,
 	
     PRIMARY KEY(ID),
@@ -117,6 +117,10 @@ create table CarrinhoCompra(
 use loja;
 alter table CarrinhoCompra
 add column DtSituacao DATETIME NULL;
+
+use loja;
+alter table CarrinhoCompra
+add column Selecionado bit NULL;
 
 use loja;
 alter table Produto

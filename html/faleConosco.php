@@ -60,7 +60,7 @@
 						<input required type = "text" name="txtfone" id="fone">
 
 						<label for="documento">Documento federal:</label>
-						<input required maxlength="11" type="text" name="txtdocumento" id="documento" onkeyup="FormatarDocumento()">
+						<input required maxlength="14	" type="text" name="txtdocumento" id="documento" onkeyup="FormatarDocumento()">
 						<br>
 						<span id="erroCpf"></span>
 						<br>
