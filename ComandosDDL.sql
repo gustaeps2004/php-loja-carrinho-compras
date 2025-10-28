@@ -49,6 +49,23 @@ create table Usuario(
     FOREIGN KEY (PermissaoID) REFERENCES Permissao(ID)
 );
 
+INSERT INTO Usuario 
+(
+    Nome, 
+    DocumentoFederal, 
+    Email, 
+    PermissaoID, 
+    Senha
+) 
+VALUES 
+(
+	'Seu nome', 
+    '00000000000', -- seu cpf 
+    'seu-email@gmail.com', 
+    1, -- Administrador 
+    'MTIz' -- 123 em base64
+);
+
 use loja;
 create table Categoria(
 	ID INT NOT NULL auto_increment,

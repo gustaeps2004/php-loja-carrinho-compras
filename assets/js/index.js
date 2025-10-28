@@ -1,4 +1,4 @@
-const urlBase = "http://localhost:8080/LojaCarrinhoCompras"
+const urlBase = "http://localhost:8080/php-loja-carrinho-compras"
 
 const urlLogin =  urlBase + "/html/login/login.php"
 const urlHistoricoPedidos =  urlBase + "/html/historico/pedidos.php"
