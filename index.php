@@ -27,6 +27,7 @@
   use APP\Services\Pedido\IPedidoService;
   use APP\Services\CarrinhoCompra\CarrinhoCompraService;
   use APP\Services\CarrinhoCompra\ICarrinhoCompraService;
+  use APP\Services\EnvioEmail\EnvioEmailService;
 
   use APP\Repositories\MotivoContato\IMotivoContatoRepository;
   use APP\Repositories\MotivoContato\MotivoContatoRepository;
@@ -51,8 +52,8 @@
   use APP\Assets\Extensions\StringFormats;
   use APP\Repositories\Connections\Firebase\FirebaseRepository;
   use APP\Repositories\Connections\Firebase\IFirebaseRepository;
-use APP\Repositories\PedidoEntrega\IPedidoEntregaRepository;
-use APP\Repositories\PedidoEntrega\PedidoEntregaRepository;
+  use APP\Repositories\PedidoEntrega\IPedidoEntregaRepository;
+  use APP\Repositories\PedidoEntrega\PedidoEntregaRepository;
 
   $containerBuilder = new ContainerBuilder();
   
@@ -65,6 +66,7 @@ use APP\Repositories\PedidoEntrega\PedidoEntregaRepository;
     CategoriasController::class => autowire(),
     
     StringFormats::class => autowire(),
+    EnvioEmailService::class => autowire(),
 
     IMotivoContatoService::class => autowire(MotivoContatoService::class),
     IProdutoService::class => autowire(ProdutoService::class),
