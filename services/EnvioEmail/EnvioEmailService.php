@@ -14,7 +14,7 @@ class EnvioEmailService
     $this->mailer = new PHPMailer(true);
   }
 
-  public function enviar($emailDestino, $titulo, $conteudo)
+  protected function configurar()
   {
     $this->mailer->isSMTP();
     $this->mailer->Host       = gethostbyname('smtp.gmail.com');
@@ -32,10 +32,12 @@ class EnvioEmailService
             'allow_self_signed' => true
         ]
     ];
+  }
 
-    $this->mailer->SMTPDebug = 3;
-    $this->mailer->Debugoutput = 'html';
-
+  public function enviar($emailDestino, $titulo, $conteudo)
+  {
+    $this->configurar();
+    
     $this->mailer->setFrom($this->username);
     $this->mailer->addAddress($emailDestino);
 
