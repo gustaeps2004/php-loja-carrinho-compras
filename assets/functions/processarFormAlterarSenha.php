@@ -20,6 +20,6 @@ $autenticacoesController->alterarSenhas(
   $confirmacaoSenha,
   $id
 );
-
+ 
 header("Location: ../../html/login/login.php");
 exit;
