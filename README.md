@@ -39,6 +39,6 @@ O sistema oferece diversas funcionalidades organizadas em diferentes níveis de 
 👤 Autoria
 <br>
 <br>
-Desenvolvedor(a): Gustavo Do Espirito Santo<br>
+Desenvolvedor: Gustavo Do Espirito Santo<br>
 Disciplina: Programação Orientada a Objetos<br>
 Data: Novembro de 2025
