@@ -4,6 +4,7 @@ use APP\Repositories\Usuario\IUsuarioRepository;
 use APP\Messaging\Responses\Autenticacao\AutenticacaoResponse;
 use APP\Messaging\Responses\Autenticacao\EnvioEmailRecuperacaoSenha;
 use APP\Services\EnvioEmail\EnvioEmailService;
+use Exception;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
@@ -81,12 +82,19 @@ class UsuarioService implements IUsuarioService
 
   private function tokenInvalido(string $token) : bool
   {
-    $key = 'fe64639d-3b73-4591-b0ab-4fc9e0ed4b4a';
-    $issuerEsperado = 'loja_autenticada_server';
+    try
+    {
+      $key = 'fe64639d-3b73-4591-b0ab-4fc9e0ed4b4a';
+      $issuerEsperado = 'loja_autenticada_server';
 
-    $decoded = JWT::decode($token, new Key($key, 'HS256'));
+      $decoded = JWT::decode($token, new Key($key, 'HS256'));
 
-    return $decoded->iss !== $issuerEsperado;
+      return $decoded->iss !== $issuerEsperado;
+    }
+    catch (Exception $ex)
+    {
+      return true;
+    }
   }
 
   public function enviarEmailRecuperacaoSenha(string $email) : EnvioEmailRecuperacaoSenha
