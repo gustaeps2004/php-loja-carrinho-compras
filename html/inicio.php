@@ -39,6 +39,7 @@
 		<a id="linkHistorico" href="historico/pedidos.php">Histórico de pedidos</a>
 		<a id="TabAdministracao" href="administracao/administracao.php">Administração</a>
 		<a id="TabFaleConoscoAdm" href="administracao/faleConoscoAdm.php">Contato</a>
+		<a id="TabGerenciamento" href="administracao/gerenciamento.php">Gerenciamento</a>
 	</div>
 
 	<div class="content">
