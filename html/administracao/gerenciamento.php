@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="../../assets/style/site.css">
 	<link rel="stylesheet" type="text/css" href="../../assets/style/sidebar.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <title>Gerenciamento</title>
 </head>
 <body>
@@ -13,10 +14,6 @@
 		<h1>Gerenciamento</h1>
 
 		<div class="perfil-info">
-			<div class="carrinho-compras">
-				<button onclick="abrirCarrinho('../carrinho/carrinho.php')" class="btn-carrinho">Carrinho de compras</button>
-			</div>
-
 			<div class="info-texto">
 				<p>Informações de perfil</p>
 				<p><b>Nome:</b> <span id="nomeUsuario"></span></p>
@@ -40,12 +37,14 @@
 
   <div class="content">
     <section>
-
+      <div style="width: 400px;">
+          <canvas id="totalAnual"></canvas>
+      </div>  
     </section>
   </div>
 
   <script type="module" src="../../assets/js/index.js"></script>
-	<script type="text/javascript" src="../../assets/js/carrinho.js" defer></script>
+  <script type="module" src="../../assets/js/gerenciamento.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>

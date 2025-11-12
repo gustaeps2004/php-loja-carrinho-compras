@@ -1,7 +1,4 @@
-const cancelarBtn = document.getElementById("cancelar-carrinho")
-const modal = document.getElementById('modal')
-const steps = document.querySelectorAll('.step')
-const closeBtn = document.getElementById('closeModalBtn')
+const cancelarBtnCarrinho = document.getElementById("cancelar-carrinho")
 
 function abrirCarrinho(caminho) {
   window.location.href = `${caminho}?usuarioID=${obterUsuario()}`
@@ -41,7 +38,7 @@ function adicionarUsuarioNaURL(form) {
   return true; 
 }
 
-cancelarBtn.addEventListener('click', () => {
+cancelarBtnCarrinho.addEventListener('click', () => {
   const usuarioID = new URLSearchParams(document.location.search).get("usuarioID")
   
   window.location.href = `../../assets/functions/cancelarCarrinho.php?usuarioID=${usuarioID}`

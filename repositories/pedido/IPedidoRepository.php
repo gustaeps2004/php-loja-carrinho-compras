@@ -1,4 +1,4 @@
-<?php namespace APP\repositories\Pedido;
+<?php namespace APP\Repositories\Pedido;
 
 use APP\Entities\Pedido;
 use APP\Entities\PedidoProduto;
@@ -17,4 +17,5 @@ interface IPedidoRepository
   function obter(int $id): DetalhePedidosRawQueryResult;
   function obterDetalhePedidosProdutos(int $id) : array;
   function obterHistoricoEntregas($id) : array;
+  public function obterTotalPedidosPorAno($usuarioID) : array;
 }

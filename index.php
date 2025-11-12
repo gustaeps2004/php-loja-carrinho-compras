@@ -10,6 +10,7 @@
   use APP\Controllers\UsuariosController;
   use APP\Controllers\AutenticacoesController;
   use APP\Controllers\CategoriasController;
+  use APP\Controllers\GerenciamentosController;
 
   use APP\Services\MotivoContato\IMotivoContatoService;
   use APP\Services\MotivoContato\MotivoContatoService;
@@ -28,6 +29,8 @@
   use APP\Services\CarrinhoCompra\CarrinhoCompraService;
   use APP\Services\CarrinhoCompra\ICarrinhoCompraService;
   use APP\Services\EnvioEmail\EnvioEmailService;
+  use APP\Services\Gerenciamento\GerenciamentoService;
+  use APP\Services\Gerenciamento\IGerenciamentoService;
 
   use APP\Repositories\MotivoContato\IMotivoContatoRepository;
   use APP\Repositories\MotivoContato\MotivoContatoRepository;
@@ -64,6 +67,7 @@
     UsuariosController::class => autowire(),
     AutenticacoesController::class => autowire(),
     CategoriasController::class => autowire(),
+    GerenciamentosController::class => autowire(),
     
     StringFormats::class => autowire(),
     EnvioEmailService::class => autowire(),
@@ -76,6 +80,7 @@
     ICategoriaService::class => autowire(CategoriaService::class),
     IPedidoService::class => autowire(PedidoService::class),
     ICarrinhoCompraService::class => autowire(CarrinhoCompraService::class),
+    IGerenciamentoService::class => autowire(GerenciamentoService::class),
 
     IMotivoContatoRepository::class => autowire(MotivoContatoRepository::class),
     IProdutoRepository::class => autowire(ProdutoRepository::class),

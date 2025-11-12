@@ -1,9 +1,10 @@
-<?php namespace APP\repositories\Pedido;
+<?php namespace APP\Repositories\Pedido;
 
 use APP\Assets\Enums\SituacaoEntrega;
 use APP\Assets\Enums\SituacaoPedido;
 use APP\Entities\Pedido;
 use APP\Entities\PedidoProduto;
+use APP\Messaging\RawQueryResult\Gerenciamento\DadosGraficoRawQueryResult;
 use APP\Messaging\RawQueryResult\Historico\DetalhePedidosRawQueryResult;
 use APP\Messaging\RawQueryResult\Pedido\DetalhePedidosProdutosRawQueryResult;
 use APP\Messaging\RawQueryResult\Pedido\DetalhesEntregasRawQueryResult;
@@ -263,5 +264,26 @@ class PedidoRepository implements IPedidoRepository
     $stmt->execute([':id' => $id]);
 
     return $stmt->fetchAll(PDO::FETCH_CLASS, DetalhesEntregasRawQueryResult::class);
+  }
+
+  public function obterTotalPedidosPorAno($usuarioID) : array
+  {
+    $sql = "SELECT
+              YEAR(DtInclusao) Campo,
+              COUNT(*) Valor
+            FROM
+              Pedido
+            WHERE
+              Situacao = :situacao
+            AND UsuarioID = :usuarioID
+            GROUP BY YEAR(DtInclusao)";
+
+    $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
+    $stmt->execute([
+      ':usuarioID' => $usuarioID,
+      ':situacao' => SituacaoPedido::Finalizado->value  
+    ]);
+
+    return $stmt->fetchAll(PDO::FETCH_CLASS, DadosGraficoRawQueryResult::class) ?: [];
   }
 }

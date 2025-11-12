@@ -1,0 +1,20 @@
+<?php namespace APP\Controllers;
+
+use APP\Controllers\Base\BaseController;
+use APP\Messaging\Responses\Gerenciamento\DadosGraficosResponse;
+use APP\Services\Gerenciamento\IGerenciamentoService;
+
+class GerenciamentosController extends BaseController
+{
+  private readonly IGerenciamentoService $_gerenciamentoService;
+
+  public function __construct(IGerenciamentoService $gerenciamentoService)
+  {
+    $this->_gerenciamentoService = $gerenciamentoService;
+  }
+
+  public function obterValoresGrafico(int $usuarioID) : DadosGraficosResponse
+  {
+    return $this->_gerenciamentoService->obterValoresGrafico($usuarioID);
+  }
+}
