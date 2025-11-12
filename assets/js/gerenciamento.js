@@ -15,20 +15,21 @@ document.addEventListener("DOMContentLoaded", async function() {
     return response.json();
   })
   .then(data => {
-    atualizarGraficoTotalAnual(data.mensagem.TotalAnual)
+    atualizarGrafico("totalAnual", "TOTAL ANUAL", data.mensagem.TotalAnual)
+    atualizarGrafico("totalMensal", "TOTAL MENSAL", data.mensagem.TotalMensal)
   });
 });
 
-function atualizarGraficoTotalAnual(data) {
-  const totalAnual = document.getElementById('totalAnual').getContext('2d');
+function atualizarGrafico(campo, titulo, data) {
+  const campoHtml = document.getElementById(campo).getContext('2d');
         
-  new Chart(totalAnual, {
+  new Chart(campoHtml, {
     type: 'bar',
     options: {
-      animation: false,
+      animation: true,
       plugins: {
         legend: {
-          display: false
+          display: true
         },
         tooltip: {
           enabled: false
@@ -38,7 +39,7 @@ function atualizarGraficoTotalAnual(data) {
     data: {
       labels: data.map(row => row.Campo),
       datasets: [{
-        label: 'Total anual',
+        label: titulo,
         data: data.map(row => row.Valor)
       }]
     }

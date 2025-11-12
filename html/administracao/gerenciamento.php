@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="../../assets/style/site.css">
 	<link rel="stylesheet" type="text/css" href="../../assets/style/sidebar.css">
+	<link rel="stylesheet" type="text/css" href="../../assets/style/gerenciamento.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <title>Gerenciamento</title>
 </head>
@@ -37,9 +38,15 @@
 
   <div class="content">
     <section>
-      <div style="width: 400px;">
-          <canvas id="totalAnual"></canvas>
-      </div>  
+			<div class="content-valores-anuais">
+				<div style="width: 500px;">
+					<canvas id="totalAnual"></canvas>
+				</div>  
+				<div style="width: 500px;">
+					<canvas id="totalMensal"></canvas>
+				</div>
+			</div>
+			
     </section>
   </div>
 

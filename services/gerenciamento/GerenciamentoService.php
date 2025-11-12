@@ -15,9 +15,11 @@ class GerenciamentoService implements IGerenciamentoService
   public function obterValoresGrafico(int $usuarioID) : DadosGraficosResponse
   {
     $totalAnual = $this->_pedidoRepository->obterTotalPedidosPorAno($usuarioID);
+    $totalMensal = $this->_pedidoRepository->obterTotalPedidosPorMes($usuarioID);
 
     return new DadosGraficosResponse(
     $totalAnual,
+    $totalMensal
     );
   }
 }

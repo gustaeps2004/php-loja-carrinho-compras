@@ -286,4 +286,26 @@ class PedidoRepository implements IPedidoRepository
 
     return $stmt->fetchAll(PDO::FETCH_CLASS, DadosGraficoRawQueryResult::class) ?: [];
   }
+
+  public function obterTotalPedidosPorMes($usuarioID) : array
+  {
+    $sql = "SELECT
+              MONTHNAME(DtInclusao) Campo,
+              COUNT(*) Valor
+            FROM
+              Pedido
+            WHERE
+              Situacao = :situacao
+            AND UsuarioID = :usuarioID
+            GROUP BY MONTHNAME(DtInclusao)
+            ORDER BY YEAR(DtInclusao) DESC";
+
+    $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
+    $stmt->execute([
+      ':usuarioID' => $usuarioID,
+      ':situacao' => SituacaoPedido::Finalizado->value  
+    ]);
+
+    return $stmt->fetchAll(PDO::FETCH_CLASS, DadosGraficoRawQueryResult::class) ?: [];
+  }
 }

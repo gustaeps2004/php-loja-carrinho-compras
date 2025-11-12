@@ -18,4 +18,5 @@ interface IPedidoRepository
   function obterDetalhePedidosProdutos(int $id) : array;
   function obterHistoricoEntregas($id) : array;
   public function obterTotalPedidosPorAno($usuarioID) : array;
+  function obterTotalPedidosPorMes($usuarioID) : array;
 }
