@@ -4,7 +4,7 @@ use APP\Entities\Base\EntitieBase;
 use DateTime;
 
 date_default_timezone_set("America/Sao_Paulo");
-class PedidoEntrega extends EntitieBase
+final class PedidoEntrega extends EntitieBase
 {
   public int $PedidoID;
   public int $Situacao;
