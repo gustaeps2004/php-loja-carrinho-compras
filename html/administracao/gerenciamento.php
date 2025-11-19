@@ -46,7 +46,15 @@
 					<canvas id="totalMensal"></canvas>
 				</div>
 			</div>
-			
+			<br>
+			<div class="content-valores-anuais">
+				<div style="width: 500px;">
+					<canvas id="projecaoAnual"></canvas>
+				</div>  
+				<div style="width: 500px;">
+					<canvas id="projecaoMensal"></canvas>
+				</div>
+			</div>
     </section>
   </div>
 

@@ -30,7 +30,6 @@ function compararSenhas() {
   const confirmacaoSenha = document.getElementById("confirmacaoSenha").value
 
   if (senha !== confirmacaoSenha) {
-    
     abrirPopup(false, "As senhas devem ser iguais.")
     return false
   }

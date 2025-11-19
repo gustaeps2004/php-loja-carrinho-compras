@@ -11,12 +11,14 @@ document.addEventListener("DOMContentLoaded", async function() {
     body: JSON.stringify({ usuarioID: 1 }), 
   })
   .then(response => {
-    console.log(response)
     return response.json();
   })
   .then(data => {
     atualizarGrafico("totalAnual", "TOTAL ANUAL", data.mensagem.TotalAnual)
     atualizarGrafico("totalMensal", "TOTAL MENSAL", data.mensagem.TotalMensal)
+
+    atualizarGrafico("projecaoAnual", "  PROJEÇÃO ANUAL", data.mensagem.ProjecaoAnual)
+    atualizarGrafico("projecaoMensal", "PROJEÇÃO MENSAL", data.mensagem.TotalMensal)
   });
 });
 
@@ -40,7 +42,7 @@ function atualizarGrafico(campo, titulo, data) {
       labels: data.map(row => row.Campo),
       datasets: [{
         label: titulo,
-        data: data.map(row => row.Valor)
+        data: data.map(row => Math.ceil(row.Valor))
       }]
     }
   });
