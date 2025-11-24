@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     atualizarGrafico("totalMensal", "TOTAL MENSAL", data.mensagem.TotalMensal)
 
     atualizarGrafico("projecaoAnual", "  PROJEÇÃO ANUAL", data.mensagem.ProjecaoAnual)
-    atualizarGrafico("projecaoMensal", "PROJEÇÃO MENSAL", data.mensagem.TotalMensal)
+    atualizarGrafico("projecaoMensal", "PROJEÇÃO MENSAL", data.mensagem.ProjecaoMensal)
   });
 });
 

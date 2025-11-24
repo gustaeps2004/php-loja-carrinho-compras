@@ -290,14 +290,14 @@ class PedidoRepository implements IPedidoRepository
   public function obterTotalPedidosPorMes($usuarioID) : array
   {
     $sql = "SELECT
-              MONTHNAME(DtInclusao) Campo,
+              MONTH(DtInclusao) Campo,
               COUNT(*) Valor
             FROM
               Pedido
             WHERE
               Situacao = :situacao
             AND UsuarioID = :usuarioID
-            GROUP BY MONTHNAME(DtInclusao)
+            GROUP BY MONTH(DtInclusao)
             ORDER BY YEAR(DtInclusao) DESC";
 
     $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
