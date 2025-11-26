@@ -298,7 +298,34 @@ class PedidoRepository implements IPedidoRepository
               Situacao = :situacao
             AND UsuarioID = :usuarioID
             GROUP BY MONTH(DtInclusao)
-            ORDER BY YEAR(DtInclusao) DESC";
+            ORDER BY MONTH(DtInclusao) DESC";
+
+    $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
+    $stmt->execute([
+      ':usuarioID' => $usuarioID,
+      ':situacao' => SituacaoPedido::Finalizado->value  
+    ]);
+
+    return $stmt->fetchAll(PDO::FETCH_CLASS, DadosGraficoRawQueryResult::class) ?: [];
+  }
+
+  public function obterQtdProdutosVendidos($usuarioID) : array
+  {
+    $sql = "SELECT
+              prod.Titulo Campo,
+              SUM(pp.Quantidade) Valor
+            FROM
+              Pedido p
+            INNER JOIN PedidoProduto pp
+              ON p.ID = pp.PedidoID
+            INNER JOIN Produto prod
+              ON pp.ProdutoID = prod.ID
+            WHERE
+              p.Situacao = :situacao
+            AND p.UsuarioID = :usuarioID
+            GROUP BY
+              prod.Titulo,
+              pp.ProdutoID";
 
     $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
     $stmt->execute([

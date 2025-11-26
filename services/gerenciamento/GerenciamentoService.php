@@ -16,10 +16,12 @@ class GerenciamentoService implements IGerenciamentoService
   {
     $totalAnual = $this->_pedidoRepository->obterTotalPedidosPorAno($usuarioID);
     $totalMensal = $this->_pedidoRepository->obterTotalPedidosPorMes($usuarioID);
+    $qtdProdutosVendidos = $this->_pedidoRepository->obterQtdProdutosVendidos($usuarioID);
 
     return new DadosGraficosResponse(
     $totalAnual,
-    $totalMensal
+    $totalMensal,
+    $qtdProdutosVendidos
     );
   }
 }

@@ -8,15 +8,18 @@ class DadosGraficosResponse
   public array $TotalMensal;
   public array $ProjecaoAnual;
   public array $ProjecaoMensal;
+  public array $QtdProdutosVendidos;
 
   public function __construct(
     array $totalAnual,
-    array $totalMensal)
+    array $totalMensal,
+    array $qtdProdutosVendidos)
   {
     $this->TotalAnual = $totalAnual;
     $this->TotalMensal = $this->formatarMes($totalMensal);
     $this->ProjecaoMensal = $this->formatarProjecaoMensal(totalUltimoMes: reset($totalMensal));
     $this->ProjecaoAnual = $this->gerarProjecaoAnual(max($totalAnual));
+    $this->QtdProdutosVendidos = $qtdProdutosVendidos;
   }
 
   private function formatarProjecaoMensal($totalUltimoMes) : array

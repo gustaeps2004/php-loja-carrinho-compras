@@ -55,6 +55,11 @@
 					<canvas id="projecaoMensal"></canvas>
 				</div>
 			</div>
+			<div class="content-valores-anuais">
+				<div style="width: 500px;">
+					<canvas id="produtos-mais-menos-vendidos"></canvas>
+				</div>
+			</div>
     </section>
   </div>
 
