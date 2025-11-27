@@ -3,4 +3,46 @@
   justify-content: space-around;
   align-items: center;
   padding: 5px;
+  margin-top: 30px;
+}
+
+.opcoes-download {
+  background-color: #E8E8E8;
+  border-radius: 10px;
+  height: 50px;
+  margin-top: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.opcoes-download button{
+  height: 40px;
+	width: 200px;
+  font-size: 18px;
+	border-radius: 10px;
+  border: 1px solid #ffffff;
+	color: #ffffff;
+}
+
+.btn-download-relatorio {
+  background-color: #008eb6;
+  margin-left: 35px;
+}
+
+.btn-download-relatorio:hover {
+  background-color: #84afd3;
+	transition: 0.2s;
+}
+
+.checkboxWrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.box-checkbox {
+  justify-content: space-between;
+  margin: 10px;
+  padding: 10px;
 }

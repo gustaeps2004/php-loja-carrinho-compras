@@ -38,6 +38,52 @@
 
   <div class="content">
     <section>
+			<div class="opcoes-download">
+				<button id="btn-download-relatorio" class="btn-download-relatorio">Baixar Relatório</button>
+				<div class="box-checkbox">
+					<div class="checkboxWrapper">
+						<input 
+								type="checkbox" 
+								id="checkTotalAnual" 
+								name="checkTotalAnual"/>
+						<label for="checkTotalAnual">Total Anual</label>
+					</div>
+					<div class="checkboxWrapper">
+						<input 
+								type="checkbox" 
+								id="checkTotalMensal" 
+								name="checkTotalMensal"/>
+						<label for="checkTotalMensal">Total Mensal</label>
+					</div>
+				</div>
+				<div class="box-checkbox">
+					<div class="checkboxWrapper">
+						<input 
+								type="checkbox" 
+								id="checkProjecaoAnual" 
+								name="checkProjecaoAnual"/>
+						<label for="checkProjecaoAnual">Projeção Anual</label>
+					</div>
+					<div class="checkboxWrapper">
+						<input 
+								type="checkbox" 
+								id="checkProjecaoMensal" 
+								name="checkProjecaoMensal"/>
+						<label for="checkProjecaoMensal">Projeção Mensal</label>
+					</div>
+				</div>
+				
+				<div class="box-checkbox">
+					<div class="checkboxWrapper">
+						<input 
+								type="checkbox" 
+								id="checkTotalProdutosVendidos" 
+								name="checkTotalProdutosVendidos"/>
+						<label for="checkTotalProdutosVendidos">Produto Mais e Menos Vendidos</label>
+					</div>
+				</div>
+			</div>
+
 			<div class="content-valores-anuais">
 				<div style="width: 500px;">
 					<canvas id="totalAnual"></canvas>
