@@ -26,7 +26,7 @@ O projeto foi construído utilizando um conjunto robusto de tecnologias para gar
 O sistema oferece diversas funcionalidades organizadas em diferentes níveis de acesso:
 <br>
 
-- Administrador e Usuário Comum
+- Tipos de perfil: Administrador e Usuário Comum
 - Catálogo de Produtos: Visualização e busca de produtos disponíveis.
 - Sistema de Carrinho: Adição, remoção e gestão de itens antes da finalização da compra.
 - Checkout e Pagamento: Processo de finalização de pedido e simulação de pagamento.
