@@ -17,7 +17,7 @@ interface IPedidoRepository
   function obter(int $id): DetalhePedidosRawQueryResult;
   function obterDetalhePedidosProdutos(int $id) : array;
   function obterHistoricoEntregas($id) : array;
-  public function obterTotalPedidosPorAno($usuarioID) : array;
-  function obterTotalPedidosPorMes($usuarioID) : array;
-  function obterQtdProdutosVendidos($usuarioID) : array;
+  public function obterTotalPedidosPorAno() : array;
+  function obterTotalPedidosPorMes() : array;
+  function obterQtdProdutosVendidos() : array;
 }

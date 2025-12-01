@@ -30,15 +30,15 @@ class DadosGraficosResponse
 
     for ($count = 1; $count <= 3; $count++)
     {
+      if ($ultimoMes == 13)
+        $ultimoMes = 1;
+
       $totalUltimoMes->Campo = StringExtensions::obterMes($ultimoMes);
       $totalUltimoMes->Valor = (float) $totalUltimoMes->Valor * 1.3;
 
       array_push($projecaoMensalTratado, clone $totalUltimoMes);
 
       $ultimoMes++;
-
-      if ($ultimoMes == 13)
-        $ultimoMes = 1;
     }
 
     return $projecaoMensalTratado;

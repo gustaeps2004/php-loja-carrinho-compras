@@ -15,4 +15,5 @@ interface IUsuarioRepository
 
   public function existeEmail(string $email) : bool;
   public function atualizarSenha(int $id, string $senha) : void;
+  function obterNome($id) : string;
 }

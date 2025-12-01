@@ -65,23 +65,14 @@
 						<label for="checkProjecaoAnual">Projeção Anual</label>
 					</div>
 					<div class="checkboxWrapper">
-						<input 
-								type="checkbox" 
-								id="checkProjecaoMensal" 
-								name="checkProjecaoMensal"/>
-						<label for="checkProjecaoMensal">Projeção Mensal</label>
-					</div>
-				</div>
-				
-				<div class="box-checkbox">
-					<div class="checkboxWrapper">
-						<input 
+					<input 
 								type="checkbox" 
 								id="checkTotalProdutosVendidos" 
 								name="checkTotalProdutosVendidos"/>
 						<label for="checkTotalProdutosVendidos">Produto Mais e Menos Vendidos</label>
 					</div>
 				</div>
+			
 			</div>
 
 			<div class="content-valores-anuais">
@@ -112,5 +103,7 @@
   <script type="module" src="../../assets/js/index.js"></script>
   <script type="module" src="../../assets/js/gerenciamento.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </body>
 </html>

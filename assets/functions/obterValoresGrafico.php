@@ -16,7 +16,7 @@ $data = json_decode($jsonData, false);
 
 $gerenciamentosController = $container->get(GerenciamentosController::class);
 
-$response = $gerenciamentosController->obterValoresGrafico(1);
+$response = $gerenciamentosController->obterValoresGrafico();
 
 $response = [
   'status' => "success",

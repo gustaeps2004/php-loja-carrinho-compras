@@ -139,4 +139,17 @@ class UsuarioRepository implements IUsuarioRepository
       ':senha' => $senha
     ]);
   }
+
+  public function obterNome($id) : string
+  {
+    $sql = "SELECT Nome
+            FROM Usuario
+            WHERE ID = :id
+            LIMIT 1";
+
+    $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
+    $stmt->execute([':id' => $id]);
+
+    return $stmt->fetchColumn();
+  }
 }

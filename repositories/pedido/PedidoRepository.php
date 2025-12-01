@@ -266,7 +266,7 @@ class PedidoRepository implements IPedidoRepository
     return $stmt->fetchAll(PDO::FETCH_CLASS, DetalhesEntregasRawQueryResult::class);
   }
 
-  public function obterTotalPedidosPorAno($usuarioID) : array
+  public function obterTotalPedidosPorAno() : array
   {
     $sql = "SELECT
               YEAR(DtInclusao) Campo,
@@ -275,19 +275,17 @@ class PedidoRepository implements IPedidoRepository
               Pedido
             WHERE
               Situacao = :situacao
-            AND UsuarioID = :usuarioID
             GROUP BY YEAR(DtInclusao)";
 
     $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
     $stmt->execute([
-      ':usuarioID' => $usuarioID,
       ':situacao' => SituacaoPedido::Finalizado->value  
     ]);
 
     return $stmt->fetchAll(PDO::FETCH_CLASS, DadosGraficoRawQueryResult::class) ?: [];
   }
 
-  public function obterTotalPedidosPorMes($usuarioID) : array
+  public function obterTotalPedidosPorMes() : array
   {
     $sql = "SELECT
               MONTH(DtInclusao) Campo,
@@ -296,20 +294,18 @@ class PedidoRepository implements IPedidoRepository
               Pedido
             WHERE
               Situacao = :situacao
-            AND UsuarioID = :usuarioID
             GROUP BY MONTH(DtInclusao)
             ORDER BY MONTH(DtInclusao) DESC";
 
     $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
     $stmt->execute([
-      ':usuarioID' => $usuarioID,
       ':situacao' => SituacaoPedido::Finalizado->value  
     ]);
 
     return $stmt->fetchAll(PDO::FETCH_CLASS, DadosGraficoRawQueryResult::class) ?: [];
   }
 
-  public function obterQtdProdutosVendidos($usuarioID) : array
+  public function obterQtdProdutosVendidos() : array
   {
     $sql = "SELECT
               prod.Titulo Campo,
@@ -322,14 +318,12 @@ class PedidoRepository implements IPedidoRepository
               ON pp.ProdutoID = prod.ID
             WHERE
               p.Situacao = :situacao
-            AND p.UsuarioID = :usuarioID
             GROUP BY
               prod.Titulo,
               pp.ProdutoID";
 
     $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
     $stmt->execute([
-      ':usuarioID' => $usuarioID,
       ':situacao' => SituacaoPedido::Finalizado->value  
     ]);
 
