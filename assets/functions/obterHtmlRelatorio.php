@@ -35,15 +35,13 @@ $options = new Options();
 $options->set('isRemoteEnabled', true);
 $dompdf = new Dompdf($options);
 
-// 2. Carrega no Dompdf
 $dompdf->loadHtml($response);
 $dompdf->setPaper('A4', 'portrait');
 $dompdf->render();
 
-// 3. Output seguro
 $output = $dompdf->output();
 
-if (ob_get_length()) ob_clean(); // Limpa sujeira
+if (ob_get_length()) ob_clean(); 
 
 header('Content-Type: application/octet-stream');
 header('Content-Disposition: attachment; filename="relatorio.pdf"');
